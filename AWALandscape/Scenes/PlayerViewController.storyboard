@@ -32,9 +32,8 @@
                                     <constraint firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="height" multiplier="1:1" id="BfV-Of-Bsq"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pay-EL-W2d">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pay-EL-W2d">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdT-Ff-8Gu">
                                 <rect key="frame" x="617" y="70" width="10" height="255"/>
@@ -44,7 +43,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -69,12 +68,16 @@
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leadingMargin" constant="20" id="99C-Qr-dxT"/>
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="centerY" secondItem="rRG-Ni-8BO" secondAttribute="centerY" id="BNC-U7-aZ0"/>
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="bottom" constant="50" id="MH9-IS-BDU"/>
+                            <constraint firstAttribute="trailing" secondItem="pay-EL-W2d" secondAttribute="trailing" id="Syd-70-PfD"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-20" id="UAY-Iw-8ye"/>
+                            <constraint firstItem="pay-EL-W2d" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="e7y-tQ-1sg"/>
                             <constraint firstItem="l9v-6L-Gde" firstAttribute="centerX" secondItem="rdT-Ff-8Gu" secondAttribute="centerX" id="fSU-5A-IMY"/>
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="xmJ-8n-x9z" secondAttribute="bottom" id="gsM-Lf-QdV"/>
                             <constraint firstItem="l9v-6L-Gde" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="top" id="gtb-5J-TeV"/>
                             <constraint firstAttribute="trailing" secondItem="xmJ-8n-x9z" secondAttribute="trailing" id="jko-OX-xaA"/>
+                            <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="pay-EL-W2d" secondAttribute="bottom" id="kmF-4u-C12"/>
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="20" id="wFk-69-u3e"/>
+                            <constraint firstItem="pay-EL-W2d" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leading" id="zv4-e9-arm"/>
                             <constraint firstItem="xmJ-8n-x9z" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="zwT-Rz-aLH"/>
                         </constraints>
                     </view>
@@ -84,7 +87,7 @@
                         <outlet property="containerView" destination="pay-EL-W2d" id="zuU-mh-IJF"/>
                         <outlet property="selectScrollBarView" destination="rdT-Ff-8Gu" id="iG7-ii-XZB"/>
                         <outlet property="sliderConstraint" destination="gtb-5J-TeV" id="JYg-oM-QhP"/>
-                        <outlet property="thumbView" destination="rdT-Ff-8Gu" id="d61-WI-J8B"/>
+                        <outlet property="thumbView" destination="l9v-6L-Gde" id="WkN-ao-IgX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLP-J4-Qo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,7 +97,7 @@
         <!--Artwork List View Controller-->
         <scene sceneID="7PS-T7-Usc">
             <objects>
-                <viewController id="Ube-qf-P8O" customClass="ArtworkListViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Artwork" id="Ube-qf-P8O" customClass="ArtworkListViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fpc-Kb-Hv3"/>
                         <viewControllerLayoutGuide type="bottom" id="Bvq-BN-DOk"/>
@@ -105,8 +108,8 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-Ph-icO">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGI-Je-wJj">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.29629731514084506" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGI-Je-wJj" customClass="ArtworkCollectionViewFlowLayout" customModule="AWALandscape" customModuleProvider="target">
                                     <size key="itemSize" width="200" height="376"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -115,7 +118,6 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MOf-Ph-icO" firstAttribute="leading" secondItem="ahq-ES-4CY" secondAttribute="leading" id="6n4-Iy-Ddj"/>
                             <constraint firstItem="Bvq-BN-DOk" firstAttribute="top" secondItem="MOf-Ph-icO" secondAttribute="bottom" id="Yij-ys-jpL"/>

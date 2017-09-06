@@ -25,6 +25,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
     @IBOutlet weak var artistLabel: UILabel!
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
     }
 }

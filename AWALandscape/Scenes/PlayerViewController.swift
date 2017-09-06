@@ -9,6 +9,11 @@
 import UIKit
 import MediaPlayer
 
+protocol PlayerViewControllerDelegate: class {
+    
+    func setSlider(_ ratio: CGFloat)
+}
+
 class PlayerViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -25,6 +30,9 @@ class PlayerViewController: UIViewController {
     }
     
     let musicManager = MusicManager.shared
+    
+    weak var delegate: PlayerViewControllerDelegate!
+    
     var items: [MPMediaItem]?
     var currentAlbum: Int = 0 {
         
@@ -42,19 +50,24 @@ class PlayerViewController: UIViewController {
             musicManager.play()
         }
     }
+    var selectorPosition: Int = 0
     var artworkListViewController: ArtworkListViewController!
     var isTouching = false
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        artworkListViewController = ArtworkListViewController()
+        currentAlbum = 0
+        artworkListViewController = storyboard!.instantiateViewController(withIdentifier: "Artwork") as! ArtworkListViewController
+        delegate = artworkListViewController
+        artworkListViewController.items = items
         addChildViewController(artworkListViewController)
         artworkListViewController.view.frame = containerView.bounds
         containerView.addSubview(artworkListViewController.view)
-//        artworkListViewController.collectionView.dataSource = self
         containerView.alpha = 0.0
     }
+    
+    // MARK: - Touch
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -66,7 +79,10 @@ class PlayerViewController: UIViewController {
         if isInside(inView: thumbView, point: touch.location(in: view)) {
             
             isTouching = true
-            print("isTouching")
+            UIView.animate(withDuration: 0.3, animations: {
+                
+                self.containerView.alpha = 1.0
+            })
         }
     }
     
@@ -81,10 +97,30 @@ class PlayerViewController: UIViewController {
             
             sliderConstraint.constant += touch.location(in: view).y - touch.previousLocation(in: view).y
             if sliderConstraint.constant < 0 {
+                
                 sliderConstraint.constant = 0
-            } else if sliderConstraint.constant > selectScrollBarView.frame.height {
-                sliderConstraint.constant = selectScrollBarView.frame.height
+            } else if sliderConstraint.constant > selectScrollBarView.frame.height - thumbView.frame.height {
+                
+                sliderConstraint.constant = selectScrollBarView.frame.height - thumbView.frame.height
             }
+            setPosition()
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard let touch = touches.first else {
+            
+            return
+        }
+        
+        if isTouching {
+            
+            isTouching = false
+            UIView.animate(withDuration: 0.3, animations: {
+            
+                self.containerView.alpha = 0.0
+            })
         }
     }
     
@@ -94,36 +130,13 @@ class PlayerViewController: UIViewController {
             point.x <= inView.frame.origin.x + inView.frame.width + 10.0 &&
             point.y <= inView.frame.origin.y + inView.frame.height + 10.0
     }
+    
+    private func setPosition() {
+        
+        let unit = selectScrollBarView.frame.height / CGFloat(items!.count)
+        selectorPosition = Int(sliderConstraint.constant / unit)
+        
+        delegate.setSlider(sliderConstraint.constant / selectScrollBarView.frame.height)
+    }
 }
 
-class ArtworkListViewController: UIViewController {
-    
-    @IBOutlet weak var collectionView: UICollectionView! {
-        
-        didSet {
-            
-            collectionView.register(ArtworkCollectionViewCell.self)
-        }
-    }
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-    }
-    
-}
-
-extension PlayerViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return items?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-        
-        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
-        return cell
-    }
-}

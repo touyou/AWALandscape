@@ -20,6 +20,8 @@
 		462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB11F5FE19000AAF157 /* NibLoadable.swift */; };
 		462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB21F5FE19000AAF157 /* Reusable.swift */; };
 		462FEBB71F5FE19000AAF157 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */; };
+		462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */; };
+		462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */; };
 		46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D391F5FB2C000A73E75 /* AppDelegate.swift */; };
 		46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D3B1F5FB2C000A73E75 /* ViewController.swift */; };
 		46683D3F1F5FB2C000A73E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D3D1F5FB2C000A73E75 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		462FEBB11F5FE19000AAF157 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		462FEBB21F5FE19000AAF157 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkCollectionViewFlowLayout.swift; path = Views/ArtworkCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkListViewController.swift; path = Scenes/ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46683D3B1F5FB2C000A73E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
+				462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */,
 				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
 			);
 			name = Scenes;
@@ -93,6 +98,7 @@
 			children = (
 				462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */,
 				462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */,
+				462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */,
 				462FEBAC1F5FDF4600AAF157 /* ArtworkModel.swift in Sources */,
 				462FEBA01F5FC90300AAF157 /* UIView+Extensions.swift in Sources */,
+				462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */,
 				462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */,
 				46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */,
 				462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */,
@@ -239,6 +246,7 @@
 				462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */,
 				462FEBA41F5FCA8700AAF157 /* FMBlurable.swift in Sources */,
 				462FEBB71F5FE19000AAF157 /* StoryboardInstantiable.swift in Sources */,
+				462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
