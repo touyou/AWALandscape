@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kgE-fU-e4p">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="vs3-3C-Knk">
+            <objects>
+                <viewController id="kgE-fU-e4p" customClass="PlayerViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jG7-P0-3Se"/>
+                        <viewControllerLayoutGuide type="bottom" id="xiE-hC-ck3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rRG-Ni-8BO">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-8n-x9z">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artwork_sample" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-lv-RS4">
+                                <rect key="frame" x="40" y="40" width="294" height="294"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="height" multiplier="1:1" id="BfV-Of-Bsq"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pay-EL-W2d">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdT-Ff-8Gu">
+                                <rect key="frame" x="617" y="70" width="10" height="255"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="sQu-U5-piY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9v-6L-Gde">
+                                <rect key="frame" x="607" y="70" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Y0N-0N-9dz"/>
+                                    <constraint firstAttribute="width" constant="30" id="upR-p8-8AW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xmJ-8n-x9z" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leading" id="4yj-2A-nTD"/>
+                            <constraint firstItem="rdT-Ff-8Gu" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="50" id="6Wg-nd-bAZ"/>
+                            <constraint firstItem="ctv-lv-RS4" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leadingMargin" constant="20" id="99C-Qr-dxT"/>
+                            <constraint firstItem="ctv-lv-RS4" firstAttribute="centerY" secondItem="rRG-Ni-8BO" secondAttribute="centerY" id="BNC-U7-aZ0"/>
+                            <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="bottom" constant="50" id="MH9-IS-BDU"/>
+                            <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-20" id="UAY-Iw-8ye"/>
+                            <constraint firstItem="l9v-6L-Gde" firstAttribute="centerX" secondItem="rdT-Ff-8Gu" secondAttribute="centerX" id="fSU-5A-IMY"/>
+                            <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="xmJ-8n-x9z" secondAttribute="bottom" id="gsM-Lf-QdV"/>
+                            <constraint firstItem="l9v-6L-Gde" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="top" id="gtb-5J-TeV"/>
+                            <constraint firstAttribute="trailing" secondItem="xmJ-8n-x9z" secondAttribute="trailing" id="jko-OX-xaA"/>
+                            <constraint firstItem="ctv-lv-RS4" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="20" id="wFk-69-u3e"/>
+                            <constraint firstItem="xmJ-8n-x9z" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="zwT-Rz-aLH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="artworkImageView" destination="ctv-lv-RS4" id="4zd-c8-S8b"/>
+                        <outlet property="backgroundImageView" destination="xmJ-8n-x9z" id="DRU-rr-irL"/>
+                        <outlet property="containerView" destination="pay-EL-W2d" id="zuU-mh-IJF"/>
+                        <outlet property="selectScrollBarView" destination="rdT-Ff-8Gu" id="iG7-ii-XZB"/>
+                        <outlet property="sliderConstraint" destination="gtb-5J-TeV" id="JYg-oM-QhP"/>
+                        <outlet property="thumbView" destination="rdT-Ff-8Gu" id="d61-WI-J8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLP-J4-Qo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-137.18140929535232" y="90.400000000000006"/>
+        </scene>
+        <!--Artwork List View Controller-->
+        <scene sceneID="7PS-T7-Usc">
+            <objects>
+                <viewController id="Ube-qf-P8O" customClass="ArtworkListViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fpc-Kb-Hv3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bvq-BN-DOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ahq-ES-4CY">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-Ph-icO">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGI-Je-wJj">
+                                    <size key="itemSize" width="200" height="376"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MOf-Ph-icO" firstAttribute="leading" secondItem="ahq-ES-4CY" secondAttribute="leading" id="6n4-Iy-Ddj"/>
+                            <constraint firstItem="Bvq-BN-DOk" firstAttribute="top" secondItem="MOf-Ph-icO" secondAttribute="bottom" id="Yij-ys-jpL"/>
+                            <constraint firstAttribute="trailing" secondItem="MOf-Ph-icO" secondAttribute="trailing" id="e9s-7x-gPi"/>
+                            <constraint firstItem="MOf-Ph-icO" firstAttribute="top" secondItem="ahq-ES-4CY" secondAttribute="top" id="vL2-Da-rsG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="MOf-Ph-icO" id="DDA-Hy-Ktx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gEC-kU-ugi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568.06596701649175" y="88.799999999999997"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="artwork_sample" width="1416" height="1416"/>
+        <image name="sample_background" width="667" height="375"/>
+    </resources>
+</document>
