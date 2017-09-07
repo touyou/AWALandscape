@@ -17,16 +17,28 @@ class ArtworkListViewController: UIViewController {
             
             collectionView.register(ArtworkCollectionViewCell.self)
             collectionView.dataSource = self
+            collectionView.delegate = self
+            
+            let itemLength = ArtworkCollectionViewFlowLayout.kItemLength
+            let verticalInset = ArtworkCollectionViewFlowLayout.verticalInset
+            let horizontalInset = ArtworkCollectionViewFlowLayout.horizontalInset
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: itemLength, height: itemLength + 50)
+            layout.minimumLineSpacing = 20.0
+            layout.minimumInteritemSpacing = 20.0
+            layout.sectionInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset)
+            layout.scrollDirection = .horizontal
+            collectionView.collectionViewLayout = layout
         }
     }
-    @IBOutlet weak var flowLayout: ArtworkCollectionViewFlowLayout!
     
+    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
     var length: CGFloat = 0.0
     var items: [MPMediaItem]! {
         
         didSet {
             
-            length = ArtworkCollectionViewFlowLayout.kItemLength * CGFloat(items.count) + ArtworkCollectionViewFlowLayout.kItemLength * 0.5
+            length = ArtworkCollectionViewFlowLayout.kItemLength * CGFloat(items.count) - ArtworkCollectionViewFlowLayout.kItemLength * 0.5
             if items.count > 0 {
                 
                 length += 20.0 * CGFloat(items.count - 1)
@@ -77,11 +89,55 @@ extension ArtworkListViewController: UICollectionViewDataSource {
     }
 }
 
+extension ArtworkListViewController: UICollectionViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        let cells = collectionView.visibleCells
+        for cell in cells {
+            
+            let centerX = cell.center.x - scrollView.contentOffset.x
+            let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+            if ratio > 0.0 {
+                
+                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
+            } else {
+                
+                cell.transform = .identity
+            }
+            if collectionView.indexPath(for: cell)!.row == selected {
+                
+                collectionView.bringSubview(toFront: cell)
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let cells = collectionView.visibleCells
+        for cell in cells {
+            
+            let centerX = cell.center.x - scrollView.contentOffset.x
+            let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+            if ratio > 0.0 {
+                
+                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
+            } else {
+                
+                cell.transform = .identity
+            }
+            if collectionView.indexPath(for: cell)!.row == selected {
+                
+                collectionView.bringSubview(toFront: cell)
+            }
+        }
+    }
+}
+
 extension ArtworkListViewController: PlayerViewControllerDelegate {
     
     func setSlider(_ ratio: CGFloat, position: Int) {
         
-        flowLayout.position = position
         selected = position
         collectionView.contentOffset = CGPoint(x: length * ratio, y: collectionView.contentOffset.y)
     }

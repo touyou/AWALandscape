@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461A6D661F61492300F3ECD8 /* PlayerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */; };
+		461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */; };
+		461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */; };
+		461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */; };
+		461A6D6E1F614EC100F3ECD8 /* InfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D6D1F614EC100F3ECD8 /* InfomationModel.swift */; };
 		462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB971F5FB90600AAF157 /* MusicManager.swift */; };
 		462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */; };
 		462FEB9D1F5FC6E200AAF157 /* PlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */; };
@@ -32,21 +37,26 @@
 
 /* Begin PBXFileReference section */
 		3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWALandscape.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		462FEB971F5FB90600AAF157 /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicManager.swift; path = MusicManager.swift; sourceTree = "<group>"; };
-		462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PlayerViewController.storyboard; path = PlayerViewController.storyboard; sourceTree = "<group>"; };
-		462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewController.swift; sourceTree = "<group>"; };
+		461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLyricViewController.swift; sourceTree = "<group>"; };
+		461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVideoViewController.swift; sourceTree = "<group>"; };
+		461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerContentPageViewController.swift; sourceTree = "<group>"; };
+		461A6D6D1F614EC100F3ECD8 /* InfomationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfomationModel.swift; sourceTree = "<group>"; };
+		462FEB971F5FB90600AAF157 /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerViewController.storyboard; sourceTree = "<group>"; };
+		462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBlurable.swift; sourceTree = "<group>"; };
-		462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkCollectionViewCell.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
-		462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArtworkCollectionViewCell.xib; path = ArtworkCollectionViewCell.xib; sourceTree = "<group>"; };
-		462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkModel.swift; path = ArtworkModel.swift; sourceTree = "<group>"; };
-		462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtworkCollectionViewCell.xib; sourceTree = "<group>"; };
+		462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkModel.swift; sourceTree = "<group>"; };
+		462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		462FEBB01F5FE19000AAF157 /* NibInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
 		462FEBB11F5FE19000AAF157 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		462FEBB21F5FE19000AAF157 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
-		462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkCollectionViewFlowLayout.swift; path = ArtworkCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtworkListViewController.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
+		462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46683D3B1F5FB2C000A73E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +85,6 @@
 			children = (
 				462FEB971F5FB90600AAF157 /* MusicManager.swift */,
 			);
-			name = Manager;
 			path = Manager;
 			sourceTree = "<group>";
 		};
@@ -85,8 +94,11 @@
 				462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */,
 				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
 				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
+				461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */,
+				461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */,
+				461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */,
+				461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */,
 			);
-			name = Scenes;
 			path = Scenes;
 			sourceTree = "<group>";
 		};
@@ -97,7 +109,6 @@
 				462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */,
 				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -108,7 +119,6 @@
 				462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */,
 				462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -116,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */,
+				461A6D6D1F614EC100F3ECD8 /* InfomationModel.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -129,7 +139,6 @@
 				462FEBB21F5FE19000AAF157 /* Reusable.swift */,
 				462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -322,14 +331,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */,
+				461A6D661F61492300F3ECD8 /* PlayerInfoViewController.swift in Sources */,
 				462FEBAC1F5FDF4600AAF157 /* ArtworkModel.swift in Sources */,
 				462FEBA01F5FC90300AAF157 /* UIView+Extensions.swift in Sources */,
+				461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */,
+				461A6D6E1F614EC100F3ECD8 /* InfomationModel.swift in Sources */,
 				462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */,
 				462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */,
 				46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */,
 				462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */,
 				462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */,
+				461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */,
 				46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */,
+				461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */,
 				462FEBAE1F5FE12E00AAF157 /* UICollectionView+Extensions.swift in Sources */,
 				462FEBA81F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift in Sources */,
 				462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */,

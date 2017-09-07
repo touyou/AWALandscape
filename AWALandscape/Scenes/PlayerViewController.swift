@@ -22,6 +22,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var selectScrollBarView: UIView!
     @IBOutlet weak var thumbView: UIView!
+    @IBOutlet weak var infoContainerView: UIView!
     @IBOutlet weak var sliderConstraint: NSLayoutConstraint! {
         
         didSet {
@@ -81,12 +82,14 @@ class PlayerViewController: UIViewController {
         }
     }
     var artworkListViewController: ArtworkListViewController!
+    var infoPageViewController: PlayerContentPageViewController!
     var isTouching = false
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         currentAlbum = 0
+        // MARK: ArtworkContainer
         artworkListViewController = storyboard!.instantiateViewController(withIdentifier: "Artwork") as! ArtworkListViewController
         delegate = artworkListViewController
         artworkListViewController.items = items
@@ -95,6 +98,12 @@ class PlayerViewController: UIViewController {
         containerView.addSubview(artworkListViewController.view)
         containerView.alpha = 0.0
         previewImageView.alpha = 0.0
+        
+        // MARK: InfoContainer
+        infoPageViewController = storyboard!.instantiateViewController(withIdentifier: "InfoPage") as! PlayerContentPageViewController
+        addChildViewController(infoPageViewController)
+        infoPageViewController.view.frame = infoContainerView.bounds
+        infoContainerView.addSubview(infoPageViewController.view)
     }
     
     // MARK: - Touch
@@ -128,16 +137,11 @@ class PlayerViewController: UIViewController {
             playConstraint.constant += touch.location(in: view).x - touch.previousLocation(in: view).x
             if playConstraint.constant > 0 {
                 
-                sliderConstraint.constant += touch.location(in: view).y - touch.previousLocation(in: view).y
-                if sliderConstraint.constant < 0 {
-                    
-                    sliderConstraint.constant = 0
-                } else if sliderConstraint.constant > selectScrollBarView.frame.height - thumbView.frame.height {
-                    
-                    sliderConstraint.constant = selectScrollBarView.frame.height - thumbView.frame.height
-                }
-                setPosition()
+                updateSliderConstraint(touch)
                 playConstraint.constant = 0
+            } else if playConstraint.constant > -20.0 {
+                
+                updateSliderConstraint(touch)
             } else if playConstraint.constant < -200.0 {
                 
                 currentItem = selectorPosition
@@ -151,19 +155,24 @@ class PlayerViewController: UIViewController {
                     previewConstraint.constant = -150 * (rate - 0.5) * 2
                 } else {
                     
-                    sliderConstraint.constant += touch.location(in: view).y - touch.previousLocation(in: view).y
-                    if sliderConstraint.constant < 0 {
-                        
-                        sliderConstraint.constant = 0
-                    } else if sliderConstraint.constant > selectScrollBarView.frame.height - thumbView.frame.height {
-                        
-                        sliderConstraint.constant = selectScrollBarView.frame.height - thumbView.frame.height
-                    }
-                    setPosition()
+                    updateSliderConstraint(touch)
                     previewImageView.alpha = rate * 2
                 }
             }
         }
+    }
+    
+    func updateSliderConstraint(_ touch: UITouch) {
+        
+        sliderConstraint.constant += touch.location(in: view).y - touch.previousLocation(in: view).y
+        if sliderConstraint.constant < 0 {
+            
+            sliderConstraint.constant = 0
+        } else if sliderConstraint.constant > selectScrollBarView.frame.height - thumbView.frame.height {
+            
+            sliderConstraint.constant = selectScrollBarView.frame.height - thumbView.frame.height
+        }
+        setPosition()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
