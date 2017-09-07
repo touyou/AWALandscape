@@ -14,8 +14,9 @@ class MusicManager {
     
     static let shared = MusicManager()
     private let albumsQuery = MPMediaQuery.albums()
+    private let playlistQuery = MPMediaQuery.playlists()
     
-    var player: AVAudioPlayer?
+    private var player: AVAudioPlayer?
     var albums: [MPMediaItemCollection]? {
         
         get {
@@ -23,8 +24,23 @@ class MusicManager {
             return albumsQuery.collections
         }
     }
+    var playlists: [MPMediaItemCollection]? {
+        
+        get {
+            
+            return playlistQuery.collections
+        }
+    }
     
     init() {
+    }
+    
+    public var playPosition: TimeInterval {
+        
+        get {
+            
+            return player?.currentTime ?? 0.0
+        }
     }
     
     public func setMusic(_ music: MPMediaItem) {
@@ -37,6 +53,7 @@ class MusicManager {
         do {
             
             player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
         } catch {
         }
     }
