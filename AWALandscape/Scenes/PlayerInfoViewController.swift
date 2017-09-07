@@ -10,21 +10,40 @@ import UIKit
 
 class PlayerInfoViewController: UIViewController {
     
-    var infoModel = InfomationModel() {
+    let musicManager = MusicManager.shared
+    
+    @IBOutlet weak var titleLabel: UILabel! {
         
         didSet {
             
-            let items = MusicManager.shared.playlists[infoModel.currentAlbum].items
-            let item = items![infoModel.currentItem]
+            titleLabel.text = musicManager.playing?.title ?? "-----"
         }
     }
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel! {
+        
+        didSet {
+            
+            artistLabel.text = musicManager.playing?.artist ?? "---"
+        }
+    }
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+    }
+    
+    func setUI() {
+        
+        titleLabel.text = musicManager.playing?.title ?? "-----"
+        artistLabel.text = musicManager.playing?.artist ?? "---"
+    }
+}
+
+extension PlayerInfoViewController: StoryboardInstantiable {
+    
+    static var storyboardName: String {
+        
+        return String(describing: self)
     }
 }

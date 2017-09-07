@@ -31,16 +31,17 @@ class MusicManager {
             return playlistQuery.collections
         }
     }
-    
-    init() {
-    }
-    
-    public var playPosition: TimeInterval {
+    var playing: MPMediaItem?
+    var lyric: String?
+    var playPosition: TimeInterval {
         
         get {
             
             return player?.currentTime ?? 0.0
         }
+    }
+    
+    init() {
     }
     
     public func setMusic(_ music: MPMediaItem) {
@@ -49,6 +50,8 @@ class MusicManager {
             
             return
         }
+        
+        playing = music
         
         do {
             

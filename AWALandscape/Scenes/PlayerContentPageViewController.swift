@@ -11,33 +11,30 @@ import UIKit
 class PlayerContentPageViewController: UIPageViewController {
 
     var vcArray = [UIViewController]()
-    var infoModel = InfomationModel() {
-        
-        didSet {
-            
-            if vcArray.count == 3 {
-                
-                
-            }
-        }
-    }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         vcArray = [
-            storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! PlayerInfoViewController,
-            storyboard?.instantiateViewController(withIdentifier: "LyricViewController") as! PlayerLyricViewController,
-            storyboard?.instantiateViewController(withIdentifier: "VideoViewController") as! PlayerVideoViewController
+            storyboard?.instantiateViewController(withIdentifier: PlayerInfoViewController.storyboardName) as! PlayerInfoViewController,
+            storyboard?.instantiateViewController(withIdentifier: PlayerLyricViewController.storyboardName) as! PlayerLyricViewController,
+            storyboard?.instantiateViewController(withIdentifier: PlayerVideoViewController.storyboardName) as! PlayerVideoViewController
         ]
         setViewControllers([vcArray[0]], direction: .forward, animated: true, completion: nil)
         dataSource = self
+    }
+    
+    func setUI() {
+        
+        (vcArray[0] as! PlayerInfoViewController).setUI()
+        (vcArray[1] as! PlayerLyricViewController).setUI()
+        (vcArray[2] as! PlayerVideoViewController).setUI()
     }
 }
 
 extension PlayerContentPageViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         if viewController.isKind(of: PlayerVideoViewController.self) {
             
@@ -51,7 +48,7 @@ extension PlayerContentPageViewController: UIPageViewControllerDataSource {
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         if viewController.isKind(of: PlayerInfoViewController.self) {
             

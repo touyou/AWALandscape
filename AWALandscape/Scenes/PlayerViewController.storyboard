@@ -126,7 +126,7 @@
         <!--InfoViewController-->
         <scene sceneID="jfK-1X-Fh1">
             <objects>
-                <viewController title="InfoViewController" id="jDp-L1-Xgk" customClass="PlayerInfoViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerInfoViewController" title="InfoViewController" id="jDp-L1-Xgk" customClass="PlayerInfoViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7xA-Q1-kaC"/>
                         <viewControllerLayoutGuide type="bottom" id="RlR-Ib-nbM"/>
@@ -135,22 +135,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCy-aP-qj7">
-                                <rect key="frame" x="121" y="47" width="34" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCy-aP-qj7">
+                                <rect key="frame" x="0.0" y="40" width="284" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-kw-u9Z">
-                                <rect key="frame" x="117" y="76" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-kw-u9Z">
+                                <rect key="frame" x="0.0" y="69" width="284" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.29789282570422537" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jCy-aP-qj7" firstAttribute="top" secondItem="7xA-Q1-kaC" secondAttribute="bottom" constant="20" id="6Ub-wR-NFx"/>
+                            <constraint firstAttribute="trailing" secondItem="jCy-aP-qj7" secondAttribute="trailing" id="A8v-Xh-NtV"/>
+                            <constraint firstAttribute="trailing" secondItem="W3Y-kw-u9Z" secondAttribute="trailing" id="HzR-ZI-G72"/>
+                            <constraint firstItem="jCy-aP-qj7" firstAttribute="leading" secondItem="B2g-YM-5rs" secondAttribute="leading" id="ae8-fs-ydz"/>
+                            <constraint firstItem="W3Y-kw-u9Z" firstAttribute="leading" secondItem="B2g-YM-5rs" secondAttribute="leading" id="fsx-8f-h0X"/>
+                            <constraint firstItem="W3Y-kw-u9Z" firstAttribute="top" secondItem="jCy-aP-qj7" secondAttribute="bottom" constant="8" id="jVN-gP-GF5"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="284" height="260"/>
@@ -161,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIQ-1P-9X7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="824"/>
+            <point key="canvasLocation" x="133.13343328335833" y="824"/>
         </scene>
         <!--Artwork List View Controller-->
         <scene sceneID="7PS-T7-Usc">
@@ -213,7 +219,7 @@
         <!--LyricViewController-->
         <scene sceneID="SmY-eQ-pXb">
             <objects>
-                <viewController title="LyricViewController" id="gjH-ZC-ctR" customClass="PlayerLyricViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerLyricViewController" title="LyricViewController" id="gjH-ZC-ctR" customClass="PlayerLyricViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jO0-Zq-dzk"/>
                         <viewControllerLayoutGuide type="bottom" id="JZk-M2-TeC"/>
@@ -239,6 +245,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="284" height="260"/>
+                    <connections>
+                        <outlet property="lyricTextView" destination="3QU-5N-6j2" id="XRE-sa-7SZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbf-hq-Mf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +256,7 @@
         <!--VideoViewController-->
         <scene sceneID="2tI-c2-Y9L">
             <objects>
-                <viewController title="VideoViewController" id="who-kD-1Bd" customClass="PlayerVideoViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerVideoViewController" title="VideoViewController" id="who-kD-1Bd" customClass="PlayerVideoViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W9g-mo-UAo"/>
                         <viewControllerLayoutGuide type="bottom" id="pRD-C8-64c"/>
@@ -264,12 +273,18 @@
                                 <rect key="frame" x="127" y="87" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="touchUpInsideVideoPlay:" destination="who-kD-1Bd" eventType="touchUpInside" id="PnF-da-Jwh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="284" height="260"/>
+                    <connections>
+                        <outlet property="videoImageView" destination="ac6-Jm-avR" id="DHL-Fb-la6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3n-Ps-6wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

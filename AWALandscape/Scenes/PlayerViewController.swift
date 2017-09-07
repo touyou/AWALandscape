@@ -48,7 +48,6 @@ class PlayerViewController: UIViewController {
     let musicManager = MusicManager.shared
     
     weak var delegate: PlayerViewControllerDelegate!
-    
     var items: [MPMediaItem]?
     var currentAlbum: Int = 0 {
         
@@ -69,6 +68,7 @@ class PlayerViewController: UIViewController {
                 
                 artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
             }
+            infoPageViewController.setUI()
         }
     }
     var selectorPosition: Int = -1 {
@@ -105,8 +105,11 @@ class PlayerViewController: UIViewController {
         infoPageViewController.view.frame = infoContainerView.bounds
         infoContainerView.addSubview(infoPageViewController.view)
     }
-    
-    // MARK: - Touch
+}
+
+// MARK: - Touch
+
+extension PlayerViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -181,7 +184,7 @@ class PlayerViewController: UIViewController {
             
             isTouching = false
             UIView.animate(withDuration: 0.3, animations: {
-            
+                
                 self.containerView.alpha = 0.0
             })
             if playConstraint.constant < -100.0 {
@@ -197,7 +200,7 @@ class PlayerViewController: UIViewController {
                 })
             }
         }
-         
+        
         previewImageView.alpha = 0.0
         previewConstraint.constant = 0.0
         playConstraint.constant = 0.0

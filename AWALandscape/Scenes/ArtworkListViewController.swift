@@ -93,26 +93,15 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        let cells = collectionView.visibleCells
-        for cell in cells {
-            
-            let centerX = cell.center.x - scrollView.contentOffset.x
-            let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
-            if ratio > 0.0 {
-                
-                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
-            } else {
-                
-                cell.transform = .identity
-            }
-            if collectionView.indexPath(for: cell)!.row == selected {
-                
-                collectionView.bringSubview(toFront: cell)
-            }
-        }
+        animateCell(scrollView)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      
+        animateCell(scrollView)
+    }
+    
+    func animateCell(_ scrollView: UIScrollView) {
         
         let cells = collectionView.visibleCells
         for cell in cells {
@@ -131,6 +120,7 @@ extension ArtworkListViewController: UICollectionViewDelegate {
                 collectionView.bringSubview(toFront: cell)
             }
         }
+
     }
 }
 
