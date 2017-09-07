@@ -7,14 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461A6D661F61492300F3ECD8 /* PlayerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */; };
+		461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */; };
+		461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */; };
+		461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */; };
+		462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB971F5FB90600AAF157 /* MusicManager.swift */; };
+		462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */; };
+		462FEB9D1F5FC6E200AAF157 /* PlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */; };
+		462FEBA01F5FC90300AAF157 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */; };
+		462FEBA41F5FCA8700AAF157 /* FMBlurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */; };
+		462FEBA81F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */; };
+		462FEBA91F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */; };
+		462FEBAC1F5FDF4600AAF157 /* ArtworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */; };
+		462FEBAE1F5FE12E00AAF157 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */; };
+		462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB01F5FE19000AAF157 /* NibInstantiatable.swift */; };
+		462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB11F5FE19000AAF157 /* NibLoadable.swift */; };
+		462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB21F5FE19000AAF157 /* Reusable.swift */; };
+		462FEBB71F5FE19000AAF157 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */; };
+		462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */; };
+		462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */; };
 		46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D391F5FB2C000A73E75 /* AppDelegate.swift */; };
 		46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D3B1F5FB2C000A73E75 /* ViewController.swift */; };
 		46683D3F1F5FB2C000A73E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D3D1F5FB2C000A73E75 /* Main.storyboard */; };
 		46683D411F5FB2C000A73E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46683D401F5FB2C000A73E75 /* Assets.xcassets */; };
 		46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */; };
+		CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWALandscape.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewController.swift; sourceTree = "<group>"; };
+		461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLyricViewController.swift; sourceTree = "<group>"; };
+		461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVideoViewController.swift; sourceTree = "<group>"; };
+		461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerContentPageViewController.swift; sourceTree = "<group>"; };
+		462FEB971F5FB90600AAF157 /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerViewController.storyboard; sourceTree = "<group>"; };
+		462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBlurable.swift; sourceTree = "<group>"; };
+		462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtworkCollectionViewCell.xib; sourceTree = "<group>"; };
+		462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkModel.swift; sourceTree = "<group>"; };
+		462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		462FEBB01F5FE19000AAF157 /* NibInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
+		462FEBB11F5FE19000AAF157 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		462FEBB21F5FE19000AAF157 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46683D3B1F5FB2C000A73E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +62,8 @@
 		46683D401F5FB2C000A73E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46683D431F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46683D451F5FB2C000A73E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
+		8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +71,81 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462FEB961F5FB8DD00AAF157 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				462FEB971F5FB90600AAF157 /* MusicManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		462FEB991F5FC6AA00AAF157 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */,
+				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
+				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
+				461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */,
+				461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */,
+				461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */,
+				461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		462FEB9E1F5FC8E400AAF157 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */,
+				462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */,
+				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		462FEBA51F5FDE6D00AAF157 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */,
+				462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */,
+				462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		462FEBAA1F5FDF2B00AAF157 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				462FEBAB1F5FDF4600AAF157 /* ArtworkModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		462FEBAF1F5FE18600AAF157 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				462FEBB01F5FE19000AAF157 /* NibInstantiatable.swift */,
+				462FEBB11F5FE19000AAF157 /* NibLoadable.swift */,
+				462FEBB21F5FE19000AAF157 /* Reusable.swift */,
+				462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		46683D2D1F5FB2C000A73E75 = {
 			isa = PBXGroup;
 			children = (
 				46683D381F5FB2C000A73E75 /* AWALandscape */,
 				46683D371F5FB2C000A73E75 /* Products */,
+				9F6617561A14827FFDDBB5D8 /* Pods */,
+				BB066345FAF7B96588770B2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +160,37 @@
 		46683D381F5FB2C000A73E75 /* AWALandscape */ = {
 			isa = PBXGroup;
 			children = (
+				462FEB9E1F5FC8E400AAF157 /* Extensions */,
+				462FEB961F5FB8DD00AAF157 /* Manager */,
+				462FEBAA1F5FDF2B00AAF157 /* Models */,
+				462FEBAF1F5FE18600AAF157 /* Protocols */,
+				462FEB991F5FC6AA00AAF157 /* Scenes */,
+				462FEBA51F5FDE6D00AAF157 /* Views */,
 				46683D391F5FB2C000A73E75 /* AppDelegate.swift */,
-				46683D3B1F5FB2C000A73E75 /* ViewController.swift */,
-				46683D3D1F5FB2C000A73E75 /* Main.storyboard */,
 				46683D401F5FB2C000A73E75 /* Assets.xcassets */,
-				46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */,
 				46683D451F5FB2C000A73E75 /* Info.plist */,
+				46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */,
+				46683D3D1F5FB2C000A73E75 /* Main.storyboard */,
+				46683D3B1F5FB2C000A73E75 /* ViewController.swift */,
 			);
 			path = AWALandscape;
+			sourceTree = "<group>";
+		};
+		9F6617561A14827FFDDBB5D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */,
+				8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB066345FAF7B96588770B2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46683D481F5FB2C000A73E75 /* Build configuration list for PBXNativeTarget "AWALandscape" */;
 			buildPhases = (
+				B9F54D66D266A3672678069E /* [CP] Check Pods Manifest.lock */,
 				46683D321F5FB2C000A73E75 /* Sources */,
 				46683D331F5FB2C000A73E75 /* Frameworks */,
 				46683D341F5FB2C000A73E75 /* Resources */,
+				531AA56CD277A9288FDE665D /* [CP] Embed Pods Frameworks */,
+				2FF4783FF86A250720CE097A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,20 +257,95 @@
 			buildActionMask = 2147483647;
 			files = (
 				46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */,
+				462FEBA91F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib in Resources */,
 				46683D411F5FB2C000A73E75 /* Assets.xcassets in Resources */,
+				462FEB9D1F5FC6E200AAF157 /* PlayerViewController.storyboard in Resources */,
 				46683D3F1F5FB2C000A73E75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FF4783FF86A250720CE097A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		531AA56CD277A9288FDE665D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/LNICoverFlowLayout/LNICoverFlowLayout.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNICoverFlowLayout.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9F54D66D266A3672678069E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AWALandscape-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		46683D321F5FB2C000A73E75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */,
+				461A6D661F61492300F3ECD8 /* PlayerInfoViewController.swift in Sources */,
+				462FEBAC1F5FDF4600AAF157 /* ArtworkModel.swift in Sources */,
+				462FEBA01F5FC90300AAF157 /* UIView+Extensions.swift in Sources */,
+				461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */,
+				462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */,
+				462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */,
 				46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */,
+				462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */,
+				462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */,
+				461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */,
 				46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */,
+				461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */,
+				462FEBAE1F5FE12E00AAF157 /* UICollectionView+Extensions.swift in Sources */,
+				462FEBA81F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift in Sources */,
+				462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */,
+				462FEBA41F5FCA8700AAF157 /* FMBlurable.swift in Sources */,
+				462FEBB71F5FE19000AAF157 /* StoryboardInstantiable.swift in Sources */,
+				462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +358,7 @@
 				46683D3E1F5FB2C000A73E75 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */ = {
@@ -159,6 +367,7 @@
 				46683D431F5FB2C000A73E75 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,6 +470,7 @@
 		};
 		46683D491F5FB2C000A73E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B4S4333JDW;
@@ -274,6 +484,7 @@
 		};
 		46683D4A1F5FB2C000A73E75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B4S4333JDW;
@@ -304,6 +515,7 @@
 				46683D4A1F5FB2C000A73E75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
