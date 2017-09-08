@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "917AF8D6490A3D63A3CB248E1830D5F1"
-               BuildableName = "Pods_AWALandscape.framework"
-               BlueprintName = "Pods-AWALandscape"
+               BlueprintIdentifier = "CD11672B6619C297B6AEE3DFB8213C59"
+               BuildableName = "FontAwesome_swift.framework"
+               BlueprintName = "FontAwesome.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "917AF8D6490A3D63A3CB248E1830D5F1"
-            BuildableName = "Pods_AWALandscape.framework"
-            BlueprintName = "Pods-AWALandscape"
+            BlueprintIdentifier = "CD11672B6619C297B6AEE3DFB8213C59"
+            BuildableName = "FontAwesome_swift.framework"
+            BlueprintName = "FontAwesome.swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

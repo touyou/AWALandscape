@@ -27,16 +27,43 @@ class PlayerInfoViewController: UIViewController {
         }
     }
     
+    var currentItem: Int = 0 {
+        
+        didSet {
+            
+            guard let items = musicManager.playlists?[musicManager.currentAlbum].items else {
+                
+                return
+            }
+            
+            titleLabel.text = items[currentItem].title
+            artistLabel.text = items[currentItem].artist
+        }
+    }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
     }
     
     func setUI() {
+    }
+}
+
+extension PlayerInfoViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        titleLabel.text = musicManager.playing?.title ?? "-----"
-        artistLabel.text = musicManager.playing?.artist ?? "---"
+        if keyPath == "currentItem" {
+            
+            currentItem = change?[.newKey] as! Int
+        }
     }
 }
 

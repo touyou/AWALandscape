@@ -6,4 +6,5 @@ target 'AWALandscape' do
   use_frameworks!
 
   # Pods for AWALandscape
+  pod 'FontAwesome.swift'
 end

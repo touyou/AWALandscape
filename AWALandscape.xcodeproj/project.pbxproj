@@ -27,10 +27,19 @@
 		462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */; };
 		462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */; };
 		46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D391F5FB2C000A73E75 /* AppDelegate.swift */; };
-		46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D3B1F5FB2C000A73E75 /* ViewController.swift */; };
-		46683D3F1F5FB2C000A73E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D3D1F5FB2C000A73E75 /* Main.storyboard */; };
+		46683D3C1F5FB2C000A73E75 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */; };
+		46683D3F1F5FB2C000A73E75 /* MasterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */; };
 		46683D411F5FB2C000A73E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46683D401F5FB2C000A73E75 /* Assets.xcassets */; };
 		46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */; };
+		468228151F62390D00859D89 /* mplus-1c-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4682280E1F62390D00859D89 /* mplus-1c-black.ttf */; };
+		468228161F62390D00859D89 /* mplus-1c-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4682280F1F62390D00859D89 /* mplus-1c-bold.ttf */; };
+		468228171F62390D00859D89 /* mplus-1c-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228101F62390D00859D89 /* mplus-1c-heavy.ttf */; };
+		468228181F62390D00859D89 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228111F62390D00859D89 /* mplus-1c-light.ttf */; };
+		468228191F62390D00859D89 /* mplus-1c-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228121F62390D00859D89 /* mplus-1c-medium.ttf */; };
+		4682281A1F62390D00859D89 /* mplus-1c-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228131F62390D00859D89 /* mplus-1c-regular.ttf */; };
+		4682281B1F62390D00859D89 /* mplus-1c-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228141F62390D00859D89 /* mplus-1c-thin.ttf */; };
+		4682281D1F62396400859D89 /* texgyreadventor-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4682281C1F62396400859D89 /* texgyreadventor-regular.otf */; };
+		468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4682281F1F6266B500859D89 /* UIImage+Extensions.swift */; };
 		CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,11 +66,20 @@
 		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46683D3B1F5FB2C000A73E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		46683D3E1F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ../MasterViewController.swift; sourceTree = "<group>"; };
+		46683D3E1F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MasterViewController.storyboard; sourceTree = "<group>"; };
 		46683D401F5FB2C000A73E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46683D431F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46683D451F5FB2C000A73E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4682280E1F62390D00859D89 /* mplus-1c-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-black.ttf"; sourceTree = "<group>"; };
+		4682280F1F62390D00859D89 /* mplus-1c-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-bold.ttf"; sourceTree = "<group>"; };
+		468228101F62390D00859D89 /* mplus-1c-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-heavy.ttf"; sourceTree = "<group>"; };
+		468228111F62390D00859D89 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
+		468228121F62390D00859D89 /* mplus-1c-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-medium.ttf"; sourceTree = "<group>"; };
+		468228131F62390D00859D89 /* mplus-1c-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-regular.ttf"; sourceTree = "<group>"; };
+		468228141F62390D00859D89 /* mplus-1c-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-thin.ttf"; sourceTree = "<group>"; };
+		4682281C1F62396400859D89 /* texgyreadventor-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-regular.otf"; sourceTree = "<group>"; };
+		4682281F1F6266B500859D89 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +114,8 @@
 				461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */,
 				461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */,
 				461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */,
+				46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */,
+				46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -106,6 +126,7 @@
 				462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */,
 				462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */,
 				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
+				4682281F1F6266B500859D89 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -160,6 +181,7 @@
 		46683D381F5FB2C000A73E75 /* AWALandscape */ = {
 			isa = PBXGroup;
 			children = (
+				4682280D1F6238EE00859D89 /* Assets */,
 				462FEB9E1F5FC8E400AAF157 /* Extensions */,
 				462FEB961F5FB8DD00AAF157 /* Manager */,
 				462FEBAA1F5FDF2B00AAF157 /* Models */,
@@ -167,13 +189,26 @@
 				462FEB991F5FC6AA00AAF157 /* Scenes */,
 				462FEBA51F5FDE6D00AAF157 /* Views */,
 				46683D391F5FB2C000A73E75 /* AppDelegate.swift */,
-				46683D401F5FB2C000A73E75 /* Assets.xcassets */,
 				46683D451F5FB2C000A73E75 /* Info.plist */,
 				46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */,
-				46683D3D1F5FB2C000A73E75 /* Main.storyboard */,
-				46683D3B1F5FB2C000A73E75 /* ViewController.swift */,
 			);
 			path = AWALandscape;
+			sourceTree = "<group>";
+		};
+		4682280D1F6238EE00859D89 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4682280E1F62390D00859D89 /* mplus-1c-black.ttf */,
+				4682280F1F62390D00859D89 /* mplus-1c-bold.ttf */,
+				468228101F62390D00859D89 /* mplus-1c-heavy.ttf */,
+				468228111F62390D00859D89 /* mplus-1c-light.ttf */,
+				468228121F62390D00859D89 /* mplus-1c-medium.ttf */,
+				468228131F62390D00859D89 /* mplus-1c-regular.ttf */,
+				468228141F62390D00859D89 /* mplus-1c-thin.ttf */,
+				4682281C1F62396400859D89 /* texgyreadventor-regular.otf */,
+				46683D401F5FB2C000A73E75 /* Assets.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		9F6617561A14827FFDDBB5D8 /* Pods */ = {
@@ -256,11 +291,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4682281D1F62396400859D89 /* texgyreadventor-regular.otf in Resources */,
 				46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */,
 				462FEBA91F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib in Resources */,
+				4682281A1F62390D00859D89 /* mplus-1c-regular.ttf in Resources */,
+				468228181F62390D00859D89 /* mplus-1c-light.ttf in Resources */,
+				468228171F62390D00859D89 /* mplus-1c-heavy.ttf in Resources */,
+				468228161F62390D00859D89 /* mplus-1c-bold.ttf in Resources */,
+				468228191F62390D00859D89 /* mplus-1c-medium.ttf in Resources */,
+				4682281B1F62390D00859D89 /* mplus-1c-thin.ttf in Resources */,
 				46683D411F5FB2C000A73E75 /* Assets.xcassets in Resources */,
 				462FEB9D1F5FC6E200AAF157 /* PlayerViewController.storyboard in Resources */,
-				46683D3F1F5FB2C000A73E75 /* Main.storyboard in Resources */,
+				468228151F62390D00859D89 /* mplus-1c-black.ttf in Resources */,
+				46683D3F1F5FB2C000A73E75 /* MasterViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,13 +332,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/LNICoverFlowLayout/LNICoverFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNICoverFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,7 +375,8 @@
 				461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */,
 				462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */,
 				462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */,
-				46683D3C1F5FB2C000A73E75 /* ViewController.swift in Sources */,
+				468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */,
+				46683D3C1F5FB2C000A73E75 /* MasterViewController.swift in Sources */,
 				462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */,
 				462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */,
 				461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */,
@@ -352,13 +394,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		46683D3D1F5FB2C000A73E75 /* Main.storyboard */ = {
+		46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				46683D3E1F5FB2C000A73E75 /* Base */,
 			);
-			name = Main.storyboard;
-			path = .;
+			name = MasterViewController.storyboard;
+			path = ../.;
 			sourceTree = "<group>";
 		};
 		46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */ = {
