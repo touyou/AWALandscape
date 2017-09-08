@@ -20,4 +20,15 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return blendedImage
     }
+    
+    static func colorImage(color: UIColor, size: CGSize) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(CGRect(origin: .zero, size: size))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
 }

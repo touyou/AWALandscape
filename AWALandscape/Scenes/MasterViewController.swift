@@ -23,9 +23,11 @@ class MasterViewController: UIViewController {
     }
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
+    @IBOutlet weak var playingSlider: UISlider!
     
     let musicManager = MusicManager.shared
     
+    var timer: Timer!
     var currentItem: Int = 0 {
         
         didSet {
@@ -40,6 +42,8 @@ class MasterViewController: UIViewController {
             let image = items[currentItem].artwork?.image(at: playButton.bounds.size)
             playButton.setBackgroundImage(image?.darken(), for: .normal)
             playButton.setTitle(String.fontAwesomeIcon(name: .pause), for: .normal)
+            playingSlider.maximumValue = Float(musicManager.duration)
+            playingSlider.setValue(0.0, animated: true)
         }
     }
     
@@ -60,12 +64,39 @@ class MasterViewController: UIViewController {
         backwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         backwardButton.setTitle(String.fontAwesomeIcon(name: .backward), for: .normal)
         
+        let image = UIImage.colorImage(color: UIColor.AWA.awaOrange, size: CGSize(width: 5, height: 5))
+        playingSlider.setThumbImage(image, for: .normal)
+        playingSlider.tintColor = UIColor.AWA.awaOrange
+        playingSlider.value = 0.0
+        
         musicManager.addObserve(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        timer = Timer(timeInterval: 0.1, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
+        timer.fire()
     }
     
     deinit {
         
         musicManager.removeObserve(self)
+        if timer.isValid {
+            
+            timer.invalidate()
+        }
+    }
+    
+    func updateSlider() {
+        
+        playingSlider.setValue(Float(musicManager.playPosition), animated: true)
+    }
+    
+    
+    @IBAction func valueChangedPlayingSlider(_ sender: Any) {
+        
+        musicManager.setTime(TimeInterval(playingSlider.value))
     }
     
     @IBAction func touchUpInsidePlayButton(_ sender: Any) {

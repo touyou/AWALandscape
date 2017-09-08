@@ -67,7 +67,7 @@
 		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ../MasterViewController.swift; sourceTree = "<group>"; };
+		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		46683D3E1F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MasterViewController.storyboard; sourceTree = "<group>"; };
 		46683D401F5FB2C000A73E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46683D431F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,14 +110,14 @@
 			isa = PBXGroup;
 			children = (
 				462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */,
-				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
-				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
+				46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */,
+				46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */,
+				461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */,
 				461A6D651F61492300F3ECD8 /* PlayerInfoViewController.swift */,
 				461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */,
 				461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */,
-				461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */,
-				46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */,
-				46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */,
+				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
+				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 			children = (
 				462FEBA31F5FCA8700AAF157 /* FMBlurable.swift */,
 				462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */,
-				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
-				4682281F1F6266B500859D89 /* UIImage+Extensions.swift */,
 				468228211F626A6C00859D89 /* UIColor+Extensions.swift */,
+				4682281F1F6266B500859D89 /* UIImage+Extensions.swift */,
+				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				46683D381F5FB2C000A73E75 /* AWALandscape */,
-				46683D371F5FB2C000A73E75 /* Products */,
-				9F6617561A14827FFDDBB5D8 /* Pods */,
 				BB066345FAF7B96588770B2D /* Frameworks */,
+				9F6617561A14827FFDDBB5D8 /* Pods */,
+				46683D371F5FB2C000A73E75 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +201,7 @@
 		4682280D1F6238EE00859D89 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				46683D401F5FB2C000A73E75 /* Assets.xcassets */,
 				4682280E1F62390D00859D89 /* mplus-1c-black.ttf */,
 				4682280F1F62390D00859D89 /* mplus-1c-bold.ttf */,
 				468228101F62390D00859D89 /* mplus-1c-heavy.ttf */,
@@ -209,9 +210,9 @@
 				468228131F62390D00859D89 /* mplus-1c-regular.ttf */,
 				468228141F62390D00859D89 /* mplus-1c-thin.ttf */,
 				4682281C1F62396400859D89 /* texgyreadventor-regular.otf */,
-				46683D401F5FB2C000A73E75 /* Assets.xcassets */,
 			);
 			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		9F6617561A14827FFDDBB5D8 /* Pods */ = {
@@ -404,7 +405,7 @@
 				46683D3E1F5FB2C000A73E75 /* Base */,
 			);
 			name = MasterViewController.storyboard;
-			path = ../.;
+			path = .;
 			sourceTree = "<group>";
 		};
 		46683D421F5FB2C000A73E75 /* LaunchScreen.storyboard */ = {

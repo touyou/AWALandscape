@@ -40,6 +40,13 @@ class MusicManager: NSObject {
             return player?.currentTime ?? 0.0
         }
     }
+    var duration: TimeInterval {
+        
+        get {
+            
+            return player?.duration ?? 1.0
+        }
+    }
     var isPlaying: Bool {
         
         get {
@@ -104,6 +111,11 @@ class MusicManager: NSObject {
             
             return false
         }
+    }
+    
+    public func setTime(_ time: TimeInterval) {
+        
+        player?.currentTime = time
     }
     
     public func nextMusic() {
