@@ -246,7 +246,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.29789282570422537" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JZk-M2-TeC" firstAttribute="top" secondItem="3QU-5N-6j2" secondAttribute="bottom" id="5jA-rS-KGG"/>
                             <constraint firstItem="3QU-5N-6j2" firstAttribute="leading" secondItem="hXt-uX-L9O" secondAttribute="leading" id="6vz-HZ-3ud"/>

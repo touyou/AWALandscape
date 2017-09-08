@@ -62,3 +62,16 @@ extension PlayerContentPageViewController: UIPageViewControllerDataSource {
         }
     }
 }
+
+extension PlayerContentPageViewController {
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        
+        return 3
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        
+        return 0
+    }
+}

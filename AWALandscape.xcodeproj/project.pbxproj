@@ -40,6 +40,7 @@
 		4682281B1F62390D00859D89 /* mplus-1c-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468228141F62390D00859D89 /* mplus-1c-thin.ttf */; };
 		4682281D1F62396400859D89 /* texgyreadventor-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4682281C1F62396400859D89 /* texgyreadventor-regular.otf */; };
 		468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4682281F1F6266B500859D89 /* UIImage+Extensions.swift */; };
+		468228221F626A6C00859D89 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468228211F626A6C00859D89 /* UIColor+Extensions.swift */; };
 		CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		468228141F62390D00859D89 /* mplus-1c-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-thin.ttf"; sourceTree = "<group>"; };
 		4682281C1F62396400859D89 /* texgyreadventor-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-regular.otf"; sourceTree = "<group>"; };
 		4682281F1F6266B500859D89 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		468228211F626A6C00859D89 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 				462FEBAD1F5FE12E00AAF157 /* UICollectionView+Extensions.swift */,
 				462FEB9F1F5FC90300AAF157 /* UIView+Extensions.swift */,
 				4682281F1F6266B500859D89 /* UIImage+Extensions.swift */,
+				468228211F626A6C00859D89 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468228221F626A6C00859D89 /* UIColor+Extensions.swift in Sources */,
 				462FEBB61F5FE19000AAF157 /* Reusable.swift in Sources */,
 				461A6D661F61492300F3ECD8 /* PlayerInfoViewController.swift in Sources */,
 				462FEBAC1F5FDF4600AAF157 /* ArtworkModel.swift in Sources */,
