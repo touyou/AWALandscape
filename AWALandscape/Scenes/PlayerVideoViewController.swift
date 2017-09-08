@@ -7,24 +7,94 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class PlayerVideoViewController: UIViewController {
 
     let musicManager = MusicManager.shared
+    let videoManager = VideoManager.shared
     
-    @IBOutlet weak var videoImageView: UIImageView!
+    @IBOutlet weak var playerView: YTPlayerView! {
+        
+        didSet {
+            
+            playerView.delegate = self
+        }
+    }
+    
+    var currentItem: Int = -1 {
+        
+        didSet {
+            
+            if oldValue == currentItem {
+                
+                return
+            }
+            
+            // Videoの取得とか
+            guard let items = musicManager.playlist?.items else {
+                
+                return
+            }
+            
+            let title = items[currentItem].title
+            let artist = items[currentItem].artist
+            print("getting video started")
+            videoManager.getVideo(title: title ?? "", artist: artist ?? "", completion: { [weak self] id in
+                
+                guard let `self` = self else {
+                    
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    self.playerView.load(withVideoId: id)
+                }
+            })
+        }
+    }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        if musicManager.playlist?.items != nil {
+            
+            currentItem = musicManager.currentItem
+        }
+        
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
     }
     
     @IBAction func touchUpInsideVideoPlay(_ sender: Any) {
     }
     
     func setUI() {
+    }
+}
+
+extension PlayerVideoViewController: YTPlayerViewDelegate {
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+    }
+}
+
+// MARK: - Music
+
+extension PlayerVideoViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        
+        if keyPath == "currentItem" {
+            
+            currentItem = change?[.newKey] as! Int
+        }
     }
 }
 

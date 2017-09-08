@@ -41,22 +41,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IY1-Zj-N7A">
-                                <rect key="frame" x="320" y="40" width="284" height="255"/>
+                                <rect key="frame" x="300" y="40" width="304" height="255"/>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artwork_sample" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-lv-RS4">
-                                <rect key="frame" x="66.5" y="70" width="234" height="234"/>
+                                <rect key="frame" x="46.5" y="70" width="234" height="234"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="height" multiplier="1:1" id="BfV-Of-Bsq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM6-LX-JWC">
-                                <rect key="frame" x="320" y="295" width="30" height="30"/>
+                                <rect key="frame" x="300" y="295" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evd-sx-g5F">
-                                <rect key="frame" x="360" y="295" width="30" height="30"/>
+                                <rect key="frame" x="340" y="295" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -106,7 +106,7 @@
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="bottom" constant="50" id="MH9-IS-BDU"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="centerY" secondItem="rRG-Ni-8BO" secondAttribute="centerY" id="Pqn-a8-qcZ"/>
                             <constraint firstItem="jM6-LX-JWC" firstAttribute="top" secondItem="IY1-Zj-N7A" secondAttribute="bottom" id="QbV-pv-vf4"/>
-                            <constraint firstItem="ctv-lv-RS4" firstAttribute="centerX" secondItem="rRG-Ni-8BO" secondAttribute="centerX" constant="-150" id="RWM-yn-LRF"/>
+                            <constraint firstItem="ctv-lv-RS4" firstAttribute="centerX" secondItem="rRG-Ni-8BO" secondAttribute="centerX" constant="-170" id="RWM-yn-LRF"/>
                             <constraint firstAttribute="trailing" secondItem="pay-EL-W2d" secondAttribute="trailing" id="Syd-70-PfD"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-15" id="UAY-Iw-8ye"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="width" id="VC5-dU-h7P"/>
@@ -335,30 +335,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-Jm-avR">
-                                <rect key="frame" x="22" y="38" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-7D-Zf2">
-                                <rect key="frame" x="127" y="87" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="touchUpInsideVideoPlay:" destination="who-kD-1Bd" eventType="touchUpInside" id="PnF-da-Jwh"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC2-hm-M2z" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pRD-C8-64c" firstAttribute="top" secondItem="wC2-hm-M2z" secondAttribute="bottom" id="RJc-Xz-PfO"/>
+                            <constraint firstItem="wC2-hm-M2z" firstAttribute="leading" secondItem="7Va-sn-Wdh" secondAttribute="leading" id="b15-eq-CGE"/>
+                            <constraint firstItem="wC2-hm-M2z" firstAttribute="top" secondItem="7Va-sn-Wdh" secondAttribute="top" id="h1h-RZ-Lne"/>
+                            <constraint firstAttribute="trailing" secondItem="wC2-hm-M2z" secondAttribute="trailing" id="pLq-z5-4c5"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="284" height="260"/>
                     <connections>
-                        <outlet property="videoImageView" destination="ac6-Jm-avR" id="DHL-Fb-la6"/>
+                        <outlet property="playerView" destination="wC2-hm-M2z" id="7jZ-Lv-zhD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3n-Ps-6wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="1790"/>
+            <point key="canvasLocation" x="132.23388305847078" y="1788.8"/>
         </scene>
     </scenes>
     <resources>

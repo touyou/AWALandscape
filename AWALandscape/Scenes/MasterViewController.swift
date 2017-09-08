@@ -69,14 +69,12 @@ class MasterViewController: UIViewController {
         playingSlider.tintColor = UIColor.AWA.awaOrange
         playingSlider.value = 0.0
         
-        musicManager.addObserve(self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
         timer.fire()
+        
+        musicManager.addObserve(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(videoStarted), name: .UIWindowDidBecomeVisible, object: view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(videoEnded), name: .UIWindowDidBecomeHidden, object: view.window)
     }
     
     deinit {
@@ -91,6 +89,16 @@ class MasterViewController: UIViewController {
     func updateSlider() {
         
         playingSlider.setValue(Float(musicManager.playPosition), animated: true)
+    }
+    
+    func videoStarted() {
+        
+        _ = musicManager.pause()
+    }
+    
+    func videoEnded() {
+        
+        _ = musicManager.play()
     }
     
     

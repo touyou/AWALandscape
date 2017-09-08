@@ -215,7 +215,7 @@ extension PlayerViewController {
                 containerView.alpha = 1 - rate
                 if rate > 0.5 {
                     
-                    previewConstraint.constant = -150 * (rate - 0.5) * 2
+                    previewConstraint.constant = -170 * (rate - 0.5) * 2
                     selectFlag = true
                 } else {
                     

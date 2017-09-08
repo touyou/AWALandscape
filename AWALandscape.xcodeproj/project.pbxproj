@@ -41,6 +41,7 @@
 		4682281D1F62396400859D89 /* texgyreadventor-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4682281C1F62396400859D89 /* texgyreadventor-regular.otf */; };
 		468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4682281F1F6266B500859D89 /* UIImage+Extensions.swift */; };
 		468228221F626A6C00859D89 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468228211F626A6C00859D89 /* UIColor+Extensions.swift */; };
+		468228241F6285C800859D89 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468228231F6285C800859D89 /* VideoManager.swift */; };
 		CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +68,7 @@
 		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		46683D3E1F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MasterViewController.storyboard; sourceTree = "<group>"; };
 		46683D401F5FB2C000A73E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46683D431F5FB2C000A73E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		4682281C1F62396400859D89 /* texgyreadventor-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-regular.otf"; sourceTree = "<group>"; };
 		4682281F1F6266B500859D89 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		468228211F626A6C00859D89 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		468228231F6285C800859D89 /* VideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				462FEB971F5FB90600AAF157 /* MusicManager.swift */,
+				468228231F6285C800859D89 /* VideoManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -211,7 +214,6 @@
 				468228141F62390D00859D89 /* mplus-1c-thin.ttf */,
 				4682281C1F62396400859D89 /* texgyreadventor-regular.otf */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -336,11 +338,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -379,6 +387,7 @@
 				462FEBA01F5FC90300AAF157 /* UIView+Extensions.swift in Sources */,
 				461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */,
 				462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */,
+				468228241F6285C800859D89 /* VideoManager.swift in Sources */,
 				462FEBB41F5FE19000AAF157 /* NibInstantiatable.swift in Sources */,
 				468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */,
 				46683D3C1F5FB2C000A73E75 /* MasterViewController.swift in Sources */,
