@@ -54,15 +54,15 @@
                                 <rect key="frame" x="216.5" y="70.5" width="234" height="234"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9v-6L-Gde">
-                                <rect key="frame" x="620" y="70" width="16" height="16"/>
+                                <rect key="frame" x="616" y="70" width="24" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="Y0N-0N-9dz"/>
-                                    <constraint firstAttribute="width" constant="16" id="upR-p8-8AW"/>
+                                    <constraint firstAttribute="height" constant="24" id="Y0N-0N-9dz"/>
+                                    <constraint firstAttribute="width" constant="24" id="upR-p8-8AW"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
+                                        <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
