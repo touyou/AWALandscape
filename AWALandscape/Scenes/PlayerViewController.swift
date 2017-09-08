@@ -44,6 +44,23 @@ class PlayerViewController: UIViewController {
             previewConstraint.constant = 0
         }
     }
+    @IBOutlet weak var shareButton: UIButton! {
+        
+        didSet {
+            
+            shareButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
+            shareButton.setTitle(String.fontAwesomeIcon(name: .shareSquareO), for: .normal)
+        }
+    }
+    @IBOutlet weak var moreButton: UIButton! {
+        
+        didSet {
+            
+            moreButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
+            moreButton.setTitle(String.fontAwesomeIcon(name: .bars), for: .normal)
+        }
+    }
+    
     
     let musicManager = MusicManager.shared
     let selectionFeedback = UISelectionFeedbackGenerator()

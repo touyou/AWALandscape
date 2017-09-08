@@ -32,7 +32,14 @@ class MusicManager: NSObject {
         }
     }
     var playing: MPMediaItem?
-    var lyric: String?
+    var playlist: MPMediaItemCollection? {
+        
+        get {
+            
+            return playlists?[currentAlbum]
+        }
+    }
+    var lyric: String? = "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた"
     var playPosition: TimeInterval {
         
         get {

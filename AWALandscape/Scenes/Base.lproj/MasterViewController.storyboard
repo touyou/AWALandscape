@@ -112,7 +112,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-ed-c0c">
-                                <rect key="frame" x="333" y="305" width="181" height="31"/>
+                                <rect key="frame" x="331" y="305" width="183" height="31"/>
                                 <connections>
                                     <action selector="valueChangedPlayingSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cmh-tw-6qU"/>
                                 </connections>
@@ -134,7 +134,7 @@
                             <constraint firstItem="gjn-HK-qir" firstAttribute="leading" secondItem="AxE-12-QYc" secondAttribute="trailing" id="bU8-bk-uZw"/>
                             <constraint firstAttribute="trailing" secondItem="6tz-4F-VHu" secondAttribute="trailing" id="cte-e3-0OX"/>
                             <constraint firstItem="OV0-Eh-fMY" firstAttribute="leading" secondItem="tTB-TP-cdC" secondAttribute="trailing" constant="5" id="dDd-eR-Iy5"/>
-                            <constraint firstItem="6tz-4F-VHu" firstAttribute="leading" secondItem="JVL-ed-c0c" secondAttribute="leading" constant="-2" id="iCL-5i-RDt"/>
+                            <constraint firstItem="6tz-4F-VHu" firstAttribute="leading" secondItem="JVL-ed-c0c" secondAttribute="leading" id="iCL-5i-RDt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gjn-HK-qir" secondAttribute="bottom" constant="5" id="kgi-sN-VTR"/>
                             <constraint firstAttribute="trailing" secondItem="7eW-BM-GqA" secondAttribute="trailing" id="tzF-kt-2kG"/>
                             <constraint firstItem="7eW-BM-GqA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xvA-oZ-hBu"/>
