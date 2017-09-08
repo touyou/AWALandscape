@@ -82,15 +82,6 @@ class PlayerVideoViewController: UIViewController {
 extension PlayerVideoViewController: YTPlayerViewDelegate {
     
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        
-        switch state {
-        case .playing:
-            
-            _ = musicManager.pause()
-        default:
-            
-            _ = musicManager.play()
-        }
     }
 }
 
