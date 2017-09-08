@@ -46,6 +46,8 @@ class PlayerViewController: UIViewController {
     }
     
     let musicManager = MusicManager.shared
+    let selectionFeedback = UISelectionFeedbackGenerator()
+    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
     
     weak var delegate: PlayerViewControllerDelegate!
     var items: [MPMediaItem]?
@@ -78,6 +80,17 @@ class PlayerViewController: UIViewController {
             if oldValue != selectorPosition {
                 
                 previewImageView.image = items?[selectorPosition].artwork?.image(at: previewImageView.frame.size)
+                selectionFeedback.selectionChanged()
+            }
+        }
+    }
+    var selectFlag: Bool = false {
+        
+        didSet {
+            
+            if oldValue != selectFlag && selectFlag {
+                
+                impactFeedback.impactOccurred()
             }
         }
     }
@@ -104,6 +117,9 @@ class PlayerViewController: UIViewController {
         addChildViewController(infoPageViewController)
         infoPageViewController.view.frame = infoContainerView.bounds
         infoContainerView.addSubview(infoPageViewController.view)
+        
+        selectionFeedback.prepare()
+        impactFeedback.prepare()
     }
 }
 
@@ -142,24 +158,29 @@ extension PlayerViewController {
                 
                 updateSliderConstraint(touch)
                 playConstraint.constant = 0
+                selectFlag = false
             } else if playConstraint.constant > -20.0 {
                 
                 updateSliderConstraint(touch)
-            } else if playConstraint.constant < -200.0 {
+                selectFlag = false
+            } else if playConstraint.constant < -180.0 {
                 
                 currentItem = selectorPosition
                 isTouching = false
+                selectFlag = false
             } else {
                 
-                let rate = playConstraint.constant / -200.0
+                let rate = playConstraint.constant / -180.0
                 containerView.alpha = 1 - rate
                 if rate > 0.5 {
                     
                     previewConstraint.constant = -150 * (rate - 0.5) * 2
+                    selectFlag = true
                 } else {
                     
-                    updateSliderConstraint(touch)
+//                    updateSliderConstraint(touch)
                     previewImageView.alpha = rate * 2
+                    selectFlag = false
                 }
             }
         }
@@ -189,13 +210,12 @@ extension PlayerViewController {
             })
             if playConstraint.constant < -100.0 {
                 
-                view.layoutIfNeeded()
-                UIView.animate(withDuration: 1.0, animations: {
+                self.previewConstraint.constant = -150
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
                     
-                    self.previewConstraint.constant = -150
-                    self.view.layoutIfNeeded()
+                    self.previewImageView.layoutIfNeeded()
                 }, completion: { _ in
-                    
+                
                     self.currentItem = self.selectorPosition
                 })
             }
@@ -204,6 +224,7 @@ extension PlayerViewController {
         previewImageView.alpha = 0.0
         previewConstraint.constant = 0.0
         playConstraint.constant = 0.0
+        selectFlag = false
     }
     
     private func isInside(inView: UIView, point: CGPoint) -> Bool {
