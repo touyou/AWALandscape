@@ -44,6 +44,23 @@ class PlayerViewController: UIViewController {
             previewConstraint.constant = 0
         }
     }
+    @IBOutlet weak var shareButton: UIButton! {
+        
+        didSet {
+            
+            shareButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
+            shareButton.setTitle(String.fontAwesomeIcon(name: .shareSquareO), for: .normal)
+        }
+    }
+    @IBOutlet weak var moreButton: UIButton! {
+        
+        didSet {
+            
+            moreButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
+            moreButton.setTitle(String.fontAwesomeIcon(name: .bars), for: .normal)
+        }
+    }
+    
     
     let musicManager = MusicManager.shared
     let selectionFeedback = UISelectionFeedbackGenerator()
@@ -56,21 +73,24 @@ class PlayerViewController: UIViewController {
         didSet {
             
             items = musicManager.playlists![currentAlbum].items
+            musicManager.currentAlbum = currentAlbum
         }
     }
-    var currentItem: Int = 0 {
+    var currentItem: Int = -1 {
         
         didSet {
             
-            musicManager.pause()
-            musicManager.setMusic(items![currentItem])
-            musicManager.play()
+            if oldValue == currentItem {
+                
+                return
+            }
+            
+            musicManager.currentItem = currentItem
             
             if artworkImageView != nil {
                 
                 artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
             }
-            infoPageViewController.setUI()
         }
     }
     var selectorPosition: Int = -1 {
@@ -101,7 +121,7 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        currentAlbum = 0
+        currentAlbum = 10
         // MARK: ArtworkContainer
         artworkListViewController = storyboard!.instantiateViewController(withIdentifier: "Artwork") as! ArtworkListViewController
         delegate = artworkListViewController
@@ -120,6 +140,27 @@ class PlayerViewController: UIViewController {
         
         selectionFeedback.prepare()
         impactFeedback.prepare()
+        
+        // MARK: 再生状態監視
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
+    }
+}
+
+// MARK: - Music
+
+extension PlayerViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "currentItem" {
+            
+            currentItem = change?[.newKey] as! Int
+        }
     }
 }
 
