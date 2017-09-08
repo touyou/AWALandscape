@@ -7,4 +7,7 @@ target 'AWALandscape' do
 
   # Pods for AWALandscape
   pod 'FontAwesome.swift'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod "youtube-ios-player-helper"
 end
