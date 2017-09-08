@@ -211,11 +211,11 @@ extension PlayerViewController {
             if playConstraint.constant < -100.0 {
                 
                 self.previewConstraint.constant = -150
-                UIView.animate(withDuration: 0.7, animations: {
-
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+                    
                     self.previewImageView.layoutIfNeeded()
                 }, completion: { _ in
-                    
+                
                     self.currentItem = self.selectorPosition
                 })
             }
