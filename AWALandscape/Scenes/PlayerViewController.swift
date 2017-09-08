@@ -245,10 +245,6 @@ extension PlayerViewController {
         if isTouching {
             
             isTouching = false
-            UIView.animate(withDuration: 0.3, animations: {
-                
-                self.containerView.alpha = 0.0
-            })
             if playConstraint.constant < -100.0 {
                 
                 self.previewConstraint.constant = -150
@@ -266,6 +262,10 @@ extension PlayerViewController {
         previewConstraint.constant = 0.0
         playConstraint.constant = 0.0
         selectFlag = false
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.containerView.alpha = 0.0
+        })
     }
     
     private func isInside(inView: UIView, point: CGPoint) -> Bool {

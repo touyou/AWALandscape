@@ -11,6 +11,7 @@ import UIKit
 class PlayerContentPageViewController: UIPageViewController {
 
     var vcArray = [UIViewController]()
+    var currentIndex: Int = 0
     
     override func viewDidLoad() {
         
@@ -22,6 +23,7 @@ class PlayerContentPageViewController: UIPageViewController {
         ]
         setViewControllers([vcArray[0]], direction: .forward, animated: true, completion: nil)
         dataSource = self
+        delegate = self
     }
     
     func setUI() {
@@ -32,7 +34,7 @@ class PlayerContentPageViewController: UIPageViewController {
     }
 }
 
-extension PlayerContentPageViewController: UIPageViewControllerDataSource {
+extension PlayerContentPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -61,6 +63,23 @@ extension PlayerContentPageViewController: UIPageViewControllerDataSource {
             return nil
         }
     }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if let viewController = pageViewController.viewControllers?.first {
+            
+            if viewController is PlayerInfoViewController {
+                
+                currentIndex = 0
+            } else if viewController is PlayerLyricViewController {
+                
+                currentIndex = 1
+            } else {
+                
+                currentIndex = 2
+            }
+        }
+    }
 }
 
 extension PlayerContentPageViewController {
@@ -72,6 +91,6 @@ extension PlayerContentPageViewController {
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         
-        return 0
+        return currentIndex
     }
 }
