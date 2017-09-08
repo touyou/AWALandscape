@@ -247,6 +247,7 @@
 				46683D341F5FB2C000A73E75 /* Resources */,
 				531AA56CD277A9288FDE665D /* [CP] Embed Pods Frameworks */,
 				2FF4783FF86A250720CE097A /* [CP] Copy Pods Resources */,
+				468228251F62955900859D89 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -330,6 +331,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		468228251F62955900859D89 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6f6934a7db46c0427c85ff1a091ea58c7c3b8d81 99117beb3d99a34d032dccc4f7df44a970aaca9d9f6640983439d44fabbc55dc";
 		};
 		531AA56CD277A9288FDE665D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

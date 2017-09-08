@@ -10,4 +10,6 @@ target 'AWALandscape' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod "youtube-ios-player-helper"
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

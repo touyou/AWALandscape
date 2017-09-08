@@ -7,56 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0915E38CB2E9E56E10142AC450AB1F52 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 601492D8D0AD45226448596391B9FAC1 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E999C2C82046E2633F07ECD5EC58C3B /* Timeline.swift */; };
-		18C9B43981D8A7BFEE45D28EF3A7B423 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF6CB736FAC422AC3FF0200A2BD7388 /* YTPlayerView.m */; };
-		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 493B913CC8BB7F1911B6DE03CEAAC162 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A7EB6A443B7D786EFCA706469768FD /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A8FFA16F0AFD5539F9941DF9CE49F /* FontAwesomeImageView.swift */; };
-		2E2655D8C49FD9AAC41BDF969EF00B0D /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78706436761F442B774CF4A54E11AC9C /* Assets.bundle */; };
-		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26105A2B5477D1EE66FC4E4D82E8D3FD /* TaskDelegate.swift */; };
-		41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3518DF61547193A2776698A4C7A1F67 /* FontAwesomeSegmentedControl.swift */; };
+		0915E38CB2E9E56E10142AC450AB1F52 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1233238CC8E2431465509C82E5F5474D /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411AA53100AEAE6FE30ABD6C311C8675 /* Timeline.swift */; };
+		18C9B43981D8A7BFEE45D28EF3A7B423 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C1296FEA327FA799DB7E5A8343B43B /* YTPlayerView.m */; };
+		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E8E0B49DFBCAE199D497C5400F1788 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9D990CB9CD43B088AA27CC6054A4F1 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586240A3EA2989A7EF13F2726AA1C8DE /* FontAwesomeImageView.swift */; };
+		2E2655D8C49FD9AAC41BDF969EF00B0D /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CCF4C7CE5620C50DAC1C13706DCBC /* Assets.bundle */; };
+		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B31EF5B75DD2C387C1552599EBBF24 /* TaskDelegate.swift */; };
+		41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141A6F1BF31538E3B939129C3410012 /* FontAwesomeSegmentedControl.swift */; };
 		4EFA908CA9A3E9A800B618AC902F5990 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 59E98B97B93475A14883D2B483AE03EE /* FontAwesome.swift.bundle */; };
-		522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B2290C21C24592E511FA67FEF472C /* FontAwesomeView.swift */; };
-		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6C3776E081309882B5B49744F31CE /* Request.swift */; };
-		589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E84B7E8A59BF02F7C75F5E587197A /* FontAwesome.swift */; };
-		5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948D195A8881F0CC05FBDF329A2F9A5 /* FontAwesomeBarButtonItem.swift */; };
-		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B1F210C5E13B4C9292D2644D577FA /* DispatchQueue+Alamofire.swift */; };
-		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D99ECE1752D092E8EAAA17BA491BE6 /* ServerTrustPolicy.swift */; };
+		522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB63B33F26323C58F0A478430196AEB /* FontAwesomeView.swift */; };
+		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77722473C597BA6CF7A982445E0F6C01 /* Request.swift */; };
+		589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93F8BA7B357C111C24D938674653774 /* FontAwesome.swift */; };
+		5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BC4B7029B6FABB7E9D628F59A08EF8 /* FontAwesomeBarButtonItem.swift */; };
+		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805732120E3CB4A951EEDF7BFCD0D02 /* DispatchQueue+Alamofire.swift */; };
+		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B4F0DB9106D93BAACE5FE5EEDBA175 /* ServerTrustPolicy.swift */; };
 		63F8B42751FF8B836AFCA2D7806BC425 /* Pods-AWALandscape-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4A6058DD0FEFAEA76DF6B0E7FE376DD /* Pods-AWALandscape-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D1188DBD7F653C919288C69C78C50 /* FontAwesomeTabBarItem.swift */; };
+		65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E0297BFE986203A00A9576CC476DC /* FontAwesomeTabBarItem.swift */; };
 		684E126B8E890761BBB1A4EB590EA1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1F635CBFEE4FA500F70E1982E889 /* SessionDelegate.swift */; };
+		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761315F3643EB2A082E005EF7702F704 /* SessionDelegate.swift */; };
 		7D1FC486C8A3A25126EE7E44C006872B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1298CFE34348CC3B0745E6835EBCE6AF /* Result.swift */; };
+		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7443543D0324F1864BC6BBCCE6E9702 /* Result.swift */; };
 		83F75E4D1A85543F0141FDB29E7DE1ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0FC1ACFA612E70997E1014A91A43E /* AFError.swift */; };
-		A0FDE04EA55712141C77EF2BF50CE87E /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 885745128A241C92D02C08270E77DB2C /* SwiftyJSON-dummy.m */; };
+		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316693A1E49639D47CA24748DFD3DEA3 /* AFError.swift */; };
+		A0FDE04EA55712141C77EF2BF50CE87E /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6364FEAF245A72B65F7A7FB70FFCE5A /* SwiftyJSON-dummy.m */; };
 		A15B63520F0D8538252C7E24F28B8BC9 /* Pods-AWALandscape-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DCB611437D62B6DAD96DDB964E66E /* Pods-AWALandscape-dummy.m */; };
-		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F5400AFEBA49E1E95541909BBFDBE3 /* NetworkReachabilityManager.swift */; };
-		A307E3F52B9A3861E282C8CFDD7DA34F /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E817149D4993F2EF3B98DF4D32A9EC /* youtube-ios-player-helper-dummy.m */; };
-		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC957AAA259C4EC9046077A947667662 /* Alamofire-dummy.m */; };
-		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB91699DE7C7AAF72E6476DD10723F /* SessionManager.swift */; };
-		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889AA42E190E17142173358BE3955F90 /* MultipartFormData.swift */; };
+		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4846FBD3460EC535E20510048E7F31 /* NetworkReachabilityManager.swift */; };
+		A307E3F52B9A3861E282C8CFDD7DA34F /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D710ED83900F533185B760B0E732E499 /* youtube-ios-player-helper-dummy.m */; };
+		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F5D6E2B12BABFE3A314CC3395BFE06 /* Alamofire-dummy.m */; };
+		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B0F52373EE6F0B92E6BDF17E1D2F2 /* SessionManager.swift */; };
+		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17456E8A0452EB31B8610B1C1E2F59B0 /* MultipartFormData.swift */; };
 		B8B8C164EF864FFEB563360BD07DD434 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652BDB07D8EF3EC7D09E4121B8A715F /* Enum.swift */; };
-		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881959A89C6702B23A78FE3731F176D /* Validation.swift */; };
-		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47E149E1CCEC2AE1EC1474D4EF1510 /* ParameterEncoding.swift */; };
-		BF633F876E7B4598582F54A52851CF2C /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EC75316E9576BA7E603980564A6B8D /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = D159A383259A8B09B0A75D5334A3A961 /* FontAwesome.otf */; };
+		BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5C67A676CE895440F566D64AE12BD5 /* Enum.swift */; };
+		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29E9CED038679078F425DE6E46908D2 /* Validation.swift */; };
+		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D5F44117EE9DDBD2D26565F153651E /* ParameterEncoding.swift */; };
+		BF633F876E7B4598582F54A52851CF2C /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7153EC61F316EE08B9B873DE9B04C5 /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F225C113CC417DD7A0F4989C8BB4CE6 /* FontAwesome.otf */; };
 		C4EDDFD00880AD17F1BB7D66948F1D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875793092A12D3A4C2727A749F6D79E /* FontAwesomeImageRepresentable.swift */; };
-		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EE7E288722475488A97B1CF5FD687 /* Response.swift */; };
-		CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC766775C4957E3AE5ED11F72B81DB /* FontAwesomeStateRequirement.swift */; };
+		C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C79FC562AF9C7E9995CBB2B9AD117 /* FontAwesomeImageRepresentable.swift */; };
+		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87850D7B0884917FEEFA74091EC88C05 /* Response.swift */; };
+		CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07676E458F1CCF6E1503E7D2FDE081C8 /* FontAwesomeStateRequirement.swift */; };
 		DAC2CACA22AE100EB261D377EC6FBE3C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */; };
-		E042776A45298EA9669D94FFBAD990BD /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C75793DB36191678D694694D56FC29 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E532DB27AABC461BE3E826D3457B52FD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4D55742296C1304432E9E940BC896 /* SwiftyJSON.swift */; };
-		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485DEA3264922EB3B540706AA4F2F2F /* Notifications.swift */; };
-		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08C0B7FB7221813A3A984BE0F797C0E /* ResponseSerialization.swift */; };
-		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2793FFFEAF0D02E893351D2B76901C9 /* Alamofire.swift */; };
-		FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE4C5FB008EC0BB69F858F3F6639BD /* FontAwesomeTextRepresentable.swift */; };
-		FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6802EAF84584FD8719C1F4F92812B60E /* FontAwesome.swift-dummy.m */; };
+		E042776A45298EA9669D94FFBAD990BD /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD9B4F482B0181239CC664B35DB5C02 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E532DB27AABC461BE3E826D3457B52FD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DD8B0410CB8C69FD3C8D26A126665 /* SwiftyJSON.swift */; };
+		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8A88B391CDCB947B5A578F8E0119A5 /* Notifications.swift */; };
+		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38B46FB2CAA82F2FEC7F90D965BF1A /* ResponseSerialization.swift */; };
+		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE9531E2354257D466BD00ADAAD6D2 /* Alamofire.swift */; };
+		FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9707C37188E1497CACA9E884E1389 /* FontAwesomeTextRepresentable.swift */; };
+		FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCEC520EA651BD27E068AB9C69CD3E3 /* FontAwesome.swift-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,83 +98,94 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01F5400AFEBA49E1E95541909BBFDBE3 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		0652BDB07D8EF3EC7D09E4121B8A715F /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
+		017888EAD65FA1F0A8224FCB1C9B1640 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		01BC4B7029B6FABB7E9D628F59A08EF8 /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeBarButtonItem.swift; path = FontAwesome/FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
+		07676E458F1CCF6E1503E7D2FDE081C8 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
 		0C63FAA195CC72711D86A6C7E5816D45 /* Pods-AWALandscape-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AWALandscape-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1298CFE34348CC3B0745E6835EBCE6AF /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		1DC0FC1ACFA612E70997E1014A91A43E /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		242E84B7E8A59BF02F7C75F5E587197A /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
-		2485DEA3264922EB3B540706AA4F2F2F /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		24EEDB0AC2DEBA29978CE91513A134AC /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		26105A2B5477D1EE66FC4E4D82E8D3FD /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		0C9B2CC84606A4E0A5147EB76CD96755 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		1233238CC8E2431465509C82E5F5474D /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		12C9707C37188E1497CACA9E884E1389 /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTextRepresentable.swift; path = FontAwesome/FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
+		17456E8A0452EB31B8610B1C1E2F59B0 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		1C58F2219C5BCA7D355F4EC0E92F21FA /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		1CB53451114197E4A230731CFF696CEA /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		1E8A88B391CDCB947B5A578F8E0119A5 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		210E13EA965E010493C716CBB60C1631 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
 		27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		2C5A8FFA16F0AFD5539F9941DF9CE49F /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageView.swift; path = FontAwesome/FontAwesomeImageView.swift; sourceTree = "<group>"; };
-		2D9424EEE9F4F8E9311BB0EF6936BF95 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E999C2C82046E2633F07ECD5EC58C3B /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		2B1ED71B2BDF1060EB10D16E13B97ABB /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		316693A1E49639D47CA24748DFD3DEA3 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		36461EB6F6D518A4871EC95CF9262A0F /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		36FF06BA8F525EDD006CC3749940B1EF /* Pods_AWALandscape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AWALandscape.framework; path = "Pods-AWALandscape.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A83C87B2FFE5E6916001754B3AABF3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D486F10DB46F82AF866F958CBF29F96 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F05779A08B79E9702620A4AE33F83C3 /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
-		41AE4C5FB008EC0BB69F858F3F6639BD /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTextRepresentable.swift; path = FontAwesome/FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
+		3F9D990CB9CD43B088AA27CC6054A4F1 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
+		408B0F52373EE6F0B92E6BDF17E1D2F2 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		411AA53100AEAE6FE30ABD6C311C8675 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		413105423E8D82007D9F1E0EFA7D395B /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
 		41C226E8F5F273CBB30B7869096CDDFD /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A2CB8F39E873731509144B09DF1546 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
-		47EC75316E9576BA7E603980564A6B8D /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
-		4875793092A12D3A4C2727A749F6D79E /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
-		493B913CC8BB7F1911B6DE03CEAAC162 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		4C2B3B7427E1DD08519262E79145AEEB /* youtube_ios_player_helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = youtube_ios_player_helper.framework; path = "youtube-ios-player-helper.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F80C02E64E753DFC41880DA599845C8 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
-		50AD2D0CDE28363A6B9F68815226715E /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
-		555C1F635CBFEE4FA500F70E1982E889 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		52AB6821A51AB08F2AB4EF4C425C7F88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		586240A3EA2989A7EF13F2726AA1C8DE /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageView.swift; path = FontAwesome/FontAwesomeImageView.swift; sourceTree = "<group>"; };
+		58C3B4B2B5C5A5E823C95BF09FD9E3D5 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		5916011B5F458311CC7AC2CDF6C21A64 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		59E98B97B93475A14883D2B483AE03EE /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FontAwesome.swift.bundle; path = FontAwesome.swift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D5B023BFC3B70E68317D0DE7D1CA2CD /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		601492D8D0AD45226448596391B9FAC1 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
-		63812F1C5F52F579B999FE622104067F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
+		5E38B46FB2CAA82F2FEC7F90D965BF1A /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		5F0E0297BFE986203A00A9576CC476DC /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTabBarItem.swift; path = FontAwesome/FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		5F225C113CC417DD7A0F4989C8BB4CE6 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
+		61052B18F25F525F0DF5AF0C1F1B9492 /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
 		65B8F7D7D2B9341917A8AB21473E71D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6663D55832D5C99FB6732092702FB486 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		66B6C3776E081309882B5B49744F31CE /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		6802EAF84584FD8719C1F4F92812B60E /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
-		77BC766775C4957E3AE5ED11F72B81DB /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
-		78706436761F442B774CF4A54E11AC9C /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
-		7881959A89C6702B23A78FE3731F176D /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		79E4D55742296C1304432E9E940BC896 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
-		7A5B2290C21C24592E511FA67FEF472C /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
+		6C2CCF4C7CE5620C50DAC1C13706DCBC /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
+		6C5C67A676CE895440F566D64AE12BD5 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
+		7263905A0BB3521B2195F5E33C7FC020 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		761315F3643EB2A082E005EF7702F704 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		77722473C597BA6CF7A982445E0F6C01 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		78FAFB94A58DFABE5454E7177A344807 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
+		7FF47A1552859C91E42C06A466DEA9A7 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		85D5F44117EE9DDBD2D26565F153651E /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		87850D7B0884917FEEFA74091EC88C05 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		8851275E475D7D66EA448E444D895D02 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
-		885745128A241C92D02C08270E77DB2C /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		889AA42E190E17142173358BE3955F90 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		90A97DE9ABDA52FD36307A98902BEF64 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92B0F141C0011BE0AD7CCEF6973A1D71 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		88F5D6E2B12BABFE3A314CC3395BFE06 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		8A4846FBD3460EC535E20510048E7F31 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		8CDE9531E2354257D466BD00ADAAD6D2 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		8EB63B33F26323C58F0A478430196AEB /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
+		9005474B5792D10B7F5E8822AB6ED4B9 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		96D99ECE1752D092E8EAAA17BA491BE6 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		9EB706AC67BFB6FAC9DBBF57C2EEA53C /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
 		A06DCB611437D62B6DAD96DDB964E66E /* Pods-AWALandscape-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AWALandscape-dummy.m"; sourceTree = "<group>"; };
+		A387412BBB4EE2BA8E16AC9892A45AF4 /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
+		A6364FEAF245A72B65F7A7FB70FFCE5A /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A948D195A8881F0CC05FBDF329A2F9A5 /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeBarButtonItem.swift; path = FontAwesome/FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
-		AD5583544BEE52099DB8BE07A2D5B5C1 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		B08C0B7FB7221813A3A984BE0F797C0E /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		B23B1F210C5E13B4C9292D2644D577FA /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		C1E817149D4993F2EF3B98DF4D32A9EC /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
-		C3518DF61547193A2776698A4C7A1F67 /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeSegmentedControl.swift; path = FontAwesome/FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
+		B0625C2113A983D5EF0F16A9DF2C198A /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		B7443543D0324F1864BC6BBCCE6E9702 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		B805732120E3CB4A951EEDF7BFCD0D02 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		B8C1296FEA327FA799DB7E5A8343B43B /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
+		B92C79FC562AF9C7E9995CBB2B9AD117 /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
+		BE740A111F730D49BC1127CA0C22A770 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		C7C75793DB36191678D694694D56FC29 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
-		D0A7EB6A443B7D786EFCA706469768FD /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
-		D159A383259A8B09B0A75D5334A3A961 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
+		C74231DB4047429DD0F22BD32673DB60 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		CB6DD8B0410CB8C69FD3C8D26A126665 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		CFD9B4F482B0181239CC664B35DB5C02 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
 		D15DD75AF6C1A2BDA7D2F1AC60C5B7C3 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_swift.framework; path = FontAwesome.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2793FFFEAF0D02E893351D2B76901C9 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		D46EE7E288722475488A97B1CF5FD687 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		D48D1188DBD7F653C919288C69C78C50 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTabBarItem.swift; path = FontAwesome/FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
-		D63780B12C07DDA1331D5DBBD2A969DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7761245C2223C51A3B93A7C1643568E /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
-		DC957AAA259C4EC9046077A947667662 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		DEF6CB736FAC422AC3FF0200A2BD7388 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
-		E07219A7B174FE0D2BBAD90C9E7B335B /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
-		E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
+		D4A4B5D608781D54E52F49DA97725767 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6DE072B4DEF44538E755E5B59696148 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		D710ED83900F533185B760B0E732E499 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		D93F8BA7B357C111C24D938674653774 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
+		DCCEC520EA651BD27E068AB9C69CD3E3 /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
+		DF720DF2CE73D9363CBC3E37940EE432 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		E1B31EF5B75DD2C387C1552599EBBF24 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		E29E9CED038679078F425DE6E46908D2 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		E90A0B41F9003D2480F1FE735740B6DF /* Pods-AWALandscape.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AWALandscape.modulemap"; sourceTree = "<group>"; };
+		E9F899DA44EED1F6CF5E5C39B837675D /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
 		EC601E88434A42288281D6708898B76C /* Pods-AWALandscape-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AWALandscape-resources.sh"; sourceTree = "<group>"; };
+		ED7E38F2B1E5EE7A4F466CB049CB1DCA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		EDFE93CC7374C5AD2C453B1230B7549B /* Pods-AWALandscape-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AWALandscape-frameworks.sh"; sourceTree = "<group>"; };
 		F04F253A4EE6682C4DB85A57D4303E85 /* Pods-AWALandscape-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AWALandscape-acknowledgements.plist"; sourceTree = "<group>"; };
-		F1DB91699DE7C7AAF72E6476DD10723F /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		F141A6F1BF31538E3B939129C3410012 /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeSegmentedControl.swift; path = FontAwesome/FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
 		F4A6058DD0FEFAEA76DF6B0E7FE376DD /* Pods-AWALandscape-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AWALandscape-umbrella.h"; sourceTree = "<group>"; };
-		F65DF2DE05DDC28009A9735F13EA2D0A /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
-		FA47E149E1CCEC2AE1EC1474D4EF1510 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		F5B4F0DB9106D93BAACE5FE5EEDBA175 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		F6E8E0B49DFBCAE199D497C5400F1788 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		FB1BE60184218CE822784C2E769C981E /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		FF7153EC61F316EE08B9B873DE9B04C5 /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,12 +241,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1212634E492667003087D6AB106D7645 /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				1C58F2219C5BCA7D355F4EC0E92F21FA /* ANSCompatibility.h */,
+				C74231DB4047429DD0F22BD32673DB60 /* Answers.h */,
+				210E13EA965E010493C716CBB60C1631 /* CLSAttributes.h */,
+				D6DE072B4DEF44538E755E5B59696148 /* CLSLogging.h */,
+				B0625C2113A983D5EF0F16A9DF2C198A /* CLSReport.h */,
+				7FF47A1552859C91E42C06A466DEA9A7 /* CLSStackFrame.h */,
+				2B1ED71B2BDF1060EB10D16E13B97ABB /* Crashlytics.h */,
+				9305C3CC9C4894E3E7FE11DE185DBCE7 /* Frameworks */,
+			);
+			name = Crashlytics;
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FF1CA95E532A8F990E19506982FA04EE /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12CC404128BE689429EDAABB14EDEDE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				187D2A64DC86A4E5E8E2FAE29CC8C4F1 /* Alamofire */,
+				1212634E492667003087D6AB106D7645 /* Crashlytics */,
+				C970259A43C2123DE90EB6955EFCAA6B /* Fabric */,
+				B8A79DF4C9ED16E59083A63AC3E9A280 /* FontAwesome.swift */,
+				DF4271DC9C66AF7035427B64E3954E3A /* SwiftyJSON */,
+				6BD56DEE2D8A63AD710DD4DC6E1C4C12 /* youtube-ios-player-helper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		187D2A64DC86A4E5E8E2FAE29CC8C4F1 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				316693A1E49639D47CA24748DFD3DEA3 /* AFError.swift */,
+				8CDE9531E2354257D466BD00ADAAD6D2 /* Alamofire.swift */,
+				B805732120E3CB4A951EEDF7BFCD0D02 /* DispatchQueue+Alamofire.swift */,
+				17456E8A0452EB31B8610B1C1E2F59B0 /* MultipartFormData.swift */,
+				8A4846FBD3460EC535E20510048E7F31 /* NetworkReachabilityManager.swift */,
+				1E8A88B391CDCB947B5A578F8E0119A5 /* Notifications.swift */,
+				85D5F44117EE9DDBD2D26565F153651E /* ParameterEncoding.swift */,
+				77722473C597BA6CF7A982445E0F6C01 /* Request.swift */,
+				87850D7B0884917FEEFA74091EC88C05 /* Response.swift */,
+				5E38B46FB2CAA82F2FEC7F90D965BF1A /* ResponseSerialization.swift */,
+				B7443543D0324F1864BC6BBCCE6E9702 /* Result.swift */,
+				F5B4F0DB9106D93BAACE5FE5EEDBA175 /* ServerTrustPolicy.swift */,
+				761315F3643EB2A082E005EF7702F704 /* SessionDelegate.swift */,
+				408B0F52373EE6F0B92E6BDF17E1D2F2 /* SessionManager.swift */,
+				E1B31EF5B75DD2C387C1552599EBBF24 /* TaskDelegate.swift */,
+				411AA53100AEAE6FE30ABD6C311C8675 /* Timeline.swift */,
+				E29E9CED038679078F425DE6E46908D2 /* Validation.swift */,
+				311426B3E0958065E1824282319ED961 /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		1ACA104C51E488330C069862EFC8D350 /* Products */ = {
@@ -251,89 +317,53 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3134CEDF48D5F09ABD83CCE921BE95C6 /* Support Files */ = {
+		311426B3E0958065E1824282319ED961 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D7761245C2223C51A3B93A7C1643568E /* FontAwesome.swift.modulemap */,
-				E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */,
-				6802EAF84584FD8719C1F4F92812B60E /* FontAwesome.swift-dummy.m */,
-				F65DF2DE05DDC28009A9735F13EA2D0A /* FontAwesome.swift-prefix.pch */,
-				D0A7EB6A443B7D786EFCA706469768FD /* FontAwesome.swift-umbrella.h */,
-				2D9424EEE9F4F8E9311BB0EF6936BF95 /* Info.plist */,
-				50AD2D0CDE28363A6B9F68815226715E /* ResourceBundle-FontAwesome.swift-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FontAwesome.swift";
-			sourceTree = "<group>";
-		};
-		42A3C43B5A8F39F86B89A328F52BC761 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				78706436761F442B774CF4A54E11AC9C /* Assets.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		48BA476B57E44856C8F1E4D3D52F2200 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D63780B12C07DDA1331D5DBBD2A969DA /* Info.plist */,
-				AD5583544BEE52099DB8BE07A2D5B5C1 /* SwiftyJSON.modulemap */,
-				4F80C02E64E753DFC41880DA599845C8 /* SwiftyJSON.xcconfig */,
-				885745128A241C92D02C08270E77DB2C /* SwiftyJSON-dummy.m */,
-				6663D55832D5C99FB6732092702FB486 /* SwiftyJSON-prefix.pch */,
-				601492D8D0AD45226448596391B9FAC1 /* SwiftyJSON-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftyJSON";
-			sourceTree = "<group>";
-		};
-		4B9A4283B5D0F3A1AFB75382A2EC7A94 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				1DC0FC1ACFA612E70997E1014A91A43E /* AFError.swift */,
-				D2793FFFEAF0D02E893351D2B76901C9 /* Alamofire.swift */,
-				B23B1F210C5E13B4C9292D2644D577FA /* DispatchQueue+Alamofire.swift */,
-				889AA42E190E17142173358BE3955F90 /* MultipartFormData.swift */,
-				01F5400AFEBA49E1E95541909BBFDBE3 /* NetworkReachabilityManager.swift */,
-				2485DEA3264922EB3B540706AA4F2F2F /* Notifications.swift */,
-				FA47E149E1CCEC2AE1EC1474D4EF1510 /* ParameterEncoding.swift */,
-				66B6C3776E081309882B5B49744F31CE /* Request.swift */,
-				D46EE7E288722475488A97B1CF5FD687 /* Response.swift */,
-				B08C0B7FB7221813A3A984BE0F797C0E /* ResponseSerialization.swift */,
-				1298CFE34348CC3B0745E6835EBCE6AF /* Result.swift */,
-				96D99ECE1752D092E8EAAA17BA491BE6 /* ServerTrustPolicy.swift */,
-				555C1F635CBFEE4FA500F70E1982E889 /* SessionDelegate.swift */,
-				F1DB91699DE7C7AAF72E6476DD10723F /* SessionManager.swift */,
-				26105A2B5477D1EE66FC4E4D82E8D3FD /* TaskDelegate.swift */,
-				2E999C2C82046E2633F07ECD5EC58C3B /* Timeline.swift */,
-				7881959A89C6702B23A78FE3731F176D /* Validation.swift */,
-				550EA9B33C19F1CC63069E383FAE67AC /* Support Files */,
-			);
-			name = Alamofire;
-			path = Alamofire;
-			sourceTree = "<group>";
-		};
-		550EA9B33C19F1CC63069E383FAE67AC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5D5B023BFC3B70E68317D0DE7D1CA2CD /* Alamofire.modulemap */,
-				E07219A7B174FE0D2BBAD90C9E7B335B /* Alamofire.xcconfig */,
-				DC957AAA259C4EC9046077A947667662 /* Alamofire-dummy.m */,
-				24EEDB0AC2DEBA29978CE91513A134AC /* Alamofire-prefix.pch */,
-				493B913CC8BB7F1911B6DE03CEAAC162 /* Alamofire-umbrella.h */,
-				90A97DE9ABDA52FD36307A98902BEF64 /* Info.plist */,
+				FB1BE60184218CE822784C2E769C981E /* Alamofire.modulemap */,
+				36461EB6F6D518A4871EC95CF9262A0F /* Alamofire.xcconfig */,
+				88F5D6E2B12BABFE3A314CC3395BFE06 /* Alamofire-dummy.m */,
+				BE740A111F730D49BC1127CA0C22A770 /* Alamofire-prefix.pch */,
+				F6E8E0B49DFBCAE199D497C5400F1788 /* Alamofire-umbrella.h */,
+				52AB6821A51AB08F2AB4EF4C425C7F88 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		5BDFB47C646B09358789829D8F306A7A /* Resources */ = {
+		4B0CDB9DA15D88AC089E88161E5FBF73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D159A383259A8B09B0A75D5334A3A961 /* FontAwesome.otf */,
+				6C2CCF4C7CE5620C50DAC1C13706DCBC /* Assets.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		537569F31370762F21F840DB5DFD6E97 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9005474B5792D10B7F5E8822AB6ED4B9 /* FontAwesome.swift.modulemap */,
+				5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */,
+				DCCEC520EA651BD27E068AB9C69CD3E3 /* FontAwesome.swift-dummy.m */,
+				A387412BBB4EE2BA8E16AC9892A45AF4 /* FontAwesome.swift-prefix.pch */,
+				3F9D990CB9CD43B088AA27CC6054A4F1 /* FontAwesome.swift-umbrella.h */,
+				37A83C87B2FFE5E6916001754B3AABF3 /* Info.plist */,
+				78FAFB94A58DFABE5454E7177A344807 /* ResourceBundle-FontAwesome.swift-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome.swift";
+			sourceTree = "<group>";
+		};
+		6BD56DEE2D8A63AD710DD4DC6E1C4C12 /* youtube-ios-player-helper */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9B4F482B0181239CC664B35DB5C02 /* YTPlayerView.h */,
+				B8C1296FEA327FA799DB7E5A8343B43B /* YTPlayerView.m */,
+				4B0CDB9DA15D88AC089E88161E5FBF73 /* Resources */,
+				888020306062DC9778130FF0BBF99988 /* Support Files */,
+			);
+			name = "youtube-ios-player-helper";
+			path = "youtube-ios-player-helper";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -341,20 +371,24 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				A512E668771D713E490EF5AB53C99FCB /* Pods */,
+				12CC404128BE689429EDAABB14EDEDE9 /* Pods */,
 				1ACA104C51E488330C069862EFC8D350 /* Products */,
 				9E5CA6C25F7FEE67DAE0CD84E0EC5872 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		859CA1AB37AA8AB4D53C7D1FBF6CF61A /* SwiftyJSON */ = {
+		888020306062DC9778130FF0BBF99988 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				79E4D55742296C1304432E9E940BC896 /* SwiftyJSON.swift */,
-				48BA476B57E44856C8F1E4D3D52F2200 /* Support Files */,
+				7263905A0BB3521B2195F5E33C7FC020 /* Info.plist */,
+				61052B18F25F525F0DF5AF0C1F1B9492 /* youtube-ios-player-helper.modulemap */,
+				413105423E8D82007D9F1E0EFA7D395B /* youtube-ios-player-helper.xcconfig */,
+				D710ED83900F533185B760B0E732E499 /* youtube-ios-player-helper-dummy.m */,
+				0C9B2CC84606A4E0A5147EB76CD96755 /* youtube-ios-player-helper-prefix.pch */,
+				FF7153EC61F316EE08B9B873DE9B04C5 /* youtube-ios-player-helper-umbrella.h */,
 			);
-			name = SwiftyJSON;
-			path = SwiftyJSON;
+			name = "Support Files";
+			path = "../Target Support Files/youtube-ios-player-helper";
 			sourceTree = "<group>";
 		};
 		8ECD655F91094E6D8959C571BA4E74F9 /* Pods-AWALandscape */ = {
@@ -375,36 +409,12 @@
 			path = "Target Support Files/Pods-AWALandscape";
 			sourceTree = "<group>";
 		};
-		92128FE9EFE21191C382F07049D3AB13 /* youtube-ios-player-helper */ = {
+		9305C3CC9C4894E3E7FE11DE185DBCE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7C75793DB36191678D694694D56FC29 /* YTPlayerView.h */,
-				DEF6CB736FAC422AC3FF0200A2BD7388 /* YTPlayerView.m */,
-				42A3C43B5A8F39F86B89A328F52BC761 /* Resources */,
-				A2D6C3B97AF52760144E419CE4334A4C /* Support Files */,
+				ED7E38F2B1E5EE7A4F466CB049CB1DCA /* Crashlytics.framework */,
 			);
-			name = "youtube-ios-player-helper";
-			path = "youtube-ios-player-helper";
-			sourceTree = "<group>";
-		};
-		9444B91C0B94F2E5EE1B0EEC89E0BC59 /* FontAwesome.swift */ = {
-			isa = PBXGroup;
-			children = (
-				0652BDB07D8EF3EC7D09E4121B8A715F /* Enum.swift */,
-				242E84B7E8A59BF02F7C75F5E587197A /* FontAwesome.swift */,
-				A948D195A8881F0CC05FBDF329A2F9A5 /* FontAwesomeBarButtonItem.swift */,
-				4875793092A12D3A4C2727A749F6D79E /* FontAwesomeImageRepresentable.swift */,
-				2C5A8FFA16F0AFD5539F9941DF9CE49F /* FontAwesomeImageView.swift */,
-				C3518DF61547193A2776698A4C7A1F67 /* FontAwesomeSegmentedControl.swift */,
-				77BC766775C4957E3AE5ED11F72B81DB /* FontAwesomeStateRequirement.swift */,
-				D48D1188DBD7F653C919288C69C78C50 /* FontAwesomeTabBarItem.swift */,
-				41AE4C5FB008EC0BB69F858F3F6639BD /* FontAwesomeTextRepresentable.swift */,
-				7A5B2290C21C24592E511FA67FEF472C /* FontAwesomeView.swift */,
-				5BDFB47C646B09358789829D8F306A7A /* Resources */,
-				3134CEDF48D5F09ABD83CCE921BE95C6 /* Support Files */,
-			);
-			name = FontAwesome.swift;
-			path = FontAwesome.swift;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9E5CA6C25F7FEE67DAE0CD84E0EC5872 /* Targets Support Files */ = {
@@ -415,29 +425,75 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A2D6C3B97AF52760144E419CE4334A4C /* Support Files */ = {
+		AEA6CA8302E7D995E6BF07B87D9C9B3C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				63812F1C5F52F579B999FE622104067F /* Info.plist */,
-				3F05779A08B79E9702620A4AE33F83C3 /* youtube-ios-player-helper.modulemap */,
-				9EB706AC67BFB6FAC9DBBF57C2EEA53C /* youtube-ios-player-helper.xcconfig */,
-				C1E817149D4993F2EF3B98DF4D32A9EC /* youtube-ios-player-helper-dummy.m */,
-				92B0F141C0011BE0AD7CCEF6973A1D71 /* youtube-ios-player-helper-prefix.pch */,
-				47EC75316E9576BA7E603980564A6B8D /* youtube-ios-player-helper-umbrella.h */,
+				D4A4B5D608781D54E52F49DA97725767 /* Info.plist */,
+				DF720DF2CE73D9363CBC3E37940EE432 /* SwiftyJSON.modulemap */,
+				5916011B5F458311CC7AC2CDF6C21A64 /* SwiftyJSON.xcconfig */,
+				A6364FEAF245A72B65F7A7FB70FFCE5A /* SwiftyJSON-dummy.m */,
+				58C3B4B2B5C5A5E823C95BF09FD9E3D5 /* SwiftyJSON-prefix.pch */,
+				1233238CC8E2431465509C82E5F5474D /* SwiftyJSON-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/youtube-ios-player-helper";
+			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
-		A512E668771D713E490EF5AB53C99FCB /* Pods */ = {
+		B766E55777AD8CE4255791ADBE2835E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B9A4283B5D0F3A1AFB75382A2EC7A94 /* Alamofire */,
-				9444B91C0B94F2E5EE1B0EEC89E0BC59 /* FontAwesome.swift */,
-				859CA1AB37AA8AB4D53C7D1FBF6CF61A /* SwiftyJSON */,
-				92128FE9EFE21191C382F07049D3AB13 /* youtube-ios-player-helper */,
+				017888EAD65FA1F0A8224FCB1C9B1640 /* Fabric.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8A79DF4C9ED16E59083A63AC3E9A280 /* FontAwesome.swift */ = {
+			isa = PBXGroup;
+			children = (
+				6C5C67A676CE895440F566D64AE12BD5 /* Enum.swift */,
+				D93F8BA7B357C111C24D938674653774 /* FontAwesome.swift */,
+				01BC4B7029B6FABB7E9D628F59A08EF8 /* FontAwesomeBarButtonItem.swift */,
+				B92C79FC562AF9C7E9995CBB2B9AD117 /* FontAwesomeImageRepresentable.swift */,
+				586240A3EA2989A7EF13F2726AA1C8DE /* FontAwesomeImageView.swift */,
+				F141A6F1BF31538E3B939129C3410012 /* FontAwesomeSegmentedControl.swift */,
+				07676E458F1CCF6E1503E7D2FDE081C8 /* FontAwesomeStateRequirement.swift */,
+				5F0E0297BFE986203A00A9576CC476DC /* FontAwesomeTabBarItem.swift */,
+				12C9707C37188E1497CACA9E884E1389 /* FontAwesomeTextRepresentable.swift */,
+				8EB63B33F26323C58F0A478430196AEB /* FontAwesomeView.swift */,
+				E3527BD6D27544C87B9ABACAECA69D1A /* Resources */,
+				537569F31370762F21F840DB5DFD6E97 /* Support Files */,
+			);
+			name = FontAwesome.swift;
+			path = FontAwesome.swift;
+			sourceTree = "<group>";
+		};
+		C970259A43C2123DE90EB6955EFCAA6B /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				E9F899DA44EED1F6CF5E5C39B837675D /* FABAttributes.h */,
+				1CB53451114197E4A230731CFF696CEA /* Fabric.h */,
+				B766E55777AD8CE4255791ADBE2835E3 /* Frameworks */,
+			);
+			name = Fabric;
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		DF4271DC9C66AF7035427B64E3954E3A /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				CB6DD8B0410CB8C69FD3C8D26A126665 /* SwiftyJSON.swift */,
+				AEA6CA8302E7D995E6BF07B87D9C9B3C /* Support Files */,
+			);
+			name = SwiftyJSON;
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		E3527BD6D27544C87B9ABACAECA69D1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F225C113CC417DD7A0F4989C8BB4CE6 /* FontAwesome.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		FF1CA95E532A8F990E19506982FA04EE /* iOS */ = {
@@ -779,7 +835,7 @@
 /* Begin XCBuildConfiguration section */
 		077C4BB7DBEAA715DED46C057DC8051C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07219A7B174FE0D2BBAD90C9E7B335B /* Alamofire.xcconfig */;
+			baseConfigurationReference = 36461EB6F6D518A4871EC95CF9262A0F /* Alamofire.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -814,7 +870,7 @@
 		};
 		09C458EE2547699BC1B208E2D0C8A96F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F80C02E64E753DFC41880DA599845C8 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 5916011B5F458311CC7AC2CDF6C21A64 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -849,7 +905,7 @@
 		};
 		0FDFD0914F226F60E35F5088944B6E30 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = 5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -866,7 +922,7 @@
 		};
 		259E47CC3F616A61121F9DFF5A8D4268 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F80C02E64E753DFC41880DA599845C8 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 5916011B5F458311CC7AC2CDF6C21A64 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -901,7 +957,7 @@
 		};
 		5780F51D2E35699F74CD4234273DB778 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EB706AC67BFB6FAC9DBBF57C2EEA53C /* youtube-ios-player-helper.xcconfig */;
+			baseConfigurationReference = 413105423E8D82007D9F1E0EFA7D395B /* youtube-ios-player-helper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -935,7 +991,7 @@
 		};
 		5D86AB6C172822262B389100E923CCCA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = 5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -970,7 +1026,7 @@
 		};
 		84A6B36FE525798FA0C6D208F85F8AD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EB706AC67BFB6FAC9DBBF57C2EEA53C /* youtube-ios-player-helper.xcconfig */;
+			baseConfigurationReference = 413105423E8D82007D9F1E0EFA7D395B /* youtube-ios-player-helper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1174,7 +1230,7 @@
 		};
 		BF8B8B9562BB1696903DDFC5B4E72907 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = 5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1209,7 +1265,7 @@
 		};
 		D60F8C4DE6B0D221A33959774DA3DAFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07219A7B174FE0D2BBAD90C9E7B335B /* Alamofire.xcconfig */;
+			baseConfigurationReference = 36461EB6F6D518A4871EC95CF9262A0F /* Alamofire.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1244,7 +1300,7 @@
 		};
 		E0721897CFC7A1D36B4C8FA9C5BBB934 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89FD39FC3EF3FDC9F4468C5A9465417 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = 5A4BBD358DB92DC53CF168C2C3A18E26 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
