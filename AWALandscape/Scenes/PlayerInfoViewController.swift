@@ -73,7 +73,7 @@ class PlayerInfoViewController: UIViewController {
         }
     }
     
-    func setUI() {
+    func prepare() {
     }
 }
 

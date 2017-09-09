@@ -24,6 +24,7 @@ class MasterViewController: UIViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
     @IBOutlet weak var playingSlider: UISlider!
+    @IBOutlet weak var playerView: UIView!
     
     let musicManager = MusicManager.shared
     
@@ -50,10 +51,12 @@ class MasterViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let playerViewController = PlayerViewController.instantiate()
-        addChildViewController(playerViewController)
-        playerViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playerViewController.view)
+        
+        let playlistViewController = PlaylistListViewController.instantiate()
+        addChildViewController(playlistViewController)
+        playlistViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playlistViewController.view)
+        playlistViewController.delegate = self
         
         playButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
         playButton.titleLabel?.textAlignment = .center
@@ -101,7 +104,6 @@ class MasterViewController: UIViewController {
         _ = musicManager.play()
     }
     
-    
     @IBAction func valueChangedPlayingSlider(_ sender: Any) {
         
         musicManager.setTime(TimeInterval(playingSlider.value))
@@ -133,7 +135,75 @@ class MasterViewController: UIViewController {
         
         musicManager.previousMusic()
     }
+}
+
+extension MasterViewController: PlaylistListViewControllerDelegate {
     
+    func switchPlayerViewController(_ oldViewController: UIViewController, sender: Int) {
+        
+        oldViewController.willMove(toParentViewController: nil)
+        let playerViewController = PlayerViewController.instantiate()
+        playerViewController.currentAlbum = sender
+        playerViewController.masterDelegate = self
+        addChildViewController(playerViewController)
+        playerViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playerViewController.view)
+        playerViewController.view.alpha = 0
+        playerViewController.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            playerViewController.view.alpha = 1
+            oldViewController.view.alpha = 0
+        }, completion: { _ in
+            
+            oldViewController.view.removeFromSuperview()
+            oldViewController.removeFromParentViewController()
+            playerViewController.didMove(toParentViewController: self)
+        })
+    }
+}
+
+extension MasterViewController: PlayerViewControllerToMasterDelegate {
+    
+    func switchPlaylistViewController(_ oldViewController: UIViewController) {
+        
+        oldViewController.willMove(toParentViewController: nil)
+        let playlistViewController = PlaylistListViewController.instantiate()
+        addChildViewController(playlistViewController)
+        playlistViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playlistViewController.view)
+        playlistViewController.delegate = self
+        playlistViewController.view.alpha = 0
+        playlistViewController.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            playlistViewController.view.alpha = 1
+            oldViewController.view.alpha = 0
+        }, completion: { _ in
+            
+            oldViewController.view.removeFromSuperview()
+            oldViewController.removeFromParentViewController()
+            playlistViewController.didMove(toParentViewController: self)
+        })
+    }
+    
+    func hideMasterView() {
+        
+        playerView.alpha = 0.0
+        playButton.alpha = 0.0
+        forwardButton.alpha = 0.0
+        backwardButton.alpha = 0.0
+        playingSlider.alpha = 0.0
+    }
+    
+    func showMasterView() {
+        
+        playerView.alpha = 1.0
+        playButton.alpha = 1.0
+        forwardButton.alpha = 1.0
+        backwardButton.alpha = 1.0
+        playingSlider.alpha = 1.0
+    }
 }
 
 // MARK: - Music

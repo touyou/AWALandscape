@@ -1,19 +1,79 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="mplus-1c-bold.ttf">
+            <string>mplus-1c-bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlaylistCollectionViewCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlaylistCollectionViewCell" customModule="AWALandscape" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="521" height="347"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <rect key="frame" x="0.0" y="0.0" width="521" height="347"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-Mp-W1M">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="347"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nlH-Mp-W1M" secondAttribute="height" multiplier="347:347" id="cV4-Tv-p3Q"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-Rl-URd">
+                        <rect key="frame" x="347" y="0.0" width="173.5" height="173.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Fci-Rl-URd" secondAttribute="height" multiplier="135:135" id="pfd-Kv-JCS"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yec-gi-wZf">
+                        <rect key="frame" x="347" y="173.5" width="173.5" height="173.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="yec-gi-wZf" secondAttribute="height" multiplier="8:8" id="9TY-YN-tG7"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-bj-T7f">
+                        <rect key="frame" x="231.5" y="158" width="58" height="31.5"/>
+                        <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="21"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <size key="shadowOffset" width="2" height="2"/>
+                    </label>
+                </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="yec-gi-wZf" firstAttribute="leading" secondItem="nlH-Mp-W1M" secondAttribute="trailing" id="4co-zD-2JV"/>
+                <constraint firstAttribute="bottom" secondItem="nlH-Mp-W1M" secondAttribute="bottom" id="66V-2I-jXm"/>
+                <constraint firstItem="yec-gi-wZf" firstAttribute="height" secondItem="Fci-Rl-URd" secondAttribute="height" id="7uA-9p-bt9"/>
+                <constraint firstItem="nlH-Mp-W1M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eRP-xC-Yor"/>
+                <constraint firstItem="xjf-bj-T7f" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ep9-US-ilj"/>
+                <constraint firstItem="yec-gi-wZf" firstAttribute="top" secondItem="Fci-Rl-URd" secondAttribute="bottom" id="gCU-au-2er"/>
+                <constraint firstItem="nlH-Mp-W1M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lw5-uU-Hmq"/>
+                <constraint firstItem="Fci-Rl-URd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ocI-mi-Ik5"/>
+                <constraint firstItem="xjf-bj-T7f" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pME-jl-KQr"/>
+                <constraint firstAttribute="trailing" secondItem="Fci-Rl-URd" secondAttribute="trailing" id="rxz-eY-f9I"/>
+                <constraint firstItem="Fci-Rl-URd" firstAttribute="leading" secondItem="nlH-Mp-W1M" secondAttribute="trailing" id="uP2-pu-8Ec"/>
+                <constraint firstAttribute="bottom" secondItem="yec-gi-wZf" secondAttribute="bottom" id="z3m-1C-2or"/>
+            </constraints>
+            <size key="customSize" width="521" height="347"/>
+            <connections>
+                <outlet property="mainImageView" destination="nlH-Mp-W1M" id="eCh-TI-MAu"/>
+                <outlet property="sub1ImageView" destination="Fci-Rl-URd" id="cSP-4P-Fqo"/>
+                <outlet property="sub2ImageView" destination="yec-gi-wZf" id="5BH-1v-wju"/>
+                <outlet property="titleLabel" destination="xjf-bj-T7f" id="odt-fO-MeR"/>
+            </connections>
+            <point key="canvasLocation" x="-40" y="43"/>
         </collectionViewCell>
     </objects>
 </document>

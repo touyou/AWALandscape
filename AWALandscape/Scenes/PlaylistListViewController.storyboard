@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Playlist List View Controller-->
         <scene sceneID="e9b-dp-wfX">
             <objects>
-                <viewController id="17x-7E-BNd" sceneMemberID="viewController">
+                <viewController id="17x-7E-BNd" customClass="PlaylistListViewController" customModule="AWALandscape" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PwF-dm-hZN"/>
                         <viewControllerLayoutGuide type="bottom" id="aNX-GZ-8nl"/>
@@ -29,21 +30,65 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" id="Rr2-qS-imj">
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFM-9c-bxd">
+                                <rect key="frame" x="619" y="50" width="8" height="275"/>
+                                <color key="backgroundColor" red="0.35295397039999998" green="0.3487279117" blue="0.36524289850000002" alpha="0.80267935739999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="L12-fN-DFc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5T-bk-DFg">
+                                <rect key="frame" x="611" y="50" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="qgV-VE-DsO"/>
+                                    <constraint firstAttribute="width" constant="24" id="yA7-4z-wIj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="R5T-bk-DFg" firstAttribute="centerX" secondItem="PFM-9c-bxd" secondAttribute="centerX" id="2TJ-NH-vu1"/>
                             <constraint firstItem="HY7-AL-SaR" firstAttribute="leading" secondItem="el1-3M-eor" secondAttribute="leading" id="9Et-Qz-k7M"/>
                             <constraint firstItem="aNX-GZ-8nl" firstAttribute="top" secondItem="HY7-AL-SaR" secondAttribute="bottom" id="AN7-tf-4aQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PFM-9c-bxd" secondAttribute="trailing" constant="20" id="NHa-fh-72T"/>
                             <constraint firstAttribute="trailing" secondItem="HY7-AL-SaR" secondAttribute="trailing" id="SiE-Pg-eLP"/>
+                            <constraint firstItem="PFM-9c-bxd" firstAttribute="top" secondItem="el1-3M-eor" secondAttribute="topMargin" constant="50" id="Xg0-Tl-nY3"/>
+                            <constraint firstItem="aNX-GZ-8nl" firstAttribute="top" secondItem="PFM-9c-bxd" secondAttribute="bottom" constant="50" id="YCS-wN-y17"/>
                             <constraint firstItem="HY7-AL-SaR" firstAttribute="top" secondItem="el1-3M-eor" secondAttribute="top" id="f3q-pD-lD9"/>
+                            <constraint firstItem="R5T-bk-DFg" firstAttribute="top" secondItem="PFM-9c-bxd" secondAttribute="top" id="nV6-5q-z5b"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="HY7-AL-SaR" id="I38-u7-KeB"/>
+                        <outlet property="playConstraint" destination="2TJ-NH-vu1" id="AEE-a5-XAb"/>
+                        <outlet property="scrollBarView" destination="PFM-9c-bxd" id="lSc-9u-QsB"/>
+                        <outlet property="sliderConstraint" destination="nV6-5q-z5b" id="GjC-S6-TDP"/>
+                        <outlet property="thumbView" destination="R5T-bk-DFg" id="gRn-Zb-o6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ym-KH-1xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6.746626686656672" y="-31.199999999999999"/>
+            <point key="canvasLocation" x="45.42728635682159" y="-34.399999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sample_background" width="667" height="375"/>
+    </resources>
 </document>

@@ -75,12 +75,22 @@ class MusicManager: NSObject {
             _ = pause()
             setMusic(items[currentItem])
             _ = play()
-            print("再生")
         }
     }
     var currentAlbum: Int = 0
     
     override init() {
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+        }
+        
+        do {
+            try session.setActive(true)
+        } catch {
+        }
     }
     
     public func setMusic(_ music: MPMediaItem) {

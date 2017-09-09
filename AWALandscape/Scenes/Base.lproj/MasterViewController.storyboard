@@ -146,6 +146,7 @@
                         <outlet property="forwardButton" destination="OV0-Eh-fMY" id="vgf-3h-5p9"/>
                         <outlet property="mainContainerView" destination="7eW-BM-GqA" id="f0s-6U-RTQ"/>
                         <outlet property="playButton" destination="tTB-TP-cdC" id="4AS-ng-Mia"/>
+                        <outlet property="playerView" destination="6tz-4F-VHu" id="kRo-RX-Web"/>
                         <outlet property="playingSlider" destination="JVL-ed-c0c" id="uO0-Ka-bSi"/>
                         <outlet property="titleLabel" destination="AxE-12-QYc" id="WC1-BT-iQj"/>
                     </connections>
