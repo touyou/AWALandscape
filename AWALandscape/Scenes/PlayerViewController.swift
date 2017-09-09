@@ -96,13 +96,19 @@ class PlayerViewController: UIViewController {
             
             musicManager.currentAlbum = currentAlbum
             items = musicManager.playlist?.items
+            currentItem = -1
+            
+            if artworkListViewController != nil {
+                
+                artworkListViewController.items = items
+            }
         }
     }
     var currentItem: Int = -1 {
         
         didSet {
             
-            if oldValue == currentItem {
+            if oldValue == currentItem || currentItem == -1 {
                 
                 return
             }
@@ -195,6 +201,9 @@ extension PlayerViewController {
         if keyPath == "currentItem" {
             
             currentItem = change?[.newKey] as! Int
+        } else if keyPath == "currentAlbum" {
+            
+            sliderConstraint.constant = 0.0
         }
     }
 }

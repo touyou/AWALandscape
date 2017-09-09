@@ -15,6 +15,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     @IBOutlet weak var sub1ImageView: UIImageView!
     @IBOutlet weak var sub2ImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var miniTitleLabel: UILabel!
     
     let musicManager = MusicManager.shared
     
@@ -29,6 +30,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             }
             
             titleLabel.text = musicManager.playlists?[currentAlbum].value(forKeyPath: MPMediaPlaylistPropertyName) as? String
+            miniTitleLabel.text = titleLabel.text
             images.removeAll()
             for item in items {
                 

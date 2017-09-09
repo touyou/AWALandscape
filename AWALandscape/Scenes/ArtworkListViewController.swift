@@ -32,6 +32,7 @@ class ArtworkListViewController: UIViewController {
         }
     }
     
+    let musicManager = MusicManager.shared
     let centerThreshold: CGFloat = UIScreen.main.bounds.width / 6
     var length: CGFloat = 0.0
     var items: [MPMediaItem]! {
@@ -56,6 +57,12 @@ class ArtworkListViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
     }
 }
 
@@ -81,6 +88,7 @@ extension ArtworkListViewController: UICollectionViewDataSource {
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
         }
+        cell.miniTitleLabel.isHidden = true
         
         return cell
     }
@@ -117,7 +125,19 @@ extension ArtworkListViewController: UICollectionViewDelegate {
                 collectionView.bringSubview(toFront: cell)
             }
         }
+    }
+}
 
+extension ArtworkListViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "currentAlbum" {
+            
+            print("change Album")
+            collectionView.reloadData()
+            collectionView.contentOffset = CGPoint(x: 0.0, y: collectionView.contentOffset.y)
+        }
     }
 }
 

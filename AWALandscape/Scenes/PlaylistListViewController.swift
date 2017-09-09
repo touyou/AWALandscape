@@ -221,6 +221,7 @@ extension PlaylistListViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! PlaylistCollectionViewCell
         cell.currentAlbum = indexPath.row
+        cell.miniTitleLabel.isHidden = true
         return cell
     }
 }
