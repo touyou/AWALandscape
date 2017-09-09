@@ -36,7 +36,13 @@ class MusicManager: NSObject {
         
         get {
             
-            return playlists?[currentAlbum]
+            if currentAlbum != -1 {
+            
+                return playlists?[currentAlbum]
+            } else {
+                
+                return nil
+            }
         }
     }
     var lyric: String? = "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた"
@@ -75,12 +81,22 @@ class MusicManager: NSObject {
             _ = pause()
             setMusic(items[currentItem])
             _ = play()
-            print("再生")
         }
     }
-    var currentAlbum: Int = 0
+    dynamic var currentAlbum: Int = -1
     
     override init() {
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+        }
+        
+        do {
+            try session.setActive(true)
+        } catch {
+        }
     }
     
     public func setMusic(_ music: MPMediaItem) {
@@ -149,11 +165,13 @@ class MusicManager: NSObject {
     public func addObserve(_ observer: NSObject) {
         
         MusicManager.shared.addObserver(observer, forKeyPath: "currentItem", options: [.new], context: nil)
+        MusicManager.shared.addObserver(observer, forKeyPath: "currentAlbum", options: [.new], context: nil)
     }
     
     public func removeObserve(_ observer: NSObject) {
         
         MusicManager.shared.removeObserver(observer, forKeyPath: "currentItem")
+        MusicManager.shared.removeObserver(observer, forKeyPath: "currentAlbum")
     }
 }
 

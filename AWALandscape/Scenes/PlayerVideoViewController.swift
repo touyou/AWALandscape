@@ -18,7 +18,10 @@ class PlayerVideoViewController: UIViewController {
         
         didSet {
             
-            playerView.delegate = self
+            if let id = id {
+                
+                playerView.load(withVideoId: id)
+            }
         }
     }
     
@@ -39,7 +42,7 @@ class PlayerVideoViewController: UIViewController {
             
             let title = items[currentItem].title
             let artist = items[currentItem].artist
-            print("getting video started")
+
             videoManager.getVideo(title: title ?? "", artist: artist ?? "", completion: { [weak self] id in
                 
                 guard let `self` = self else {
@@ -47,13 +50,16 @@ class PlayerVideoViewController: UIViewController {
                     return
                 }
                 
-                DispatchQueue.main.async {
+                self.id = id
+                if self.playerView != nil {
                     
                     self.playerView.load(withVideoId: id)
                 }
             })
         }
     }
+    
+    var id: String?
     
     override func viewDidLoad() {
         
@@ -63,8 +69,6 @@ class PlayerVideoViewController: UIViewController {
             
             currentItem = musicManager.currentItem
         }
-        
-        musicManager.addObserve(self)
     }
     
     deinit {
@@ -75,13 +79,9 @@ class PlayerVideoViewController: UIViewController {
     @IBAction func touchUpInsideVideoPlay(_ sender: Any) {
     }
     
-    func setUI() {
-    }
-}
-
-extension PlayerVideoViewController: YTPlayerViewDelegate {
-    
-    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+    func prepare() {
+        
+        musicManager.addObserve(self)
     }
 }
 

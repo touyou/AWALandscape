@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3EB0A8BD5183750BF7A83E2EBAC8796F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5D777B9EBCEDF5A1C0F140D98C15C1A7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6991F49AED797519343B1F4591001691</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8751EC465CCFBB11D09C6FC011A08A93</key>
+		<key>7A9B63DFE964D956A7CB295654C8E015</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BCA6747C41F768CEC701F8C58B82E984</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9A3EBEFEF2E9C956FDC740262FC3330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CD11672B6619C297B6AEE3DFB8213C59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,6 +11,10 @@
 		461A6D681F61493200F3ECD8 /* PlayerLyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */; };
 		461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */; };
 		461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */; };
+		462F81F01F62CC67000488BB /* PlaylistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F81EF1F62CC67000488BB /* PlaylistListViewController.swift */; };
+		462F81F21F62CC83000488BB /* PlaylistListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462F81F11F62CC83000488BB /* PlaylistListViewController.storyboard */; };
+		462F81F51F62CD55000488BB /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F81F31F62CD55000488BB /* PlaylistCollectionViewCell.swift */; };
+		462F81F61F62CD55000488BB /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462F81F41F62CD55000488BB /* PlaylistCollectionViewCell.xib */; };
 		462FEB981F5FB90600AAF157 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB971F5FB90600AAF157 /* MusicManager.swift */; };
 		462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */; };
 		462FEB9D1F5FC6E200AAF157 /* PlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */; };
@@ -51,6 +55,10 @@
 		461A6D671F61493200F3ECD8 /* PlayerLyricViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLyricViewController.swift; sourceTree = "<group>"; };
 		461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVideoViewController.swift; sourceTree = "<group>"; };
 		461A6D6B1F61496100F3ECD8 /* PlayerContentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerContentPageViewController.swift; sourceTree = "<group>"; };
+		462F81EF1F62CC67000488BB /* PlaylistListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistListViewController.swift; sourceTree = "<group>"; };
+		462F81F11F62CC83000488BB /* PlaylistListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaylistListViewController.storyboard; sourceTree = "<group>"; };
+		462F81F31F62CD55000488BB /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		462F81F41F62CD55000488BB /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		462FEB971F5FB90600AAF157 /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerViewController.storyboard; sourceTree = "<group>"; };
@@ -121,6 +129,8 @@
 				461A6D691F61493F00F3ECD8 /* PlayerVideoViewController.swift */,
 				462FEB9C1F5FC6E200AAF157 /* PlayerViewController.storyboard */,
 				462FEB9A1F5FC6CD00AAF157 /* PlayerViewController.swift */,
+				462F81EF1F62CC67000488BB /* PlaylistListViewController.swift */,
+				462F81F11F62CC83000488BB /* PlaylistListViewController.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -143,6 +153,8 @@
 				462FEBA61F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift */,
 				462FEBA71F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib */,
 				462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */,
+				462F81F31F62CD55000488BB /* PlaylistCollectionViewCell.swift */,
+				462F81F41F62CD55000488BB /* PlaylistCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,12 +311,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4682281D1F62396400859D89 /* texgyreadventor-regular.otf in Resources */,
+				462F81F21F62CC83000488BB /* PlaylistListViewController.storyboard in Resources */,
 				46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */,
 				462FEBA91F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib in Resources */,
 				4682281A1F62390D00859D89 /* mplus-1c-regular.ttf in Resources */,
 				468228181F62390D00859D89 /* mplus-1c-light.ttf in Resources */,
 				468228171F62390D00859D89 /* mplus-1c-heavy.ttf in Resources */,
 				468228161F62390D00859D89 /* mplus-1c-bold.ttf in Resources */,
+				462F81F61F62CD55000488BB /* PlaylistCollectionViewCell.xib in Resources */,
 				468228191F62390D00859D89 /* mplus-1c-medium.ttf in Resources */,
 				4682281B1F62390D00859D89 /* mplus-1c-thin.ttf in Resources */,
 				46683D411F5FB2C000A73E75 /* Assets.xcassets in Resources */,
@@ -353,6 +367,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
@@ -360,6 +375,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
@@ -406,9 +422,11 @@
 				468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */,
 				46683D3C1F5FB2C000A73E75 /* MasterViewController.swift in Sources */,
 				462FEB9B1F5FC6CD00AAF157 /* PlayerViewController.swift in Sources */,
+				462F81F01F62CC67000488BB /* PlaylistListViewController.swift in Sources */,
 				462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */,
 				461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */,
 				46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */,
+				462F81F51F62CD55000488BB /* PlaylistCollectionViewCell.swift in Sources */,
 				461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */,
 				462FEBAE1F5FE12E00AAF157 /* UICollectionView+Extensions.swift in Sources */,
 				462FEBA81F5FDE8700AAF157 /* ArtworkCollectionViewCell.swift in Sources */,

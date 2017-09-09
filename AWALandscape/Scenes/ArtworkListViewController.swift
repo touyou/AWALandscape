@@ -32,17 +32,15 @@ class ArtworkListViewController: UIViewController {
         }
     }
     
-    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
+    let musicManager = MusicManager.shared
+    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 6
     var length: CGFloat = 0.0
     var items: [MPMediaItem]! {
         
         didSet {
             
-            length = ArtworkCollectionViewFlowLayout.kItemLength * CGFloat(items.count) - ArtworkCollectionViewFlowLayout.kItemLength * 0.5
-            if items.count > 0 {
-                
-                length += 20.0 * CGFloat(items.count - 1)
-            }
+            let count = items.count
+            length = (ArtworkCollectionViewFlowLayout.kItemLength + 20.0) * CGFloat(count > 0 ? count - 1 : 0)
         }
     }
     var selected: Int = 0 {
@@ -59,6 +57,12 @@ class ArtworkListViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
     }
 }
 
@@ -84,6 +88,7 @@ extension ArtworkListViewController: UICollectionViewDataSource {
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
         }
+        cell.miniTitleLabel.isHidden = true
         
         return cell
     }
@@ -110,7 +115,7 @@ extension ArtworkListViewController: UICollectionViewDelegate {
             let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
             if ratio > 0.0 {
                 
-                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
+                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
             } else {
                 
                 cell.transform = .identity
@@ -120,7 +125,19 @@ extension ArtworkListViewController: UICollectionViewDelegate {
                 collectionView.bringSubview(toFront: cell)
             }
         }
+    }
+}
 
+extension ArtworkListViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "currentAlbum" {
+            
+            print("change Album")
+            collectionView.reloadData()
+            collectionView.contentOffset = CGPoint(x: 0.0, y: collectionView.contentOffset.y)
+        }
     }
 }
 

@@ -26,11 +26,11 @@ class PlayerContentPageViewController: UIPageViewController {
         delegate = self
     }
     
-    func setUI() {
+    func prepare() {
         
-        (vcArray[0] as! PlayerInfoViewController).setUI()
-        (vcArray[1] as! PlayerLyricViewController).setUI()
-        (vcArray[2] as! PlayerVideoViewController).setUI()
+        (vcArray[0] as! PlayerInfoViewController).prepare()
+        (vcArray[1] as! PlayerLyricViewController).prepare()
+        (vcArray[2] as! PlayerVideoViewController).prepare()
     }
 }
 
