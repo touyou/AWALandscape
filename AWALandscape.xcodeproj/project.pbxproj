@@ -46,6 +46,8 @@
 		468228201F6266B500859D89 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4682281F1F6266B500859D89 /* UIImage+Extensions.swift */; };
 		468228221F626A6C00859D89 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468228211F626A6C00859D89 /* UIColor+Extensions.swift */; };
 		468228241F6285C800859D89 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468228231F6285C800859D89 /* VideoManager.swift */; };
+		46D1F8B91F63D45F00EFB866 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D1F8B81F63D45E00EFB866 /* icon.png */; };
+		46D1F8BB1F63D4D200EFB866 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D1F8BA1F63D4D200EFB866 /* launch.png */; };
 		CC56155FB66C910F051DB06E /* Pods_AWALandscape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3198CB6FB133EF1C4631DA25 /* Pods_AWALandscape.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		4682281F1F6266B500859D89 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		468228211F626A6C00859D89 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		468228231F6285C800859D89 /* VideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		46D1F8B81F63D45E00EFB866 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		46D1F8BA1F63D4D200EFB866 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWALandscape.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWALandscape/Pods-AWALandscape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +229,8 @@
 				468228131F62390D00859D89 /* mplus-1c-regular.ttf */,
 				468228141F62390D00859D89 /* mplus-1c-thin.ttf */,
 				4682281C1F62396400859D89 /* texgyreadventor-regular.otf */,
+				46D1F8B81F63D45E00EFB866 /* icon.png */,
+				46D1F8BA1F63D4D200EFB866 /* launch.png */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -314,6 +320,8 @@
 				462F81F21F62CC83000488BB /* PlaylistListViewController.storyboard in Resources */,
 				46683D441F5FB2C000A73E75 /* LaunchScreen.storyboard in Resources */,
 				462FEBA91F5FDE8700AAF157 /* ArtworkCollectionViewCell.xib in Resources */,
+				46D1F8BB1F63D4D200EFB866 /* launch.png in Resources */,
+				46D1F8B91F63D45F00EFB866 /* icon.png in Resources */,
 				4682281A1F62390D00859D89 /* mplus-1c-regular.ttf in Resources */,
 				468228181F62390D00859D89 /* mplus-1c-light.ttf in Resources */,
 				468228171F62390D00859D89 /* mplus-1c-heavy.ttf in Resources */,

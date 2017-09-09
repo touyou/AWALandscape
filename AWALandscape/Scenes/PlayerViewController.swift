@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import FontAwesome_swift
 
 protocol PlayerViewControllerDelegate: class {
     
@@ -22,7 +23,7 @@ protocol PlayerViewControllerToMasterDelegate: class {
 }
 
 class PlayerViewController: UIViewController {
-
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var previewImageView: UIImageView!
@@ -51,7 +52,7 @@ class PlayerViewController: UIViewController {
         }
     }
     @IBOutlet weak var previewConstraint: NSLayoutConstraint! {
-      
+        
         didSet {
             
             previewConstraint.constant = 0
@@ -81,7 +82,27 @@ class PlayerViewController: UIViewController {
             exitButton.setTitle(String.fontAwesomeIcon(name: .times), for: .normal)
         }
     }
+    var animTimer: Timer!
+    @IBOutlet weak var playHelperLabel: UILabel! {
+        
+        didSet {
+            
+            let font = UIFont.fontAwesome(ofSize: 30)
+            let text = String.fontAwesomeIcon(name: .playCircle)
+            playHelperLabel.text = text
+            playHelperLabel.font = font
+            animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
+            animTimer.fire()
+        }
+    }
     
+    @IBOutlet weak var helperConstraint: NSLayoutConstraint! {
+        
+        didSet {
+            
+            helperConstraint.constant = -18
+        }
+    }
     
     let musicManager = MusicManager.shared
     let selectionFeedback = UISelectionFeedbackGenerator()
@@ -183,6 +204,10 @@ class PlayerViewController: UIViewController {
     deinit {
         
         musicManager.removeObserve(self)
+        if animTimer.isValid {
+            
+            animTimer.invalidate()
+        }
     }
     
     @IBAction func touchUpInsideExitButton(_ sender: Any) {
@@ -190,6 +215,19 @@ class PlayerViewController: UIViewController {
         masterDelegate.switchPlaylistViewController(self)
     }
     
+    func animLabel() {
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            self.playHelperLabel.alpha = 0.0
+        }) { _ in
+            
+            UIView.animate(withDuration: 1.0, animations: {
+            
+                self.playHelperLabel.alpha = 1.0
+            })
+        }
+    }
 }
 
 // MARK: - Music
@@ -222,11 +260,13 @@ extension PlayerViewController {
         if isInside(inView: thumbView, point: touch.location(in: view)) {
             
             isTouching = true
+            helperConstraint.constant = 90
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.containerView.alpha = 1.0
                 self.selectScrollBarView.alpha = 1.0
                 self.masterDelegate.hideMasterView()
+                self.playHelperLabel.layoutIfNeeded()
             })
         }
     }
@@ -265,7 +305,6 @@ extension PlayerViewController {
                     selectFlag = true
                 } else {
                     
-//                    updateSliderConstraint(touch)
                     previewImageView.alpha = rate * 2
                     selectFlag = false
                 }
@@ -295,11 +334,13 @@ extension PlayerViewController {
         previewConstraint.constant = 0.0
         playConstraint.constant = 0.0
         selectFlag = false
+        helperConstraint.constant = -18
         UIView.animate(withDuration: 0.5, animations: {
             
             self.containerView.alpha = 0.0
             self.selectScrollBarView.alpha = 0.0
             self.masterDelegate.showMasterView()
+            self.playHelperLabel.layoutIfNeeded()
         })
     }
     

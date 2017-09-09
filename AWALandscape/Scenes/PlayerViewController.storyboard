@@ -88,6 +88,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E66-nh-19V">
                                 <rect key="frame" x="216.5" y="70.5" width="234" height="234"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e78-ch-SHi">
+                                <rect key="frame" x="554" y="82" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9v-6L-Gde">
                                 <rect key="frame" x="616" y="70" width="24" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +120,8 @@
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="centerY" secondItem="rRG-Ni-8BO" secondAttribute="centerY" id="BNC-U7-aZ0"/>
                             <constraint firstItem="evd-sx-g5F" firstAttribute="top" secondItem="IY1-Zj-N7A" secondAttribute="bottom" id="Cys-d4-MRG"/>
                             <constraint firstItem="evd-sx-g5F" firstAttribute="leading" secondItem="jM6-LX-JWC" secondAttribute="trailing" constant="10" id="HMT-uT-c8e"/>
+                            <constraint firstItem="rdT-Ff-8Gu" firstAttribute="leading" secondItem="e78-ch-SHi" secondAttribute="trailing" constant="70" id="JGP-w5-l61"/>
+                            <constraint firstItem="e78-ch-SHi" firstAttribute="centerY" secondItem="l9v-6L-Gde" secondAttribute="centerY" id="M07-Lk-VTE"/>
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="rdT-Ff-8Gu" secondAttribute="bottom" constant="50" id="MH9-IS-BDU"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="centerY" secondItem="rRG-Ni-8BO" secondAttribute="centerY" id="Pqn-a8-qcZ"/>
                             <constraint firstItem="jM6-LX-JWC" firstAttribute="top" secondItem="IY1-Zj-N7A" secondAttribute="bottom" id="QbV-pv-vf4"/>
@@ -141,9 +151,11 @@
                         <outlet property="backgroundImageView" destination="xmJ-8n-x9z" id="DRU-rr-irL"/>
                         <outlet property="containerView" destination="pay-EL-W2d" id="zuU-mh-IJF"/>
                         <outlet property="exitButton" destination="F7f-kh-oOm" id="Iaa-fC-dUs"/>
+                        <outlet property="helperConstraint" destination="JGP-w5-l61" id="sbh-aE-1Hi"/>
                         <outlet property="infoContainerView" destination="IY1-Zj-N7A" id="vvG-0s-Z5E"/>
                         <outlet property="moreButton" destination="evd-sx-g5F" id="vNC-fE-cdb"/>
                         <outlet property="playConstraint" destination="fSU-5A-IMY" id="xhP-3O-fka"/>
+                        <outlet property="playHelperLabel" destination="e78-ch-SHi" id="Abm-tq-Toy"/>
                         <outlet property="previewConstraint" destination="4N2-aw-8HL" id="8LF-vc-8Y1"/>
                         <outlet property="previewImageView" destination="E66-nh-19V" id="Nc6-sQ-CnX"/>
                         <outlet property="selectScrollBarView" destination="rdT-Ff-8Gu" id="iG7-ii-XZB"/>

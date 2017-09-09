@@ -60,6 +60,26 @@ class PlaylistListViewController: UIViewController {
     }
     @IBOutlet weak var sliderConstraint: NSLayoutConstraint!
     @IBOutlet weak var playConstraint: NSLayoutConstraint!
+    var animTimer: Timer!
+    @IBOutlet weak var playHelperLabel: UILabel! {
+        
+        didSet {
+            
+            let font = UIFont.fontAwesome(ofSize: 30)
+            let text = String.fontAwesomeIcon(name: .playCircle)
+            playHelperLabel.text = text
+            playHelperLabel.font = font
+            animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
+            animTimer.fire()
+        }
+    }
+    @IBOutlet weak var helperConstraint: NSLayoutConstraint! {
+        
+        didSet {
+            
+            helperConstraint.constant = -18
+        }
+    }
 
     var isTouching = false
     var selectorPosition = 0 {
@@ -95,6 +115,28 @@ class PlaylistListViewController: UIViewController {
         
         super.viewDidLoad()
     }
+    
+    deinit {
+        
+        if animTimer.isValid {
+            
+            animTimer.invalidate()
+        }
+    }
+    
+    func animLabel() {
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            self.playHelperLabel.alpha = 0.0
+        }) { _ in
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                self.playHelperLabel.alpha = 1.0
+            })
+        }
+    }
 }
 
 extension PlaylistListViewController {
@@ -109,9 +151,11 @@ extension PlaylistListViewController {
         if isInside(inView: thumbView, point: touch.location(in: view)) {
             
             isTouching = true
+            helperConstraint.constant = 35
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 1.0
+                self.playHelperLabel.layoutIfNeeded()
             })
         }
     }
@@ -135,7 +179,7 @@ extension PlaylistListViewController {
                 
                 updateSliderConstraint(touch)
                 selectFlag = false
-            } else if playConstraint.constant < -70.0 {
+            } else if playConstraint.constant < -40.0 {
                 
                 isTouching = false
                 selectFlag = false
@@ -160,9 +204,11 @@ extension PlaylistListViewController {
         playConstraint.constant = 0.0
         selectFlag = false
         isTouching = false
+        helperConstraint.constant = -18
         UIView.animate(withDuration: 0.5, animations: {
             
             self.scrollBarView.alpha = 0.0
+            self.playHelperLabel.layoutIfNeeded()
         })
     }
     
@@ -261,10 +307,13 @@ extension PlaylistListViewController: UICollectionViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        UIView.animate(withDuration: 0.5, animations: {
+        if !isTouching {
             
-            self.scrollBarView.alpha = 0.0
-        })
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.scrollBarView.alpha = 0.0
+            })
+        }
     }
     
     func animateCell(_ scrollView: UIScrollView) {

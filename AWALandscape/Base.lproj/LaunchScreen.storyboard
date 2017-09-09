@@ -8,11 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="texgyreadventor-regular.otf">
-            <string>TeXGyreAdventor-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -26,24 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-PC-ute">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-PC-ute">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" AWA Landscape" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w63-lP-bJv">
-                                <rect key="frame" x="237" y="171" width="193" height="33.5"/>
-                                <fontDescription key="fontDescription" name="TeXGyreAdventor-Regular" family="TeX Gyre Adventor" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wWg-PC-ute" secondAttribute="trailing" id="B1H-rT-Jgr"/>
                             <constraint firstItem="wWg-PC-ute" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="N5a-yt-rMh"/>
-                            <constraint firstItem="w63-lP-bJv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Uf4-zE-ZWc"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wWg-PC-ute" secondAttribute="bottom" id="e4L-u9-D8A"/>
                             <constraint firstItem="wWg-PC-ute" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fFX-wP-Y6X"/>
-                            <constraint firstItem="w63-lP-bJv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sRc-aq-Mhd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sample_background" width="667" height="375"/>
+        <image name="launch.png" width="667" height="375"/>
     </resources>
 </document>

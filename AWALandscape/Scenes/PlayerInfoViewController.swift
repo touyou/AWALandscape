@@ -44,6 +44,7 @@ class PlayerInfoViewController: UIViewController {
             artistLabel.text = items[currentItem].artist
             playlistNameLabel.text = musicManager.playlist?.value(forKey: MPMediaPlaylistPropertyName) as? String
             playlistDescriptionLabel.text = "僕たちがやりました / サイレーン 刑事×彼女×完全悪女 / CRISIS 公安起動操作隊特捜班 / あなたのことはそれほど / ドクターX~外科医・大門未知子~ / セシルのもくろみ / あなたのことはそれほど / 山田孝之のカンヌ映画祭 / 家政婦のミタ   プレイリスト公開：2017/8/30  随時更新"
+            dummyLikeButton.setTitle(String.fontAwesomeIcon(name: .starO) + "255", for: .normal)
         }
     }
     

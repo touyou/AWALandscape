@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="texgyreadventor-regular.otf">
+            <string>TeXGyreAdventor-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Playlist List View Controller-->
         <scene sceneID="e9b-dp-wfX">
@@ -37,7 +42,7 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFM-9c-bxd">
-                                <rect key="frame" x="619" y="50" width="8" height="275"/>
+                                <rect key="frame" x="624" y="50" width="8" height="275"/>
                                 <color key="backgroundColor" red="0.35295397039999998" green="0.3487279117" blue="0.36524289850000002" alpha="0.80267935739999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="L12-fN-DFc"/>
@@ -48,8 +53,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYLISTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W04-Ea-P1q">
+                                <rect key="frame" x="10" y="10" width="107" height="35"/>
+                                <fontDescription key="fontDescription" name="TeXGyreAdventor-Regular" family="TeX Gyre Adventor" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your favorite on instinct." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-an-o64">
+                                <rect key="frame" x="10" y="45" width="201.5" height="19"/>
+                                <fontDescription key="fontDescription" name="TeXGyreAdventor-Regular" family="TeX Gyre Adventor" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-DY-l2I">
+                                <rect key="frame" x="594" y="62" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5T-bk-DFg">
-                                <rect key="frame" x="611" y="50" width="24" height="24"/>
+                                <rect key="frame" x="616" y="50" width="24" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="qgV-VE-DsO"/>
@@ -64,20 +89,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PFM-9c-bxd" firstAttribute="leading" secondItem="aBo-DY-l2I" secondAttribute="trailing" constant="30" id="0ao-SD-1vV"/>
                             <constraint firstItem="R5T-bk-DFg" firstAttribute="centerX" secondItem="PFM-9c-bxd" secondAttribute="centerX" id="2TJ-NH-vu1"/>
                             <constraint firstItem="HY7-AL-SaR" firstAttribute="leading" secondItem="el1-3M-eor" secondAttribute="leading" id="9Et-Qz-k7M"/>
                             <constraint firstItem="aNX-GZ-8nl" firstAttribute="top" secondItem="HY7-AL-SaR" secondAttribute="bottom" id="AN7-tf-4aQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PFM-9c-bxd" secondAttribute="trailing" constant="20" id="NHa-fh-72T"/>
+                            <constraint firstItem="W04-Ea-P1q" firstAttribute="leading" secondItem="el1-3M-eor" secondAttribute="leading" constant="10" id="BBY-Id-l79"/>
+                            <constraint firstItem="VTB-an-o64" firstAttribute="leading" secondItem="el1-3M-eor" secondAttribute="leading" constant="10" id="Hak-2v-QOz"/>
+                            <constraint firstItem="VTB-an-o64" firstAttribute="top" secondItem="W04-Ea-P1q" secondAttribute="bottom" id="Hpk-ui-Gr5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PFM-9c-bxd" secondAttribute="trailing" constant="15" id="NHa-fh-72T"/>
                             <constraint firstAttribute="trailing" secondItem="HY7-AL-SaR" secondAttribute="trailing" id="SiE-Pg-eLP"/>
                             <constraint firstItem="PFM-9c-bxd" firstAttribute="top" secondItem="el1-3M-eor" secondAttribute="topMargin" constant="50" id="Xg0-Tl-nY3"/>
                             <constraint firstItem="aNX-GZ-8nl" firstAttribute="top" secondItem="PFM-9c-bxd" secondAttribute="bottom" constant="50" id="YCS-wN-y17"/>
                             <constraint firstItem="HY7-AL-SaR" firstAttribute="top" secondItem="el1-3M-eor" secondAttribute="top" id="f3q-pD-lD9"/>
+                            <constraint firstItem="W04-Ea-P1q" firstAttribute="top" secondItem="el1-3M-eor" secondAttribute="top" constant="10" id="g49-ph-X8d"/>
                             <constraint firstItem="R5T-bk-DFg" firstAttribute="top" secondItem="PFM-9c-bxd" secondAttribute="top" id="nV6-5q-z5b"/>
+                            <constraint firstItem="aBo-DY-l2I" firstAttribute="centerY" secondItem="R5T-bk-DFg" secondAttribute="centerY" id="vjn-dq-ydV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="HY7-AL-SaR" id="I38-u7-KeB"/>
+                        <outlet property="helperConstraint" destination="0ao-SD-1vV" id="O7l-mc-wCT"/>
                         <outlet property="playConstraint" destination="2TJ-NH-vu1" id="AEE-a5-XAb"/>
+                        <outlet property="playHelperLabel" destination="aBo-DY-l2I" id="S5f-oF-ncO"/>
                         <outlet property="scrollBarView" destination="PFM-9c-bxd" id="lSc-9u-QsB"/>
                         <outlet property="sliderConstraint" destination="nV6-5q-z5b" id="GjC-S6-TDP"/>
                         <outlet property="thumbView" destination="R5T-bk-DFg" id="gRn-Zb-o6C"/>
