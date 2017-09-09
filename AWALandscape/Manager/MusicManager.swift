@@ -73,6 +73,11 @@ class MusicManager: NSObject {
         
         didSet {
             
+            if currentAlbum == -1 {
+                
+                return
+            }
+            
             guard let items = playlists?[currentAlbum].items else {
                 
                 return

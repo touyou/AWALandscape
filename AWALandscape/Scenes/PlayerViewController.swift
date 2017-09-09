@@ -10,6 +10,8 @@ import UIKit
 import MediaPlayer
 import FontAwesome_swift
 
+// MARK: - Protocol
+
 protocol PlayerViewControllerDelegate: class {
     
     func setSlider(_ ratio: CGFloat, position: Int)
@@ -23,6 +25,9 @@ protocol PlayerViewControllerToMasterDelegate: class {
 }
 
 class PlayerViewController: UIViewController {
+    
+    // MARK: - Property
+    // MARK: Outlet
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var artworkImageView: UIImageView!
@@ -78,11 +83,10 @@ class PlayerViewController: UIViewController {
         
         didSet {
             
-            exitButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
-            exitButton.setTitle(String.fontAwesomeIcon(name: .times), for: .normal)
+            exitButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
+            exitButton.setTitle(String.fontAwesomeIcon(name: .arrowLeft), for: .normal)
         }
     }
-    var animTimer: Timer!
     @IBOutlet weak var playHelperLabel: UILabel! {
         
         didSet {
@@ -95,7 +99,6 @@ class PlayerViewController: UIViewController {
             animTimer.fire()
         }
     }
-    
     @IBOutlet weak var helperConstraint: NSLayoutConstraint! {
         
         didSet {
@@ -104,16 +107,25 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    // MARK: Constant
+    
     let musicManager = MusicManager.shared
     let selectionFeedback = UISelectionFeedbackGenerator()
     let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
     
+    // MARK: Variable
+    
     weak var delegate: PlayerViewControllerDelegate!
     weak var masterDelegate: PlayerViewControllerToMasterDelegate!
     var items: [MPMediaItem]?
-    var currentAlbum: Int = 0 {
+    var currentAlbum: Int = -1 {
         
         didSet {
+            
+            if oldValue == currentAlbum || currentAlbum == -1 {
+                
+                return
+            }
             
             musicManager.currentAlbum = currentAlbum
             items = musicManager.playlist?.items
@@ -166,6 +178,9 @@ class PlayerViewController: UIViewController {
     var artworkListViewController: ArtworkListViewController!
     var infoPageViewController: PlayerContentPageViewController!
     var isTouching = false
+    var animTimer: Timer!
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         
@@ -173,7 +188,7 @@ class PlayerViewController: UIViewController {
         
         // MARK: ArtworkContainer
         artworkListViewController = storyboard!.instantiateViewController(withIdentifier: "Artwork") as! ArtworkListViewController
-        artworkListViewController.items = items
+        artworkListViewController.items = items ?? []
         delegate = artworkListViewController
         addChildViewController(artworkListViewController)
         artworkListViewController.view.frame = containerView.bounds
@@ -198,7 +213,11 @@ class PlayerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        currentItem = 0
+        
+        if currentAlbum != -1 {
+            
+            currentItem = 0
+        }
     }
     
     deinit {
@@ -210,10 +229,7 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func touchUpInsideExitButton(_ sender: Any) {
-        
-        masterDelegate.switchPlaylistViewController(self)
-    }
+    // MARK: - Timer
     
     func animLabel() {
         
@@ -223,10 +239,17 @@ class PlayerViewController: UIViewController {
         }) { _ in
             
             UIView.animate(withDuration: 1.0, animations: {
-            
+                
                 self.playHelperLabel.alpha = 1.0
             })
         }
+    }
+    
+    // MARK: - Action
+    
+    @IBAction func touchUpInsideExitButton(_ sender: Any) {
+        
+        masterDelegate.switchPlaylistViewController(self)
     }
 }
 
@@ -381,6 +404,8 @@ extension PlayerViewController {
         delegate.setSlider(sliderConstraint.constant / (selectScrollBarView.frame.height - thumbView.frame.height), position: selectorPosition)
     }
 }
+
+// MARK: - Storyboard Instantiable
 
 extension PlayerViewController: StoryboardInstantiable {
     

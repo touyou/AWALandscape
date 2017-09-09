@@ -64,11 +64,20 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH3-ku-BWp">
+                                        <rect key="frame" x="3" y="3" width="141" height="34"/>
+                                        <connections>
+                                            <action selector="touchUpInsidePlayerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uJB-lu-vWA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35295397043228149" green="0.34872791171073914" blue="0.36524289846420288" alpha="0.79992847711267601" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="dH3-ku-BWp" firstAttribute="leading" secondItem="6tz-4F-VHu" secondAttribute="leading" constant="3" id="8UG-Tb-vYP"/>
+                                    <constraint firstAttribute="bottom" secondItem="dH3-ku-BWp" secondAttribute="bottom" constant="3" id="JMI-Ji-ioG"/>
                                     <constraint firstAttribute="height" constant="40" id="JMo-dO-0cc"/>
                                     <constraint firstItem="AxE-12-QYc" firstAttribute="top" secondItem="6tz-4F-VHu" secondAttribute="top" id="L9Q-6Q-gZ1"/>
+                                    <constraint firstItem="dH3-ku-BWp" firstAttribute="top" secondItem="6tz-4F-VHu" secondAttribute="top" constant="3" id="Nbm-Ff-oOy"/>
                                     <constraint firstItem="AxE-12-QYc" firstAttribute="leading" secondItem="6tz-4F-VHu" secondAttribute="leading" constant="8" id="gDE-xx-I9e"/>
                                     <constraint firstItem="w3T-Me-PYn" firstAttribute="leading" secondItem="6tz-4F-VHu" secondAttribute="leading" constant="8" id="qNF-i0-GXD"/>
                                     <constraint firstItem="w3T-Me-PYn" firstAttribute="top" secondItem="AxE-12-QYc" secondAttribute="bottom" constant="3" id="uHO-A9-8ki"/>
@@ -131,6 +140,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gjn-HK-qir" firstAttribute="leading" secondItem="dH3-ku-BWp" secondAttribute="trailing" constant="5" id="0Gw-lA-EUX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tTB-TP-cdC" secondAttribute="bottom" constant="10" id="1kv-kZ-323"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7eW-BM-GqA" secondAttribute="bottom" id="22v-I0-qD1"/>
                             <constraint firstItem="gjn-HK-qir" firstAttribute="leading" secondItem="w3T-Me-PYn" secondAttribute="trailing" id="BFm-ta-Lce"/>

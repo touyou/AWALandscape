@@ -16,6 +16,14 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     @IBOutlet weak var sub2ImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var selectionView: UIView! {
+        
+        didSet {
+            
+            selectionView.backgroundColor = UIColor.AWA.awaOrange
+            selectionView.alpha = 0.5
+        }
+    }
     
     let musicManager = MusicManager.shared
     
@@ -44,11 +52,42 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             mainImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
             sub1ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
             sub2ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
+            
+            if animTimer?.isValid ?? false {
+                
+                animTimer?.invalidate()
+                animTimer = nil
+            }
+            animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
+            animTimer?.fire()
         }
     }
+    var animTimer: Timer?
 
     override func awakeFromNib() {
         
         super.awakeFromNib()
+    }
+    
+    deinit {
+        
+        if animTimer?.isValid ?? false {
+            
+            animTimer?.invalidate()
+        }
+    }
+    
+    func animLabel() {
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            self.selectionView.alpha = 0.0
+        }) { _ in
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                self.selectionView.alpha = 0.5
+            })
+        }
     }
 }

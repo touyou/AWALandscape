@@ -9,6 +9,9 @@
 
 import UIKit
 import MediaPlayer
+import DZNEmptyDataSet
+
+// MARK: - Protocol
 
 protocol PlaylistListViewControllerDelegate: class {
     
@@ -17,14 +20,8 @@ protocol PlaylistListViewControllerDelegate: class {
 
 class PlaylistListViewController: UIViewController {
     
-    let musicManager = MusicManager.shared
-    let selectionFeedback = UISelectionFeedbackGenerator()
-    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
-    let kItemSize = UIScreen.main.bounds.height / 2
-    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
-    
-    var length: CGFloat = 0.0
-    weak var delegate: PlaylistListViewControllerDelegate!
+    // MARK: - Property
+    // MARK: Outlet
     
     @IBOutlet weak var collectionView: UICollectionView! {
         
@@ -33,6 +30,8 @@ class PlaylistListViewController: UIViewController {
             collectionView.register(PlaylistCollectionViewCell.self)
             collectionView.delegate = self
             collectionView.dataSource = self
+            collectionView.emptyDataSetSource = self
+            collectionView.emptyDataSetDelegate = self
             
             let verticalInset = (UIScreen.main.bounds.height - kItemSize) / 2
             let horizontalInset = (UIScreen.main.bounds.width - kItemSize / 2 * 3) / 2
@@ -47,6 +46,7 @@ class PlaylistListViewController: UIViewController {
             if let count = items?.count {
                 
                 length = (flowLayout.itemSize.width + 20.0) * CGFloat(count > 0 ? count - 1 : 0)
+                length = length == 0 ? 1 : length
             }
         }
     }
@@ -60,7 +60,6 @@ class PlaylistListViewController: UIViewController {
     }
     @IBOutlet weak var sliderConstraint: NSLayoutConstraint!
     @IBOutlet weak var playConstraint: NSLayoutConstraint!
-    var animTimer: Timer!
     @IBOutlet weak var playHelperLabel: UILabel! {
         
         didSet {
@@ -80,7 +79,19 @@ class PlaylistListViewController: UIViewController {
             helperConstraint.constant = -18
         }
     }
-
+    
+    // MARK: Constant
+    
+    let musicManager = MusicManager.shared
+    let selectionFeedback = UISelectionFeedbackGenerator()
+    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
+    let kItemSize = UIScreen.main.bounds.height / 2
+    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
+    
+    // MARK: Variable
+    
+    var length: CGFloat = 1.0
+    weak var delegate: PlaylistListViewControllerDelegate!
     var isTouching = false
     var selectorPosition = 0 {
         
@@ -89,6 +100,7 @@ class PlaylistListViewController: UIViewController {
             if oldValue != selectorPosition {
                 
                 selectionFeedback.selectionChanged()
+                collectionView.reloadData()
             }
         }
     }
@@ -109,7 +121,9 @@ class PlaylistListViewController: UIViewController {
             }
         }
     }
+    var animTimer: Timer!
 
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         
@@ -123,6 +137,8 @@ class PlaylistListViewController: UIViewController {
             animTimer.invalidate()
         }
     }
+    
+    // MARK: - Timer
     
     func animLabel() {
         
@@ -139,6 +155,8 @@ class PlaylistListViewController: UIViewController {
     }
 }
 
+// MARK: - Touch
+
 extension PlaylistListViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -146,6 +164,17 @@ extension PlaylistListViewController {
         guard let touch = touches.first else {
             
             return
+        }
+        
+        if musicManager.playlists == nil || musicManager.playlists!.count == 0 {
+            
+            return
+        }
+        
+        if let count = items?.count {
+            
+            length = (kItemSize / 2 * 3 + 20.0) * CGFloat(count > 0 ? count - 1 : 0)
+            length = length == 0 ? 1 : length
         }
         
         if isInside(inView: thumbView, point: touch.location(in: view)) {
@@ -251,6 +280,8 @@ extension PlaylistListViewController {
 
 }
 
+// MARK: - CollectionView
+
 extension PlaylistListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -268,6 +299,15 @@ extension PlaylistListViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! PlaylistCollectionViewCell
         cell.currentAlbum = indexPath.row
         cell.miniTitleLabel.isHidden = true
+        
+        if indexPath.row == selectorPosition {
+            
+            cell.selectionView.isHidden = false
+        } else {
+            
+            cell.selectionView.isHidden = true
+        }
+        
         return cell
     }
 }
@@ -276,7 +316,7 @@ extension PlaylistListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate.switchPlayerViewController(self, sender: indexPath.row)
+//        delegate.switchPlayerViewController(self, sender: indexPath.row)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -337,6 +377,30 @@ extension PlaylistListViewController: UICollectionViewDelegate {
         }
     }
 }
+
+extension PlaylistListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let text = "プレイリストがありません"
+        let font = UIFont.systemFont(ofSize: 25)
+        return NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        
+        let text = "リロードする"
+        let font = UIFont.systemFont(ofSize: 20)
+        return NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        
+        collectionView.reloadData()
+    }
+}
+
+// MARK: - StoryboardInstantiable
 
 extension PlaylistListViewController: StoryboardInstantiable {
     

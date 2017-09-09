@@ -37,11 +37,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-8n-x9z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerFixedRough Copy 7" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-8n-x9z">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-kh-oOm">
-                                <rect key="frame" x="5" y="15" width="30" height="30"/>
+                                <rect key="frame" x="5" y="20" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -127,7 +127,7 @@
                             <constraint firstItem="jM6-LX-JWC" firstAttribute="top" secondItem="IY1-Zj-N7A" secondAttribute="bottom" id="QbV-pv-vf4"/>
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="centerX" secondItem="rRG-Ni-8BO" secondAttribute="centerX" constant="-180" id="RWM-yn-LRF"/>
                             <constraint firstAttribute="trailing" secondItem="pay-EL-W2d" secondAttribute="trailing" id="Syd-70-PfD"/>
-                            <constraint firstItem="F7f-kh-oOm" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="-5" id="THg-If-YsZ"/>
+                            <constraint firstItem="F7f-kh-oOm" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" id="THg-If-YsZ"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-15" id="UAY-Iw-8ye"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="width" id="VC5-dU-h7P"/>
                             <constraint firstItem="IY1-Zj-N7A" firstAttribute="leading" secondItem="ctv-lv-RS4" secondAttribute="trailing" constant="35" id="bSX-zR-pWt"/>
@@ -390,7 +390,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PlayerFixedRough Copy 7" width="667" height="375"/>
         <image name="artwork_sample" width="1416" height="1416"/>
-        <image name="sample_background" width="667" height="375"/>
     </resources>
 </document>

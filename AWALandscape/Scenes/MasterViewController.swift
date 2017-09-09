@@ -12,6 +12,8 @@ import DZNEmptyDataSet
 
 class MasterViewController: UIViewController {
     
+    // MARK: - Property
+    // MARK: Outlet
     @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -40,29 +42,11 @@ class MasterViewController: UIViewController {
         }
     }
     
-    var centerThreshold: CGFloat = 0.0
-    var isPlaylist: Bool! {
-        
-        didSet {
-            
-            if isPlaylist {
-                
-                centerThreshold = miniCollectionView.bounds.width / 6
-            } else {
-                
-                centerThreshold = miniCollectionView.bounds.width / 6
-            }
-            miniCollectionView.reloadData()
-            UIView.animate(withDuration: 0.5, animations: {
-            
-                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
-            })
-        }
-    }
-    var currentViewController: UIViewController!
-    
+    // MARK: Constant
     let musicManager = MusicManager.shared
+    let kWidth = UIScreen.main.bounds.width
     
+    // MARK: Variable
     var timer: Timer!
     var currentItem: Int = 0 {
         
@@ -82,22 +66,52 @@ class MasterViewController: UIViewController {
             playingSlider.setValue(0.0, animated: true)
         }
     }
+    var centerThreshold: CGFloat = 0.0
+    var isPlaylist: Bool! {
+        
+        didSet {
+            
+            if isPlaylist {
+                
+                centerThreshold = miniCollectionView.bounds.width / 6
+            } else {
+                
+                centerThreshold = miniCollectionView.bounds.width / 6
+            }
+            miniCollectionView.reloadData()
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+            })
+        }
+    }
+    var playlistListViewController: PlaylistListViewController!
+    var playerViewController: PlayerViewController!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        let playlistViewController = PlaylistListViewController.instantiate()
-        addChildViewController(playlistViewController)
-        playlistViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playlistViewController.view)
-        playlistViewController.delegate = self
-        currentViewController = playlistViewController
+        // MARK: ViewController
+        playlistListViewController = PlaylistListViewController.instantiate()
+        addChildViewController(playlistListViewController)
+        playlistListViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playlistListViewController.view)
+        playlistListViewController.delegate = self
         
+        playerViewController = PlayerViewController.instantiate()
+        addChildViewController(playerViewController)
+        playerViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playerViewController.view)
+        playerViewController.masterDelegate = self
+        playerViewController.view.center.x += kWidth
+        
+        // MARK: Button
         playButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
         playButton.titleLabel?.textAlignment = .center
         playButton.setTitle(String.fontAwesomeIcon(name: .play), for: .normal)
-        
         forwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         forwardButton.setTitle(String.fontAwesomeIcon(name: .forward), for: .normal)
         backwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
@@ -125,6 +139,8 @@ class MasterViewController: UIViewController {
         }
     }
     
+    // MARK: - Notification and Timer
+    
     func updateSlider() {
         
         playingSlider.setValue(Float(musicManager.playPosition), animated: true)
@@ -139,6 +155,8 @@ class MasterViewController: UIViewController {
         
         _ = musicManager.play()
     }
+    
+    // MARK: - Action
     
     @IBAction func valueChangedPlayingSlider(_ sender: Any) {
         
@@ -171,7 +189,29 @@ class MasterViewController: UIViewController {
         
         musicManager.previousMusic()
     }
+    
+    @IBAction func touchUpInsidePlayerButton(_ sender: Any) {
+        
+        if !isPlaylist {
+            
+            if musicManager.playlist == nil {
+                
+                return
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.playerViewController.view.center.x = self.kWidth / 2
+            }, completion: { _ in
+                
+                self.isPlaylist = true
+            })
+        }
+    }
+    
 }
+
+// MARK: - CollectionView
 
 extension MasterViewController: UICollectionViewDataSource {
     
@@ -198,6 +238,7 @@ extension MasterViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! PlaylistCollectionViewCell
             cell.currentAlbum = indexPath.row
             cell.titleLabel.isHidden = true
+            cell.selectionView.isHidden = true
             return cell
         } else {
             
@@ -217,8 +258,8 @@ extension MasterViewController: UICollectionViewDelegate {
         
         if isPlaylist {
             
-            (childViewControllers.first as! PlayerViewController).currentAlbum = indexPath.row
-            (childViewControllers.first as! PlayerViewController).currentItem = 0
+            playerViewController.currentAlbum = indexPath.row
+            playerViewController.currentItem = 0
         } else {
             
             musicManager.currentItem = indexPath.row
@@ -304,31 +345,22 @@ extension MasterViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
 }
 
+// MARK: - Child Transition
+
 extension MasterViewController: PlaylistListViewControllerDelegate {
     
     func switchPlayerViewController(_ oldViewController: UIViewController, sender: Int) {
         
-        oldViewController.willMove(toParentViewController: nil)
-        let playerViewController = PlayerViewController.instantiate()
         playerViewController.currentAlbum = sender
-        playerViewController.masterDelegate = self
-        addChildViewController(playerViewController)
-        playerViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playerViewController.view)
-        playerViewController.view.alpha = 0
-        playerViewController.view.layoutIfNeeded()
+    
         UIView.animate(withDuration: 0.5, animations: {
             
-            playerViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
+            self.playerViewController.view.center.x = self.kWidth / 2
         }, completion: { _ in
             
-            oldViewController.view.removeFromSuperview()
-            oldViewController.removeFromParentViewController()
-            playerViewController.didMove(toParentViewController: self)
+            self.playerViewController.currentItem = 0
             self.isPlaylist = true
         })
-        currentViewController = playerViewController
     }
 }
 
@@ -336,26 +368,13 @@ extension MasterViewController: PlayerViewControllerToMasterDelegate {
     
     func switchPlaylistViewController(_ oldViewController: UIViewController) {
         
-        oldViewController.willMove(toParentViewController: nil)
-        let playlistViewController = PlaylistListViewController.instantiate()
-        addChildViewController(playlistViewController)
-        playlistViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playlistViewController.view)
-        playlistViewController.delegate = self
-        playlistViewController.view.alpha = 0
-        playlistViewController.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.5, animations: {
             
-            playlistViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
+            self.playerViewController.view.center.x += self.kWidth
         }, completion: { _ in
             
-            oldViewController.view.removeFromSuperview()
-            oldViewController.removeFromParentViewController()
-            playlistViewController.didMove(toParentViewController: self)
             self.isPlaylist = false
         })
-        currentViewController = playlistViewController
     }
     
     func hideMasterView() {
