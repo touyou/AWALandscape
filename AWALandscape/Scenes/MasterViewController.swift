@@ -8,6 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
+import DZNEmptyDataSet
 
 class MasterViewController: UIViewController {
     
@@ -34,6 +35,8 @@ class MasterViewController: UIViewController {
             isPlaylist = false
             miniCollectionView.delegate = self
             miniCollectionView.dataSource = self
+            miniCollectionView.emptyDataSetSource = self
+            miniCollectionView.emptyDataSetDelegate = self
         }
     }
     
@@ -288,6 +291,16 @@ extension MasterViewController: UICollectionViewDelegateFlowLayout {
             horizontalInset = (miniCollectionView.bounds.width - itemHeight) / 2
         }
         return UIEdgeInsetsMake(0.0, horizontalInset, -10.0, horizontalInset)
+    }
+}
+
+extension MasterViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let text = "プレイリストが選択されていません。"
+        let font = UIFont.systemFont(ofSize: 13)
+        return NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
     }
 }
 

@@ -12,4 +12,5 @@ target 'AWALandscape' do
   pod "youtube-ios-player-helper"
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'DZNEmptyDataSet'
 end
