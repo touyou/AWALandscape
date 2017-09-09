@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-kh-oOm">
-                                <rect key="frame" x="25" y="25" width="30" height="30"/>
+                                <rect key="frame" x="5" y="15" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -127,12 +127,13 @@
                             <constraint firstItem="jM6-LX-JWC" firstAttribute="top" secondItem="IY1-Zj-N7A" secondAttribute="bottom" id="QbV-pv-vf4"/>
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="centerX" secondItem="rRG-Ni-8BO" secondAttribute="centerX" constant="-170" id="RWM-yn-LRF"/>
                             <constraint firstAttribute="trailing" secondItem="pay-EL-W2d" secondAttribute="trailing" id="Syd-70-PfD"/>
-                            <constraint firstItem="F7f-kh-oOm" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="5" id="THg-If-YsZ"/>
+                            <constraint firstItem="F7f-kh-oOm" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="-5" id="THg-If-YsZ"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-15" id="UAY-Iw-8ye"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="width" id="VC5-dU-h7P"/>
                             <constraint firstItem="IY1-Zj-N7A" firstAttribute="leading" secondItem="ctv-lv-RS4" secondAttribute="trailing" constant="20" id="bSX-zR-pWt"/>
                             <constraint firstItem="jM6-LX-JWC" firstAttribute="leading" secondItem="IY1-Zj-N7A" secondAttribute="leading" id="cNj-pN-dbl"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="leading" secondItem="IY1-Zj-N7A" secondAttribute="trailing" constant="20" id="dkU-2G-Eq6"/>
+                            <constraint firstItem="F7f-kh-oOm" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leading" constant="5" id="drg-h6-nuG"/>
                             <constraint firstItem="pay-EL-W2d" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="e7y-tQ-1sg"/>
                             <constraint firstItem="l9v-6L-Gde" firstAttribute="centerX" secondItem="rdT-Ff-8Gu" secondAttribute="centerX" id="fSU-5A-IMY"/>
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="xmJ-8n-x9z" secondAttribute="bottom" id="gsM-Lf-QdV"/>
@@ -140,7 +141,6 @@
                             <constraint firstAttribute="trailing" secondItem="xmJ-8n-x9z" secondAttribute="trailing" id="jko-OX-xaA"/>
                             <constraint firstItem="xiE-hC-ck3" firstAttribute="top" secondItem="pay-EL-W2d" secondAttribute="bottom" id="kmF-4u-C12"/>
                             <constraint firstItem="E66-nh-19V" firstAttribute="height" secondItem="ctv-lv-RS4" secondAttribute="height" id="nHg-KQ-h7S"/>
-                            <constraint firstItem="F7f-kh-oOm" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leadingMargin" constant="5" id="rV4-Sf-1CM"/>
                             <constraint firstItem="ctv-lv-RS4" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" constant="50" id="wFk-69-u3e"/>
                             <constraint firstItem="pay-EL-W2d" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leading" id="zv4-e9-arm"/>
                             <constraint firstItem="xmJ-8n-x9z" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="zwT-Rz-aLH"/>
