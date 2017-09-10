@@ -68,7 +68,7 @@ class PlaylistListViewController: UIViewController {
         didSet {
             
             let font = UIFont.fontAwesome(ofSize: 33)
-            let text = String.fontAwesomeIcon(name: .checkCircle)
+            let text = String.fontAwesomeIcon(name: .playCircle)
             playHelperLabel.text = text
             playHelperLabel.font = font
             playHelperLabel.textColor = UIColor.AWA.awaOrange
