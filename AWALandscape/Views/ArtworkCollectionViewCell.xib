@@ -27,14 +27,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="298" height="357"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
                         <rect key="frame" x="0.0" y="0.0" width="297.5" height="297.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="height" multiplier="298:298" id="a1Q-lH-gnx"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-vU-SgS">
-                        <rect key="frame" x="0.0" y="328.5" width="298" height="23.5"/>
+                        <rect key="frame" x="0.0" y="328.5" width="298" height="23"/>
                         <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -44,16 +44,17 @@
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-HT-pcR">
-                        <rect key="frame" x="0.0" y="140.5" width="298" height="16.5"/>
+                        <rect key="frame" x="0.0" y="141" width="298" height="16.5"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="1" height="1"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-2a-jNp">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-2a-jNp">
                         <rect key="frame" x="0.0" y="0.0" width="298" height="298"/>
                     </view>
                 </subviews>

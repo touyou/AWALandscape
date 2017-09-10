@@ -52,7 +52,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IY1-Zj-N7A">
                                 <rect key="frame" x="305.5" y="40" width="298.5" height="255"/>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artwork_sample" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-lv-RS4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artwork_sample" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-lv-RS4">
                                 <rect key="frame" x="36.5" y="70" width="234" height="234"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ctv-lv-RS4" secondAttribute="height" multiplier="1:1" id="BfV-Of-Bsq"/>

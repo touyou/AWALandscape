@@ -40,6 +40,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             animationView.play()
         }
     }
+    @IBOutlet weak var infoView: UIView!
     
     let musicManager = MusicManager.shared
     

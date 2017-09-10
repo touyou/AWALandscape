@@ -175,6 +175,7 @@ class PlayerViewController: UIViewController {
     var infoPageViewController: PlayerContentPageViewController!
     var isTouching = false
     var isReturning = false
+    var isDragging = false
     var animTimer: Timer!
     var blurView: UIVisualEffectView!
     var nextRect = CGRect()
@@ -219,6 +220,7 @@ class PlayerViewController: UIViewController {
         // preview用
         previewImageView = UIImageView()
         previewImageView.contentMode = .scaleAspectFill
+        previewImageView.clipsToBounds = true
         view.addSubview(previewImageView)
         previewImageView.alpha = 0
     }
@@ -271,7 +273,7 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController: ArtworkListScrollDelegate {
     
     func scrolled(_ ratio: CGFloat) {
-        
+
         sliderConstraint.constant = (selectScrollBarView.frame.height - thumbView.frame.height) * ratio
         
         let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
@@ -285,7 +287,60 @@ extension PlayerViewController: ArtworkListScrollDelegate {
             }
             judge += unit
         }
+        delegate.setSlider(ratio, position: selectorPosition)
+    }
+    
+    func dragEnded(_ ratio: CGFloat) {
+        
+        isDragging = false
+        
+        if playConstraint.constant > 0 {
+            
+            playConstraint.constant = 0
+            selectFlag = false
+        } else if playConstraint.constant > -20.0 {
+            
+            selectFlag = false
+        } else if playConstraint.constant < -180.0 {
+            
+            currentItem = selectorPosition
+            selectFlag = false
+        } else {
+            
+            let rate = playConstraint.constant / -180.0
+            previewImageView.alpha = 1
+            if rate > 0.5 {
+                
+                let xDist = artworkImageView.frame.origin.x - nextRect.origin.x
+                let yDist = artworkImageView.frame.origin.y - nextRect.origin.y
+                let nextOrigin = CGPoint(x: xDist * (rate - 0.5) * 2 + nextRect.origin.x, y: yDist * (rate - 0.5) * 2 + nextRect.origin.y)
+                previewImageView.frame.origin = nextOrigin
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.containerView.alpha = 0
+                    self.blurView.alpha = 0
+                })
+                selectFlag = true
+            } else {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.containerView.alpha = 1
+                    self.blurView.alpha = 1
+                })
+                nextRect = delegate.selectMusic(rate * 2, position: selectorPosition, rect: artworkImageView.bounds)
+                previewImageView.frame = nextRect
+                selectFlag = false
+            }
+        }
 
+    }
+    
+    func scrollEnded(_ ratio: CGFloat) {
+        
+        isDragging = true
+        previewImageView.alpha = 0
+        delegate.cancelSelected()
     }
 }
 
@@ -341,7 +396,7 @@ extension PlayerViewController {
             return
         }
         
-        if isTouching {
+        if isTouching && !isDragging {
             
             playConstraint.constant += touch.location(in: view).x - touch.previousLocation(in: view).x
             previewImageView.alpha = 0
@@ -395,6 +450,9 @@ extension PlayerViewController {
             if view.center.x < UIScreen.main.bounds.width / 2 {
                 
                 view.center.x = UIScreen.main.bounds.width / 2
+            } else if view.center.x > UIScreen.main.bounds.width / 2 * 3 {
+                
+                masterDelegate.switchPlaylistViewController(self)
             }
         }
     }
@@ -463,7 +521,7 @@ extension PlayerViewController {
             point.y <= inView.frame.origin.y + inView.frame.height + 10.0
     }
     
-    private func setPosition() {
+    fileprivate func setPosition() {
         
         let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
         

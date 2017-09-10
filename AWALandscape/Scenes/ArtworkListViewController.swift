@@ -12,6 +12,8 @@ import MediaPlayer
 protocol ArtworkListScrollDelegate: class {
     
     func scrolled(_ ratio: CGFloat)
+    func dragEnded(_ ratio: CGFloat)
+    func scrollEnded(_ ratio: CGFloat)
 }
 
 class ArtworkListViewController: UIViewController {
@@ -29,7 +31,7 @@ class ArtworkListViewController: UIViewController {
             let verticalInset = ArtworkCollectionViewFlowLayout.verticalInset
             let horizontalInset = ArtworkCollectionViewFlowLayout.horizontalInset
             let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: itemLength, height: itemLength + 50)
+            layout.itemSize = CGSize(width: itemLength, height: itemLength + 59)
             layout.minimumLineSpacing = 20.0
             layout.minimumInteritemSpacing = 20.0
             layout.sectionInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset)
@@ -128,11 +130,19 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         animateCell(scrollView)
+        delegate.scrollEnded(0.0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
+        print("scroll view did scroll")
         delegate.scrolled(scrollView.contentOffset.x / length)
+        animateCell(scrollView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        delegate.dragEnded(scrollView.contentOffset.x / length)
         animateCell(scrollView)
     }
     
@@ -185,14 +195,21 @@ extension ArtworkListViewController: PlayerViewControllerDelegate {
     func selectMusic(_ ratio: CGFloat, position: Int, rect: CGRect) -> CGRect {
         
         let indexPath = IndexPath(row: position, section: 0)
-        let cell = collectionView.cellForItem(at: indexPath) as! ArtworkCollectionViewCell
-        let originalFrame = cell.animate(collectionView, view, ratio: ratio, size: rect.size)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ArtworkCollectionViewCell else {
+            
+            return rect
+        }
+        
+        let centerX = cell.center.x - collectionView.contentOffset.x
+        let ratioThreshold = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        
+        let originalFrame = cell.animate(collectionView, view, ratio: ratio, size: rect.size, threshold: ratioThreshold)
         return cell.convert(originalFrame, to: view)
     }
     
     func cancelSelected() {
         
         let cells = collectionView.visibleCells
-        cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
+        _ = cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
     }
 }

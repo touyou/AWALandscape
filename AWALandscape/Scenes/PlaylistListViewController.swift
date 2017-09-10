@@ -126,6 +126,7 @@ class PlaylistListViewController: UIViewController {
         }
     }
     var animTimer: Timer!
+    var isActive = true
 
     // MARK: - LifeCycle
     
@@ -191,9 +192,12 @@ extension PlaylistListViewController {
                 
                 self.scrollBarView.alpha = 1.0
                 self.playHelperLabel.layoutIfNeeded()
-                self.delegate.hideMasterView()
             })
         }
+        UIView.animate(withDuration: 0.5, animations: {
+        
+            self.delegate.hideMasterView()
+        })
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -206,6 +210,7 @@ extension PlaylistListViewController {
         if isTouching {
             
             playConstraint.constant += touch.location(in: view).x - touch.previousLocation(in: view).x
+            (parent as! MasterViewController).playerViewController.view.center.x += touch.location(in: view).x - touch.previousLocation(in: view).x
             if playConstraint.constant > 0 {
                 
                 updateSliderConstraint(touch)
@@ -219,6 +224,7 @@ extension PlaylistListViewController {
                 
                 isTouching = false
                 selectFlag = false
+                isActive = false
                 delegate.switchPlayerViewController(self, sender: selectorPosition)
             } else {
                 
@@ -236,6 +242,14 @@ extension PlaylistListViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if isActive {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+            
+                (self.parent as! MasterViewController).playerViewController.view.center.x = UIScreen.main.bounds.width / 2 * 3
+            })
+        }
         
         playConstraint.constant = 0.0
         selectFlag = false
@@ -381,6 +395,18 @@ extension PlaylistListViewController: UICollectionViewDelegate {
             judge += unit
         }
         animateCell(scrollView)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if !isTouching && !decelerate {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.scrollBarView.alpha = 0.0
+                self.delegate.showMasterView()
+            })
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
