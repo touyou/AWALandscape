@@ -23,6 +23,7 @@ class ArtworkListViewController: UIViewController {
             collectionView.register(ArtworkCollectionViewCell.self)
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.backgroundColor = UIColor.clear
             
             let itemLength = ArtworkCollectionViewFlowLayout.kItemLength
             let verticalInset = ArtworkCollectionViewFlowLayout.verticalInset
@@ -84,14 +85,28 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
         
-        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 512, height: 512)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+        
+        let centerX = cell.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        if ratio > 0.0 {
+            
+            cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
+        } else {
+            
+            cell.transform = .identity
+        }
         
         if selected == indexPath.row {
             
-            cell.selectedView.isHidden = false
+            cell.selectedView.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+                
+                collectionView.bringSubview(toFront: cell)
+            })
         } else {
             
-            cell.selectedView.isHidden = true
+            cell.selectedView.isHidden = false
         }
         
         if indexPath.row == musicManager.currentItem {
@@ -102,6 +117,7 @@ extension ArtworkListViewController: UICollectionViewDataSource {
             cell.animationView.isHidden = true
         }
         cell.miniTitleLabel.isHidden = true
+        cell.imageView.alpha = 1.0
         
         return cell
     }
@@ -116,8 +132,8 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
-        animateCell(scrollView)
         delegate.scrolled(scrollView.contentOffset.x / length)
+        animateCell(scrollView)
     }
     
     func animateCell(_ scrollView: UIScrollView) {
@@ -164,5 +180,19 @@ extension ArtworkListViewController: PlayerViewControllerDelegate {
         
         selected = position
         collectionView.contentOffset = CGPoint(x: length * ratio, y: collectionView.contentOffset.y)
+    }
+    
+    func selectMusic(_ ratio: CGFloat, position: Int, rect: CGRect) -> CGRect {
+        
+        let indexPath = IndexPath(row: position, section: 0)
+        let cell = collectionView.cellForItem(at: indexPath) as! ArtworkCollectionViewCell
+        let originalFrame = cell.animate(collectionView, view, ratio: ratio, size: rect.size)
+        return cell.convert(originalFrame, to: view)
+    }
+    
+    func cancelSelected() {
+        
+        let cells = collectionView.visibleCells
+        cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
     }
 }

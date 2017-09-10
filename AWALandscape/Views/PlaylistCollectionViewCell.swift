@@ -21,7 +21,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
         
         didSet {
             
-            selectionView.backgroundColor = UIColor.white
+            selectionView.backgroundColor = UIColor.black
             selectionView.alpha = 0.7
         }
     }

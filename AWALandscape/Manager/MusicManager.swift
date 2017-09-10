@@ -67,6 +67,7 @@ class MusicManager: NSObject {
             return player?.isPlaying ?? false
         }
     }
+    var shuffleMode: Bool = false
     
     // MARK: KVO監視する
     dynamic var currentItem: Int = 0 {

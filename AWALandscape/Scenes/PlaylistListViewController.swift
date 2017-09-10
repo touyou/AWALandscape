@@ -41,6 +41,7 @@ class PlaylistListViewController: UIViewController {
             flowLayout.minimumInteritemSpacing = 20.0
             flowLayout.sectionInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset)
             flowLayout.scrollDirection = .horizontal
+            
             collectionView.collectionViewLayout = flowLayout
             
             if let count = items?.count {
@@ -64,10 +65,11 @@ class PlaylistListViewController: UIViewController {
         
         didSet {
             
-            let font = UIFont.fontAwesome(ofSize: 30)
-            let text = String.fontAwesomeIcon(name: .playCircle)
+            let font = UIFont.fontAwesome(ofSize: 33)
+            let text = String.fontAwesomeIcon(name: .checkCircle)
             playHelperLabel.text = text
             playHelperLabel.font = font
+            playHelperLabel.textColor = UIColor.AWA.awaOrange
             animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
             animTimer.fire()
         }
@@ -182,7 +184,7 @@ extension PlaylistListViewController {
         if isInside(inView: thumbView, point: touch.location(in: view)) {
             
             isTouching = true
-            helperConstraint.constant = 35
+            helperConstraint.constant = 75
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 1.0
@@ -210,14 +212,14 @@ extension PlaylistListViewController {
                 
                 updateSliderConstraint(touch)
                 selectFlag = false
-            } else if playConstraint.constant < -40.0 {
+            } else if playConstraint.constant < -80.0 {
                 
                 isTouching = false
                 selectFlag = false
                 delegate.switchPlayerViewController(self, sender: selectorPosition)
             } else {
                 
-                let rate = playConstraint.constant / -70.0
+                let rate = playConstraint.constant / -150.0
                 if rate > 0.5 {
                     
                     selectFlag = true
@@ -302,12 +304,26 @@ extension PlaylistListViewController: UICollectionViewDataSource {
         cell.currentAlbum = indexPath.row
         cell.miniTitleLabel.isHidden = true
         
-        if indexPath.row == selectorPosition {
+        let centerX = cell.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        if ratio > 0.0 {
             
-            cell.selectionView.isHidden = false
+            cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
         } else {
             
+            cell.transform = .identity
+        }
+        
+        if indexPath.row == selectorPosition {
+            
             cell.selectionView.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+            
+                collectionView.bringSubview(toFront: cell)
+            })
+        } else {
+            
+            cell.selectionView.isHidden = false
         }
         
         if indexPath.row == musicManager.currentAlbum {

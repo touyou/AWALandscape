@@ -40,6 +40,9 @@ class MasterViewController: UIViewController {
             miniCollectionView.dataSource = self
             miniCollectionView.emptyDataSetSource = self
             miniCollectionView.emptyDataSetDelegate = self
+            let layout = ArtworkCollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            miniCollectionView.collectionViewLayout = layout
         }
     }
     
@@ -136,6 +139,11 @@ class MasterViewController: UIViewController {
         mainContainerView.addSubview(playerViewController.view)
         playerViewController.masterDelegate = self
         playerViewController.view.center.x += kWidth
+        // 影
+        playerViewController.view.layer.masksToBounds = false
+        playerViewController.view.layer.shadowOffset = CGSize(width: -2, height: 0)
+        playerViewController.view.layer.shadowRadius = 3
+        playerViewController.view.layer.shadowOpacity = 0.8
         
         // MARK: Button
         playButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
@@ -146,7 +154,6 @@ class MasterViewController: UIViewController {
         backwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         backwardButton.setTitle(String.fontAwesomeIcon(name: .backward), for: .normal)
         
-//        let image = UIImage.colorImage(color: UIColor.AWA.awaOrange, size: CGSize(width: 5, height: 5))
         let image = #imageLiteral(resourceName: "circle")
         playingSlider.setThumbImage(image, for: .normal)
         playingSlider.tintColor = UIColor.AWA.awaOrange
@@ -333,35 +340,6 @@ extension MasterViewController: UICollectionViewDelegate {
         } else {
             
             musicManager.currentItem = indexPath.row
-        }
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-        animateCell(scrollView)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        animateCell(scrollView)
-    }
-    
-    func animateCell(_ scrollView: UIScrollView) {
-        
-        let cells = miniCollectionView.visibleCells
-        for cell in cells {
-            
-            let centerX = cell.center.x - scrollView.contentOffset.x
-            let ratio = 1.0 - fabs(miniCollectionView.center.x - centerX) / centerThreshold
-
-            if ratio > 0.0 {
-                
-                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
-                miniCollectionView.bringSubview(toFront: cell)
-            } else {
-                
-                cell.transform = .identity
-            }
         }
     }
 }

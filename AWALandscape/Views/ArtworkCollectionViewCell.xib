@@ -27,7 +27,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="298" height="357"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
                         <rect key="frame" x="0.0" y="0.0" width="297.5" height="297.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="height" multiplier="298:298" id="a1Q-lH-gnx"/>
@@ -55,13 +55,11 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-2a-jNp">
                         <rect key="frame" x="0.0" y="0.0" width="298" height="298"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="Wyz-2a-jNp" secondAttribute="height" multiplier="1:1" id="RbE-mA-QF8"/>
-                        </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="width" id="1f4-tK-PNw"/>
                 <constraint firstAttribute="trailing" secondItem="Wyz-2a-jNp" secondAttribute="trailing" id="5E1-Mx-oFR"/>
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DtK-mL-M0n"/>
                 <constraint firstItem="2pD-vU-SgS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GTf-EL-eF4"/>
@@ -69,7 +67,6 @@
                 <constraint firstItem="Qpe-Jv-vzC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KhI-BD-QHd"/>
                 <constraint firstItem="Qpe-Jv-vzC" firstAttribute="top" secondItem="Nnn-40-9cy" secondAttribute="bottom" constant="5" id="Mvf-Gp-Odg"/>
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="centerY" secondItem="Nnn-40-9cy" secondAttribute="centerY" id="Njr-aE-RH0"/>
-                <constraint firstItem="Qpe-Jv-vzC" firstAttribute="top" secondItem="Wyz-2a-jNp" secondAttribute="bottom" constant="4.5" id="PzU-9Z-j1B"/>
                 <constraint firstItem="Nnn-40-9cy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SE5-Ux-Ybe"/>
                 <constraint firstAttribute="bottom" secondItem="2pD-vU-SgS" secondAttribute="bottom" constant="5" id="V8P-74-LRk"/>
                 <constraint firstItem="2pD-vU-SgS" firstAttribute="top" secondItem="Qpe-Jv-vzC" secondAttribute="bottom" constant="2" id="Xny-Mt-Rqc"/>
@@ -78,6 +75,7 @@
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="centerX" secondItem="Nnn-40-9cy" secondAttribute="centerX" id="bDb-tl-zMe"/>
                 <constraint firstItem="Wyz-2a-jNp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gJm-Ty-JAT"/>
                 <constraint firstAttribute="trailing" secondItem="NWr-HT-pcR" secondAttribute="trailing" id="mLa-bI-BG3"/>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="height" secondItem="Nnn-40-9cy" secondAttribute="height" id="nBk-12-QLa"/>
                 <constraint firstAttribute="trailing" secondItem="2pD-vU-SgS" secondAttribute="trailing" id="qvT-Gg-wXv"/>
                 <constraint firstAttribute="trailing" secondItem="Nnn-40-9cy" secondAttribute="trailing" id="t9h-hr-M3F"/>
             </constraints>

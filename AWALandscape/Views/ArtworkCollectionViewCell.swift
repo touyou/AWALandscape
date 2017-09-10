@@ -32,8 +32,8 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             size.height /= 4
             animationView.frame = CGRect(origin: .zero, size: size)
             var center = imageView.bounds.origin
-            center.x += imageView.frame.width / 8 * 5
-            center.y += imageView.frame.height / 8 * 5
+            center.x += imageView.bounds.width / 8 * 5
+            center.y += imageView.bounds.height / 8 * 5
             animationView.center = center
             animationView.loopAnimation = true
             animationView.contentMode = .scaleAspectFit
@@ -50,15 +50,25 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
         
         didSet {
             
-            selectedView.backgroundColor = UIColor.white
+            selectedView.backgroundColor = UIColor.black
             selectedView.alpha = 0.7
         }
     }
+    
+    let windowCenter = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
     
     var animationView: LOTAnimationView!
     
     override func awakeFromNib() {
         
         super.awakeFromNib()
+    }
+    
+    func animate(_ collectionView: UICollectionView, _ sourceView: UIView, ratio: CGFloat, size: CGSize) -> CGRect {
+        
+        let scaleRatio = max(size.width / imageView.bounds.width, size.height / imageView.bounds.width)
+        self.transform = CGAffineTransform(scaleX: (scaleRatio - 1) * ratio + 1, y: (scaleRatio - 1) * ratio + 1)
+        imageView.alpha = 0.0
+        return imageView.frame
     }
 }

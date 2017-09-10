@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pageControl = UIPageControl.appearance()
         pageControl.backgroundColor = UIColor.clear
         pageControl.pageIndicatorTintColor = UIColor.gray
-        pageControl.currentPageIndicatorTintColor = UIColor.AWA.awaOrange
+        pageControl.currentPageIndicatorTintColor = UIColor.AWA.awaRed
         
         Fabric.with([Crashlytics.self])
         
