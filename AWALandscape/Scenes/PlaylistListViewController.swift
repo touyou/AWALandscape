@@ -128,6 +128,7 @@ class PlaylistListViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        musicManager.addObserve(self)
     }
     
     deinit {
@@ -136,6 +137,7 @@ class PlaylistListViewController: UIViewController {
             
             animTimer.invalidate()
         }
+        musicManager.removeObserve(self)
     }
     
     // MARK: - Timer
@@ -144,7 +146,7 @@ class PlaylistListViewController: UIViewController {
         
         UIView.animate(withDuration: 1.0, animations: {
             
-            self.playHelperLabel.alpha = 0.0
+            self.playHelperLabel.alpha = 0.2
         }) { _ in
             
             UIView.animate(withDuration: 1.0, animations: {
@@ -308,6 +310,14 @@ extension PlaylistListViewController: UICollectionViewDataSource {
             cell.selectionView.isHidden = true
         }
         
+        if indexPath.row == musicManager.currentAlbum {
+            
+            cell.animationView.isHidden = false
+        } else {
+            
+            cell.animationView.isHidden = true
+        }
+        
         return cell
     }
 }
@@ -316,7 +326,14 @@ extension PlaylistListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        delegate.switchPlayerViewController(self, sender: indexPath.row)
+        let cell = collectionView.cellForItem(at: indexPath)
+        let centerX = cell!.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        
+        if ratio > 0.0 {
+            
+            delegate.switchPlayerViewController(self, sender: indexPath.row)
+        }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -397,6 +414,19 @@ extension PlaylistListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDele
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
         collectionView.reloadData()
+    }
+}
+
+// MARK: - Music
+
+extension PlaylistListViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "currentAlbum" {
+            
+            collectionView.reloadData()
+        }
     }
 }
 

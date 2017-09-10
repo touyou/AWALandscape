@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import Lottie
 
 class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     
@@ -20,13 +21,29 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
         
         didSet {
             
-            selectionView.backgroundColor = UIColor.AWA.awaOrange
-            selectionView.alpha = 0.5
+            selectionView.backgroundColor = UIColor.white
+            selectionView.alpha = 0.7
+        }
+    }
+    @IBOutlet weak var playingView: UIView! {
+        
+        didSet {
+            
+            animationView = LOTAnimationView(name: "trail_loading")
+            animationView.frame = CGRect(origin: .zero, size: playingView.bounds.size)
+            animationView.center = contentView.center
+            animationView.loopAnimation = true
+            animationView.contentMode = .scaleAspectFit
+            animationView.animationSpeed = 1
+            
+            contentView.addSubview(animationView)
+            animationView.play()
         }
     }
     
     let musicManager = MusicManager.shared
     
+    var animationView: LOTAnimationView!
     var images = Set<UIImage>()
     var currentAlbum: Int = 0 {
         
@@ -52,14 +69,6 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             mainImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
             sub1ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
             sub2ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
-            
-            if animTimer?.isValid ?? false {
-                
-                animTimer?.invalidate()
-                animTimer = nil
-            }
-            animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
-            animTimer?.fire()
         }
     }
     var animTimer: Timer?
@@ -67,27 +76,5 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-    }
-    
-    deinit {
-        
-        if animTimer?.isValid ?? false {
-            
-            animTimer?.invalidate()
-        }
-    }
-    
-    func animLabel() {
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            
-            self.selectionView.alpha = 0.0
-        }) { _ in
-            
-            UIView.animate(withDuration: 1.0, animations: {
-                
-                self.selectionView.alpha = 0.5
-            })
-        }
     }
 }

@@ -9,6 +9,11 @@
 import UIKit
 import MediaPlayer
 
+protocol ArtworkListScrollDelegate: class {
+    
+    func scrolled(_ ratio: CGFloat)
+}
+
 class ArtworkListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -34,6 +39,8 @@ class ArtworkListViewController: UIViewController {
     
     let musicManager = MusicManager.shared
     let centerThreshold: CGFloat = UIScreen.main.bounds.width / 6
+    
+    weak var delegate: ArtworkListScrollDelegate!
     var length: CGFloat = 0.0
     var items: [MPMediaItem]! {
         
@@ -81,12 +88,18 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         
         if selected == indexPath.row {
             
-            cell.artistLabel.isHidden = false
-            cell.titleLabel.isHidden = false
+            cell.selectedView.isHidden = false
         } else {
             
-            cell.artistLabel.isHidden = true
-            cell.titleLabel.isHidden = true
+            cell.selectedView.isHidden = true
+        }
+        
+        if indexPath.row == musicManager.currentItem {
+            
+            cell.animationView.isHidden = false
+        } else {
+            
+            cell.animationView.isHidden = true
         }
         cell.miniTitleLabel.isHidden = true
         
@@ -104,6 +117,7 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
         animateCell(scrollView)
+        delegate.scrolled(scrollView.contentOffset.x / length)
     }
     
     func animateCell(_ scrollView: UIScrollView) {
@@ -137,6 +151,9 @@ extension ArtworkListViewController {
             print("change Album")
             collectionView.reloadData()
             collectionView.contentOffset = CGPoint(x: 0.0, y: collectionView.contentOffset.y)
+        } else if keyPath == "currentItem" {
+            
+            collectionView.reloadData()
         }
     }
 }

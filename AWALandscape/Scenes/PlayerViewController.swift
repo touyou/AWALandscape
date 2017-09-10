@@ -192,6 +192,7 @@ class PlayerViewController: UIViewController {
         delegate = artworkListViewController
         addChildViewController(artworkListViewController)
         artworkListViewController.view.frame = containerView.bounds
+        artworkListViewController.delegate = self
         containerView.addSubview(artworkListViewController.view)
         containerView.alpha = 0.0
         previewImageView.alpha = 0.0
@@ -235,7 +236,7 @@ class PlayerViewController: UIViewController {
         
         UIView.animate(withDuration: 1.0, animations: {
             
-            self.playHelperLabel.alpha = 0.0
+            self.playHelperLabel.alpha = 0.2
         }) { _ in
             
             UIView.animate(withDuration: 1.0, animations: {
@@ -250,6 +251,29 @@ class PlayerViewController: UIViewController {
     @IBAction func touchUpInsideExitButton(_ sender: Any) {
         
         masterDelegate.switchPlaylistViewController(self)
+    }
+}
+
+// MARK: - Scroll
+
+extension PlayerViewController: ArtworkListScrollDelegate {
+    
+    func scrolled(_ ratio: CGFloat) {
+        
+        sliderConstraint.constant = (selectScrollBarView.frame.height - thumbView.frame.height) * ratio
+        
+        let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
+        
+        var judge = -unit / 2
+        for i in 0 ..< items!.count {
+            
+            if judge <= sliderConstraint.constant && sliderConstraint.constant < judge + unit {
+                
+                selectorPosition = i
+            }
+            judge += unit
+        }
+
     }
 }
 

@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>lottie-ios.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +52,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A9B63DFE964D956A7CB295654C8E015</key>
+		<key>7EC7E5844826B491A7FDE05DB1E78FAF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8386817F9A5E38AB99F1AA49CD86EB76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCA6747C41F768CEC701F8C58B82E984</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9A3EBEFEF2E9C956FDC740262FC3330</key>
+		<key>917AC5EA003477B3C64BF62169ACADAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F57D2FD6AD18EFBA38946D61A891A6DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,6 +9,7 @@
 import UIKit
 import FontAwesome_swift
 import DZNEmptyDataSet
+import Lottie
 
 class MasterViewController: UIViewController {
     
@@ -41,6 +42,23 @@ class MasterViewController: UIViewController {
             miniCollectionView.emptyDataSetDelegate = self
         }
     }
+    
+    @IBOutlet weak var popupImageView: UIImageView! {
+        
+        didSet {
+            
+            popupImageView.alpha = 0
+        }
+    }
+    @IBOutlet weak var timeLabel: UILabel! {
+        
+        didSet {
+            
+            timeLabel.alpha = 0
+        }
+    }
+    @IBOutlet weak var timeConstraint: NSLayoutConstraint!
+    
     
     // MARK: Constant
     let musicManager = MusicManager.shared
@@ -81,7 +99,18 @@ class MasterViewController: UIViewController {
             miniCollectionView.reloadData()
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+//                if self.miniCollectionView.numberOfItems(inSection: 0) == 0 {
+                    
+                    self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+//                } else if self.isPlaylist {
+//                    
+//                    let indexPath = IndexPath(row: MusicManager.shared.currentAlbum, section: 0)
+//                    self.miniCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+//                } else {
+//                    
+//                    let indexPath = IndexPath(row: MusicManager.shared.currentItem, section: 0)
+//                    self.miniCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+//                }
             })
         }
     }
@@ -117,7 +146,8 @@ class MasterViewController: UIViewController {
         backwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         backwardButton.setTitle(String.fontAwesomeIcon(name: .backward), for: .normal)
         
-        let image = UIImage.colorImage(color: UIColor.AWA.awaOrange, size: CGSize(width: 5, height: 5))
+//        let image = UIImage.colorImage(color: UIColor.AWA.awaOrange, size: CGSize(width: 5, height: 5))
+        let image = #imageLiteral(resourceName: "circle")
         playingSlider.setThumbImage(image, for: .normal)
         playingSlider.tintColor = UIColor.AWA.awaOrange
         playingSlider.value = 0.0
@@ -128,6 +158,18 @@ class MasterViewController: UIViewController {
         musicManager.addObserve(self)
         NotificationCenter.default.addObserver(self, selector: #selector(videoStarted), name: .UIWindowDidBecomeVisible, object: view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(videoEnded), name: .UIWindowDidBecomeHidden, object: view.window)
+        
+        // MARK: テスト用
+//        let animationView = LOTAnimationView(name: "equalizer_bounce")
+//        animationView.frame = view.bounds
+//        animationView.center = view.center
+//        animationView.loopAnimation = true
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.animationSpeed = 1
+//        
+//        view.addSubview(animationView)
+//        
+//        animationView.play()
     }
     
     deinit {
@@ -144,6 +186,12 @@ class MasterViewController: UIViewController {
     func updateSlider() {
         
         playingSlider.setValue(Float(musicManager.playPosition), animated: true)
+        let sliderLength = playingSlider.frame.width
+        let ratio = musicManager.playPosition / musicManager.duration
+        timeConstraint.constant = sliderLength * CGFloat(ratio)
+        let s = Int(musicManager.playPosition) % 60
+        let m = Int((musicManager.playPosition - Double(s)) / 60) % 60
+        timeLabel.text = String(format: "%02d:%02d", m, s)
     }
     
     func videoStarted() {
@@ -162,6 +210,25 @@ class MasterViewController: UIViewController {
         
         musicManager.setTime(TimeInterval(playingSlider.value))
     }
+    
+    @IBAction func touchDownPlayingSlider(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+        
+            self.popupImageView.alpha = 1
+            self.timeLabel.alpha = 1
+        })
+    }
+    
+    @IBAction func touchUpInsidePlayingSlider(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.popupImageView.alpha = 0
+            self.timeLabel.alpha = 0
+        })
+    }
+    
     
     @IBAction func touchUpInsidePlayButton(_ sender: Any) {
         
@@ -239,6 +306,7 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.currentAlbum = indexPath.row
             cell.titleLabel.isHidden = true
             cell.selectionView.isHidden = true
+            cell.animationView.isHidden = true
             return cell
         } else {
             
@@ -247,6 +315,8 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
+            cell.animationView.isHidden = true
+            cell.selectedView.isHidden = true
             return cell
         }
     }

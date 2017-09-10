@@ -12,7 +12,8 @@ extension UIColor {
     
     struct AWA {
         
-        static var awaOrange: UIColor { return UIColor(hex: "#F9B248") }
+        static var awaOrange: UIColor { return UIColor(hex: "#F5A623") }
+        static var awaRed: UIColor { return UIColor(hex: "#F25C4A") }
     }
 }
 
