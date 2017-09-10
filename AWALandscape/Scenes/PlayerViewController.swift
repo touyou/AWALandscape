@@ -124,7 +124,7 @@ class PlayerViewController: UIViewController {
             }
             
             musicManager.currentAlbum = currentAlbum
-            items = musicManager.playlist?.items
+            items = musicManager.items
             currentItem = -1
             
             if artworkListViewController != nil {

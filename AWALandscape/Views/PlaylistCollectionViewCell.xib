@@ -14,6 +14,9 @@
         <array key="mplus-1c-bold.ttf">
             <string>mplus-1c-bold</string>
         </array>
+        <array key="mplus-1c-regular.ttf">
+            <string>mplus-1c-regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -49,6 +52,34 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQm-f0-E4v">
                         <rect key="frame" x="0.0" y="260" width="521" height="87"/>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzV-1O-ER0">
+                        <rect key="frame" x="0.0" y="307" width="521" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFN-pt-chA">
+                                <rect key="frame" x="8" y="8" width="460" height="24"/>
+                                <string key="text">僕たちがやりました / サイレーン 刑事×彼女×完全悪女 / CRISIS 公安起動操作隊特捜班 / あなたのことはそれほど / ドクターX~外科医・大門未知子~ / セシルのもくろみ / あなたのことはそれほど / 山田孝之のカンヌ映画祭 / 家政婦のミタ   プレイリスト公開：2017/8/30  随時更新</string>
+                                <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="9"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="by touyou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzR-Mt-wSl">
+                                <rect key="frame" x="476" y="24.5" width="37" height="11.5"/>
+                                <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="8"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.60112235915492962" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hFN-pt-chA" firstAttribute="leading" secondItem="jzV-1O-ER0" secondAttribute="leading" constant="8" id="1Rz-2h-peK"/>
+                            <constraint firstAttribute="bottom" secondItem="hFN-pt-chA" secondAttribute="bottom" constant="8" id="2j7-Mr-kKS"/>
+                            <constraint firstAttribute="trailing" secondItem="dzR-Mt-wSl" secondAttribute="trailing" constant="8" id="IYr-cV-OUO"/>
+                            <constraint firstItem="hFN-pt-chA" firstAttribute="top" secondItem="jzV-1O-ER0" secondAttribute="top" constant="8" id="KTL-j2-AF8"/>
+                            <constraint firstAttribute="height" constant="40" id="S2n-2p-AF4"/>
+                            <constraint firstAttribute="bottom" secondItem="dzR-Mt-wSl" secondAttribute="bottom" constant="4" id="jMQ-eg-bIA"/>
+                            <constraint firstItem="dzR-Mt-wSl" firstAttribute="leading" secondItem="hFN-pt-chA" secondAttribute="trailing" constant="8" id="pGX-LV-ZLa"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-bj-T7f">
                         <rect key="frame" x="0.0" y="158" width="522" height="31.5"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="21"/>
@@ -68,6 +99,7 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="jzV-1O-ER0" secondAttribute="trailing" id="2rm-3N-byJ"/>
                 <constraint firstItem="yec-gi-wZf" firstAttribute="leading" secondItem="nlH-Mp-W1M" secondAttribute="trailing" id="4co-zD-2JV"/>
                 <constraint firstAttribute="bottom" secondItem="nlH-Mp-W1M" secondAttribute="bottom" id="66V-2I-jXm"/>
                 <constraint firstItem="GQm-f0-E4v" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6vb-u3-RLk"/>
@@ -79,6 +111,7 @@
                 <constraint firstAttribute="trailing" secondItem="GQm-f0-E4v" secondAttribute="trailing" id="Mct-ti-2M6"/>
                 <constraint firstAttribute="bottom" secondItem="PSu-Vj-GMT" secondAttribute="bottom" id="SGm-iP-Apa"/>
                 <constraint firstItem="GQm-f0-E4v" firstAttribute="height" secondItem="yec-gi-wZf" secondAttribute="height" multiplier="0.5" id="U8k-xr-NQv"/>
+                <constraint firstItem="jzV-1O-ER0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bi5-lJ-hpt"/>
                 <constraint firstItem="nlH-Mp-W1M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eRP-xC-Yor"/>
                 <constraint firstItem="xjf-bj-T7f" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ep9-US-ilj"/>
                 <constraint firstItem="yec-gi-wZf" firstAttribute="top" secondItem="Fci-Rl-URd" secondAttribute="bottom" id="gCU-au-2er"/>
@@ -86,6 +119,7 @@
                 <constraint firstItem="nlH-Mp-W1M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lw5-uU-Hmq"/>
                 <constraint firstItem="Fci-Rl-URd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ocI-mi-Ik5"/>
                 <constraint firstItem="xjf-bj-T7f" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pME-jl-KQr"/>
+                <constraint firstAttribute="bottom" secondItem="jzV-1O-ER0" secondAttribute="bottom" id="qi7-ci-faW"/>
                 <constraint firstAttribute="trailing" secondItem="Fci-Rl-URd" secondAttribute="trailing" id="rxz-eY-f9I"/>
                 <constraint firstItem="PSu-Vj-GMT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sQT-EF-FUh"/>
                 <constraint firstAttribute="bottom" secondItem="GQm-f0-E4v" secondAttribute="bottom" id="toA-49-ayX"/>

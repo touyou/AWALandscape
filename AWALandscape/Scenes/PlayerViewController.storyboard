@@ -246,6 +246,7 @@
                     <connections>
                         <outlet property="artistLabel" destination="W3Y-kw-u9Z" id="YBF-3h-ucB"/>
                         <outlet property="dummyLikeButton" destination="HJR-u8-fzL" id="FH4-je-IBt"/>
+                        <outlet property="playCountLabel" destination="N8B-4A-ECn" id="eBb-bV-59Z"/>
                         <outlet property="playlistDescriptionLabel" destination="Q5r-qd-wzk" id="8uA-bj-AD4"/>
                         <outlet property="playlistNameLabel" destination="fc3-Gu-eEE" id="K7L-PA-1cc"/>
                         <outlet property="titleLabel" destination="jCy-aP-qj7" id="hCF-Ja-2M2"/>

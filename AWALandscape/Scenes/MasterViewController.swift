@@ -73,7 +73,7 @@ class MasterViewController: UIViewController {
         
         didSet {
             
-            guard let items = musicManager.playlists?[musicManager.currentAlbum].items else {
+            guard let items = musicManager.items else {
                 
                 return
             }
@@ -318,7 +318,7 @@ extension MasterViewController: UICollectionViewDataSource {
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-            let items = musicManager.playlist?.items
+            let items = musicManager.items
             cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
@@ -399,6 +399,11 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
     
     func switchPlayerViewController(_ oldViewController: UIViewController, sender: Int) {
         
+        var flag = true
+        if playerViewController.currentAlbum == sender {
+            
+            flag = false
+        }
         playerViewController.currentAlbum = sender
     
         UIView.animate(withDuration: 0.5, animations: {
@@ -406,7 +411,10 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
             self.playerViewController.view.center.x = self.kWidth / 2
         }, completion: { _ in
             
-            self.playerViewController.currentItem = 0
+            if flag {
+                
+                self.playerViewController.currentItem = 0
+            }
             self.isPlaylist = true
         })
     }

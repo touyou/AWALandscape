@@ -35,7 +35,7 @@ class PlayerVideoViewController: UIViewController {
             }
             
             // Videoの取得とか
-            guard let items = musicManager.playlist?.items else {
+            guard let items = musicManager.items else {
                 
                 return
             }
@@ -65,7 +65,7 @@ class PlayerVideoViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if musicManager.playlist?.items != nil {
+        if musicManager.items != nil {
             
             currentItem = musicManager.currentItem
         }

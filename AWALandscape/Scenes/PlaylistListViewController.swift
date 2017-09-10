@@ -16,6 +16,8 @@ import DZNEmptyDataSet
 protocol PlaylistListViewControllerDelegate: class {
     
     func switchPlayerViewController(_ oldViewController: UIViewController, sender: Int)
+    func hideMasterView()
+    func showMasterView()
 }
 
 class PlaylistListViewController: UIViewController {
@@ -189,6 +191,7 @@ extension PlaylistListViewController {
                 
                 self.scrollBarView.alpha = 1.0
                 self.playHelperLabel.layoutIfNeeded()
+                self.delegate.hideMasterView()
             })
         }
     }
@@ -242,6 +245,7 @@ extension PlaylistListViewController {
             
             self.scrollBarView.alpha = 0.0
             self.playHelperLabel.layoutIfNeeded()
+            self.delegate.showMasterView()
         })
     }
     
@@ -358,6 +362,7 @@ extension PlaylistListViewController: UICollectionViewDelegate {
         UIView.animate(withDuration: 0.5, animations: {
             
             self.scrollBarView.alpha = 1.0
+            self.delegate.hideMasterView()
         })
     }
     
@@ -385,6 +390,7 @@ extension PlaylistListViewController: UICollectionViewDelegate {
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 0.0
+                self.delegate.showMasterView()
             })
         }
     }
