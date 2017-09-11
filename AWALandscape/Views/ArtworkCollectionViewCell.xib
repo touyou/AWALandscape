@@ -27,37 +27,44 @@
                 <rect key="frame" x="0.0" y="0.0" width="298" height="357"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nnn-40-9cy">
                         <rect key="frame" x="0.0" y="0.0" width="297.5" height="297.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="height" multiplier="298:298" id="a1Q-lH-gnx"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-vU-SgS">
-                        <rect key="frame" x="0.0" y="328.5" width="298" height="23.5"/>
+                        <rect key="frame" x="0.0" y="328.5" width="298" height="23"/>
                         <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="14"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-Jv-vzC">
                         <rect key="frame" x="0.0" y="302.5" width="298" height="24"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-HT-pcR">
-                        <rect key="frame" x="0.0" y="139.5" width="298" height="19.5"/>
-                        <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="13"/>
+                        <rect key="frame" x="0.0" y="141" width="298" height="16.5"/>
+                        <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="1" height="1"/>
                     </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-2a-jNp">
+                        <rect key="frame" x="0.0" y="0.0" width="298" height="298"/>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="width" id="1f4-tK-PNw"/>
+                <constraint firstAttribute="trailing" secondItem="Wyz-2a-jNp" secondAttribute="trailing" id="5E1-Mx-oFR"/>
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DtK-mL-M0n"/>
                 <constraint firstItem="2pD-vU-SgS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GTf-EL-eF4"/>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JqF-ou-3OB"/>
                 <constraint firstItem="Qpe-Jv-vzC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KhI-BD-QHd"/>
                 <constraint firstItem="Qpe-Jv-vzC" firstAttribute="top" secondItem="Nnn-40-9cy" secondAttribute="bottom" constant="5" id="Mvf-Gp-Odg"/>
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="centerY" secondItem="Nnn-40-9cy" secondAttribute="centerY" id="Njr-aE-RH0"/>
@@ -67,7 +74,9 @@
                 <constraint firstItem="Nnn-40-9cy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Y5N-m1-Z4f"/>
                 <constraint firstAttribute="trailing" secondItem="Qpe-Jv-vzC" secondAttribute="trailing" id="Z0c-zg-7hh"/>
                 <constraint firstItem="NWr-HT-pcR" firstAttribute="centerX" secondItem="Nnn-40-9cy" secondAttribute="centerX" id="bDb-tl-zMe"/>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gJm-Ty-JAT"/>
                 <constraint firstAttribute="trailing" secondItem="NWr-HT-pcR" secondAttribute="trailing" id="mLa-bI-BG3"/>
+                <constraint firstItem="Wyz-2a-jNp" firstAttribute="height" secondItem="Nnn-40-9cy" secondAttribute="height" id="nBk-12-QLa"/>
                 <constraint firstAttribute="trailing" secondItem="2pD-vU-SgS" secondAttribute="trailing" id="qvT-Gg-wXv"/>
                 <constraint firstAttribute="trailing" secondItem="Nnn-40-9cy" secondAttribute="trailing" id="t9h-hr-M3F"/>
             </constraints>
@@ -76,6 +85,7 @@
                 <outlet property="artistLabel" destination="2pD-vU-SgS" id="kRU-oB-vte"/>
                 <outlet property="imageView" destination="Nnn-40-9cy" id="H4a-1z-Kr2"/>
                 <outlet property="miniTitleLabel" destination="NWr-HT-pcR" id="c52-Pp-KCV"/>
+                <outlet property="selectedView" destination="Wyz-2a-jNp" id="ZHy-e7-BGG"/>
                 <outlet property="titleLabel" destination="Qpe-Jv-vzC" id="5bt-1M-UTi"/>
             </connections>
             <point key="canvasLocation" x="158" y="207.5"/>

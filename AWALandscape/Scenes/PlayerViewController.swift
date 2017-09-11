@@ -10,9 +10,13 @@ import UIKit
 import MediaPlayer
 import FontAwesome_swift
 
+// MARK: - Protocol
+
 protocol PlayerViewControllerDelegate: class {
     
     func setSlider(_ ratio: CGFloat, position: Int)
+    func selectMusic(_ ratio: CGFloat, position: Int, rect: CGRect) -> CGRect
+    func cancelSelected()
 }
 
 protocol PlayerViewControllerToMasterDelegate: class {
@@ -24,9 +28,11 @@ protocol PlayerViewControllerToMasterDelegate: class {
 
 class PlayerViewController: UIViewController {
     
+    // MARK: - Property
+    // MARK: Outlet
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var artworkImageView: UIImageView!
-    @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var selectScrollBarView: UIView! {
         
@@ -51,13 +57,6 @@ class PlayerViewController: UIViewController {
             playConstraint.constant = 0
         }
     }
-    @IBOutlet weak var previewConstraint: NSLayoutConstraint! {
-        
-        didSet {
-            
-            previewConstraint.constant = 0
-        }
-    }
     @IBOutlet weak var shareButton: UIButton! {
         
         didSet {
@@ -78,24 +77,23 @@ class PlayerViewController: UIViewController {
         
         didSet {
             
-            exitButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 24.0)
-            exitButton.setTitle(String.fontAwesomeIcon(name: .times), for: .normal)
+            exitButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
+            exitButton.setTitle(String.fontAwesomeIcon(name: .arrowLeft), for: .normal)
         }
     }
-    var animTimer: Timer!
     @IBOutlet weak var playHelperLabel: UILabel! {
         
         didSet {
             
-            let font = UIFont.fontAwesome(ofSize: 30)
+            let font = UIFont.fontAwesome(ofSize: 33)
             let text = String.fontAwesomeIcon(name: .playCircle)
             playHelperLabel.text = text
             playHelperLabel.font = font
+            playHelperLabel.textColor = UIColor.AWA.awaOrange
             animTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(animLabel), userInfo: nil, repeats: true)
             animTimer.fire()
         }
     }
-    
     @IBOutlet weak var helperConstraint: NSLayoutConstraint! {
         
         didSet {
@@ -104,19 +102,29 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    // MARK: Constant
+    
     let musicManager = MusicManager.shared
     let selectionFeedback = UISelectionFeedbackGenerator()
     let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
     
+    // MARK: Variable
+    
     weak var delegate: PlayerViewControllerDelegate!
     weak var masterDelegate: PlayerViewControllerToMasterDelegate!
+    var previewImageView: UIImageView!
     var items: [MPMediaItem]?
-    var currentAlbum: Int = 0 {
+    var currentAlbum: Int = -1 {
         
         didSet {
             
+            if oldValue == currentAlbum || currentAlbum == -1 {
+                
+                return
+            }
+            
             musicManager.currentAlbum = currentAlbum
-            items = musicManager.playlist?.items
+            items = musicManager.items
             currentItem = -1
             
             if artworkListViewController != nil {
@@ -148,7 +156,7 @@ class PlayerViewController: UIViewController {
             
             if oldValue != selectorPosition {
                 
-                previewImageView.image = items?[selectorPosition].artwork?.image(at: previewImageView.frame.size)
+                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
                 selectionFeedback.selectionChanged()
             }
         }
@@ -166,6 +174,13 @@ class PlayerViewController: UIViewController {
     var artworkListViewController: ArtworkListViewController!
     var infoPageViewController: PlayerContentPageViewController!
     var isTouching = false
+    var isReturning = false
+    var isDragging = false
+    var animTimer: Timer!
+    var blurView: UIVisualEffectView!
+    var nextRect = CGRect()
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         
@@ -173,13 +188,13 @@ class PlayerViewController: UIViewController {
         
         // MARK: ArtworkContainer
         artworkListViewController = storyboard!.instantiateViewController(withIdentifier: "Artwork") as! ArtworkListViewController
-        artworkListViewController.items = items
+        artworkListViewController.items = items ?? []
         delegate = artworkListViewController
         addChildViewController(artworkListViewController)
         artworkListViewController.view.frame = containerView.bounds
+        artworkListViewController.delegate = self
         containerView.addSubview(artworkListViewController.view)
         containerView.alpha = 0.0
-        previewImageView.alpha = 0.0
         
         // MARK: InfoContainer
         infoPageViewController = storyboard!.instantiateViewController(withIdentifier: "InfoPage") as! PlayerContentPageViewController
@@ -193,12 +208,31 @@ class PlayerViewController: UIViewController {
         
         // MARK: 再生状態監視
         musicManager.addObserve(self)
+        
+        // Blur
+        let lightBlur = UIBlurEffect(style: .regular)
+        blurView = UIVisualEffectView(effect: lightBlur)
+        blurView.frame = view.bounds
+        view.addSubview(blurView)
+        view.insertSubview(blurView, belowSubview: containerView)
+        blurView.alpha = 0.0
+        
+        // preview用
+        previewImageView = UIImageView()
+        previewImageView.contentMode = .scaleAspectFill
+        previewImageView.clipsToBounds = true
+        view.addSubview(previewImageView)
+        previewImageView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        currentItem = 0
+        
+        if currentAlbum != -1 {
+            
+            currentItem = 0
+        }
     }
     
     deinit {
@@ -210,23 +244,103 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func touchUpInsideExitButton(_ sender: Any) {
-        
-        masterDelegate.switchPlaylistViewController(self)
-    }
+    // MARK: - Timer and Gesture
     
     func animLabel() {
         
         UIView.animate(withDuration: 1.0, animations: {
             
-            self.playHelperLabel.alpha = 0.0
+            self.playHelperLabel.alpha = 0.2
         }) { _ in
             
             UIView.animate(withDuration: 1.0, animations: {
-            
+                
                 self.playHelperLabel.alpha = 1.0
             })
         }
+    }
+    
+    // MARK: - Action
+    
+    @IBAction func touchUpInsideExitButton(_ sender: Any) {
+        
+        masterDelegate.switchPlaylistViewController(self)
+    }
+}
+
+// MARK: - Scroll
+
+extension PlayerViewController: ArtworkListScrollDelegate {
+    
+    func scrolled(_ ratio: CGFloat) {
+
+        sliderConstraint.constant = (selectScrollBarView.frame.height - thumbView.frame.height) * ratio
+        
+        let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
+        
+        var judge = -unit / 2
+        for i in 0 ..< items!.count {
+            
+            if judge <= sliderConstraint.constant && sliderConstraint.constant < judge + unit {
+                
+                selectorPosition = i
+            }
+            judge += unit
+        }
+        delegate.setSlider(ratio, position: selectorPosition)
+    }
+    
+    func dragEnded(_ ratio: CGFloat) {
+        
+        isDragging = false
+        
+        if playConstraint.constant > 0 {
+            
+            playConstraint.constant = 0
+            selectFlag = false
+        } else if playConstraint.constant > -20.0 {
+            
+            selectFlag = false
+        } else if playConstraint.constant < -180.0 {
+            
+            currentItem = selectorPosition
+            selectFlag = false
+        } else {
+            
+            let rate = playConstraint.constant / -180.0
+            previewImageView.alpha = 1
+            if rate > 0.5 {
+                
+                let xDist = artworkImageView.frame.origin.x - nextRect.origin.x
+                let yDist = artworkImageView.frame.origin.y - nextRect.origin.y
+                let nextOrigin = CGPoint(x: xDist * (rate - 0.5) * 2 + nextRect.origin.x, y: yDist * (rate - 0.5) * 2 + nextRect.origin.y)
+                previewImageView.frame.origin = nextOrigin
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.containerView.alpha = 0
+                    self.blurView.alpha = 0
+                })
+                selectFlag = true
+            } else {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.containerView.alpha = 1
+                    self.blurView.alpha = 1
+                })
+                nextRect = delegate.selectMusic(rate * 2, position: selectorPosition, rect: artworkImageView.bounds)
+                previewImageView.frame = nextRect
+                selectFlag = false
+            }
+        }
+
+    }
+    
+    func scrollEnded(_ ratio: CGFloat) {
+        
+        isDragging = true
+        previewImageView.alpha = 0
+        delegate.cancelSelected()
     }
 }
 
@@ -265,9 +379,13 @@ extension PlayerViewController {
                 
                 self.containerView.alpha = 1.0
                 self.selectScrollBarView.alpha = 1.0
-                self.masterDelegate.hideMasterView()
-                self.playHelperLabel.layoutIfNeeded()
+                self.blurView.alpha = 1.0
+                self.view.layoutIfNeeded()
             })
+            masterDelegate.hideMasterView()
+        } else {
+            
+            isReturning = true
         }
     }
     
@@ -278,18 +396,21 @@ extension PlayerViewController {
             return
         }
         
-        if isTouching {
+        if isTouching && !isDragging {
             
             playConstraint.constant += touch.location(in: view).x - touch.previousLocation(in: view).x
+            previewImageView.alpha = 0
             if playConstraint.constant > 0 {
                 
                 updateSliderConstraint(touch)
                 playConstraint.constant = 0
                 selectFlag = false
+                delegate.cancelSelected()
             } else if playConstraint.constant > -20.0 {
                 
                 updateSliderConstraint(touch)
                 selectFlag = false
+                delegate.cancelSelected()
             } else if playConstraint.constant < -180.0 {
                 
                 currentItem = selectorPosition
@@ -298,16 +419,40 @@ extension PlayerViewController {
             } else {
                 
                 let rate = playConstraint.constant / -180.0
-                containerView.alpha = 1 - rate
+                previewImageView.alpha = 1
                 if rate > 0.5 {
                     
-                    previewConstraint.constant = -180 * (rate - 0.5) * 2
+                    let xDist = artworkImageView.frame.origin.x - nextRect.origin.x
+                    let yDist = artworkImageView.frame.origin.y - nextRect.origin.y
+                    let nextOrigin = CGPoint(x: xDist * (rate - 0.5) * 2 + nextRect.origin.x, y: yDist * (rate - 0.5) * 2 + nextRect.origin.y)
+                    previewImageView.frame.origin = nextOrigin
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.containerView.alpha = 0
+                        self.blurView.alpha = 0
+                    })
                     selectFlag = true
                 } else {
                     
-                    previewImageView.alpha = rate * 2
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.containerView.alpha = 1
+                        self.blurView.alpha = 1
+                    })
+                    nextRect = delegate.selectMusic(rate * 2, position: selectorPosition, rect: artworkImageView.bounds)
+                    previewImageView.frame = nextRect
                     selectFlag = false
                 }
+            }
+        } else if isReturning {
+            
+            view.center.x += touch.location(in: view).x - touch.previousLocation(in: view).x
+            if view.center.x < UIScreen.main.bounds.width / 2 {
+                
+                view.center.x = UIScreen.main.bounds.width / 2
+            } else if view.center.x > UIScreen.main.bounds.width / 2 * 3 {
+                
+                masterDelegate.switchPlaylistViewController(self)
             }
         }
     }
@@ -319,29 +464,59 @@ extension PlayerViewController {
             isTouching = false
             if playConstraint.constant < -100.0 {
                 
-                self.previewConstraint.constant = -150
-                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+                playConstraint.constant = 0.0
+                selectFlag = false
+                helperConstraint.constant = -18
+                UIView.animate(withDuration: 0.5, animations: {
                     
-                    self.previewImageView.layoutIfNeeded()
+                    self.previewImageView.frame.origin = self.artworkImageView.frame.origin
+                    self.containerView.alpha = 0.0
+                    self.selectScrollBarView.alpha = 0.0
+                    self.blurView.alpha = 0.0
+                    self.view.layoutIfNeeded()
                 }, completion: { _ in
                     
                     self.currentItem = self.selectorPosition
+                    self.previewImageView.alpha = 0.0
+                })
+                masterDelegate.showMasterView()
+            } else {
+                
+                resetAnimation()
+            }
+        } else if isReturning {
+            
+            if view.center.x > UIScreen.main.bounds.width {
+                
+                masterDelegate.switchPlaylistViewController(self)
+            } else {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                
+                    self.view.center.x = UIScreen.main.bounds.width / 2
                 })
             }
-        }
+            resetAnimation()
+        } else {
         
-        previewImageView.alpha = 0.0
-        previewConstraint.constant = 0.0
+            resetAnimation()
+        }
+    }
+    
+    func resetAnimation() {
+        
         playConstraint.constant = 0.0
+        previewImageView.alpha = 0.0
         selectFlag = false
         helperConstraint.constant = -18
         UIView.animate(withDuration: 0.5, animations: {
             
             self.containerView.alpha = 0.0
             self.selectScrollBarView.alpha = 0.0
-            self.masterDelegate.showMasterView()
-            self.playHelperLabel.layoutIfNeeded()
+            self.blurView.alpha = 0.0
+            self.view.layoutIfNeeded()
         })
+        masterDelegate.showMasterView()
     }
     
     func updateSliderConstraint(_ touch: UITouch) {
@@ -364,7 +539,7 @@ extension PlayerViewController {
             point.y <= inView.frame.origin.y + inView.frame.height + 10.0
     }
     
-    private func setPosition() {
+    fileprivate func setPosition() {
         
         let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
         
@@ -381,6 +556,8 @@ extension PlayerViewController {
         delegate.setSlider(sliderConstraint.constant / (selectScrollBarView.frame.height - thumbView.frame.height), position: selectorPosition)
     }
 }
+
+// MARK: - Storyboard Instantiable
 
 extension PlayerViewController: StoryboardInstantiable {
     

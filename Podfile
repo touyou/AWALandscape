@@ -13,4 +13,5 @@ target 'AWALandscape' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'DZNEmptyDataSet'
+  pod 'lottie-ios'
 end

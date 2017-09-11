@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import Lottie
 
 class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     
@@ -16,9 +17,34 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     @IBOutlet weak var sub2ImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var selectionView: UIView! {
+        
+        didSet {
+            
+            selectionView.backgroundColor = UIColor.black
+            selectionView.alpha = 0.7
+        }
+    }
+    @IBOutlet weak var playingView: UIView! {
+        
+        didSet {
+            
+            animationView = LOTAnimationView(name: "trail_loading")
+            animationView.frame = CGRect(origin: .zero, size: playingView.bounds.size)
+            animationView.center = contentView.center
+            animationView.loopAnimation = true
+            animationView.contentMode = .scaleAspectFit
+            animationView.animationSpeed = 1
+            
+            contentView.addSubview(animationView)
+            animationView.play()
+        }
+    }
+    @IBOutlet weak var infoView: UIView!
     
     let musicManager = MusicManager.shared
     
+    var animationView: LOTAnimationView!
     var images = Set<UIImage>()
     var currentAlbum: Int = 0 {
         
@@ -46,6 +72,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             sub2ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
         }
     }
+    var animTimer: Timer?
 
     override func awakeFromNib() {
         

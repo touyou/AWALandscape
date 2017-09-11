@@ -45,7 +45,20 @@ class MusicManager: NSObject {
             }
         }
     }
-    var lyric: String? = "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた"
+    var items: [MPMediaItem]? {
+        
+        get {
+            
+            return playlist?.items
+        }
+    }
+    var lyric: String? {
+        
+        get {
+         
+            return playing?.lyrics == nil || playing?.lyrics == "" ? "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた" : playing?.lyrics
+        }
+    }
     var playPosition: TimeInterval {
         
         get {
@@ -67,13 +80,19 @@ class MusicManager: NSObject {
             return player?.isPlaying ?? false
         }
     }
+    var shuffleMode: Bool = false
     
     // MARK: KVO監視する
     dynamic var currentItem: Int = 0 {
         
         didSet {
             
-            guard let items = playlists?[currentAlbum].items else {
+            if currentAlbum == -1 {
+                
+                return
+            }
+            
+            guard let items = items else {
                 
                 return
             }
@@ -87,6 +106,8 @@ class MusicManager: NSObject {
     
     override init() {
         
+        super.init()
+        
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback)
@@ -97,6 +118,13 @@ class MusicManager: NSObject {
             try session.setActive(true)
         } catch {
         }
+        
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.togglePlayPauseCommand.addTarget(self, action: #selector(playPause))
+        commandCenter.playCommand.addTarget(self, action: #selector(play))
+        commandCenter.pauseCommand.addTarget(self, action: #selector(pause))
+        commandCenter.nextTrackCommand.addTarget(self, action: #selector(nextMusic))
+        commandCenter.previousTrackCommand.addTarget(self, action: #selector(previousMusic))
     }
     
     public func setMusic(_ music: MPMediaItem) {
@@ -111,8 +139,8 @@ class MusicManager: NSObject {
         do {
             
             player = try AVAudioPlayer(contentsOf: url)
-            player?.prepareToPlay()
             player?.delegate = self
+            player?.prepareToPlay()
         } catch {
             
             player = nil
@@ -136,6 +164,17 @@ class MusicManager: NSObject {
         }
     }
     
+    func playPause() {
+        
+        if player?.isPlaying ?? false {
+            
+            player?.pause()
+        } else {
+            
+            player?.play()
+        }
+    }
+    
     public func setTime(_ time: TimeInterval) {
         
         player?.currentTime = time
@@ -143,7 +182,7 @@ class MusicManager: NSObject {
     
     public func nextMusic() {
         
-        guard let items = playlists?[currentAlbum].items else {
+        guard let items = items else {
             
             return
         }
@@ -179,7 +218,7 @@ extension MusicManager: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         
-        guard let items = playlists?[currentAlbum].items else {
+        guard let items = items else {
             
             return
         }

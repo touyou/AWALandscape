@@ -9,9 +9,12 @@
 import UIKit
 import FontAwesome_swift
 import DZNEmptyDataSet
+import Lottie
 
 class MasterViewController: UIViewController {
     
+    // MARK: - Property
+    // MARK: Outlet
     @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -32,43 +35,59 @@ class MasterViewController: UIViewController {
             
             miniCollectionView.register(ArtworkCollectionViewCell.self)
             miniCollectionView.register(PlaylistCollectionViewCell.self)
-            isPlaylist = false
             miniCollectionView.delegate = self
             miniCollectionView.dataSource = self
             miniCollectionView.emptyDataSetSource = self
             miniCollectionView.emptyDataSetDelegate = self
+            
+            let itemHeight = miniCollectionView.bounds.height / 1.5
+            playlistLayout = ArtworkCollectionViewFlowLayout()
+            playlistLayout.itemSize = CGSize(width: itemHeight * 3 / 2, height: itemHeight)
+            playlistLayout.minimumLineSpacing = 5.0
+            playlistLayout.minimumInteritemSpacing = 5.0
+            playlistLayout.sectionInset = UIEdgeInsetsMake(0.0, (miniCollectionView.bounds.width - itemHeight * 3 / 2) / 2, -10.0, (miniCollectionView.bounds.width - itemHeight * 3 / 2) / 2)
+            playlistLayout.scrollDirection = .horizontal
+            
+            artworkLayout = ArtworkCollectionViewFlowLayout()
+            artworkLayout.itemSize = CGSize(width: itemHeight, height: itemHeight + 14.0)
+            artworkLayout.minimumLineSpacing = 5.0
+            artworkLayout.minimumInteritemSpacing = 5.0
+            artworkLayout.sectionInset = UIEdgeInsetsMake(0.0, (miniCollectionView.bounds.width - itemHeight) / 2, -10.0, (miniCollectionView.bounds.width - itemHeight) / 2)
+            artworkLayout.scrollDirection = .horizontal
+            
+            miniCollectionView.collectionViewLayout = playlistLayout
+            
+            isPlaylist = false
         }
     }
-    
-    var centerThreshold: CGFloat = 0.0
-    var isPlaylist: Bool! {
+    @IBOutlet weak var popupImageView: UIImageView! {
         
         didSet {
             
-            if isPlaylist {
-                
-                centerThreshold = miniCollectionView.bounds.width / 6
-            } else {
-                
-                centerThreshold = miniCollectionView.bounds.width / 6
-            }
-            miniCollectionView.reloadData()
-            UIView.animate(withDuration: 0.5, animations: {
-            
-                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
-            })
+            popupImageView.alpha = 0
         }
     }
-    var currentViewController: UIViewController!
+    @IBOutlet weak var timeLabel: UILabel! {
+        
+        didSet {
+            
+            timeLabel.alpha = 0
+        }
+    }
+    @IBOutlet weak var timeConstraint: NSLayoutConstraint!
     
+    
+    // MARK: Constant
     let musicManager = MusicManager.shared
+    let kWidth = UIScreen.main.bounds.width
     
+    // MARK: Variable
     var timer: Timer!
     var currentItem: Int = 0 {
         
         didSet {
             
-            guard let items = musicManager.playlists?[musicManager.currentAlbum].items else {
+            guard let items = musicManager.items else {
                 
                 return
             }
@@ -82,38 +101,95 @@ class MasterViewController: UIViewController {
             playingSlider.setValue(0.0, animated: true)
         }
     }
+    var centerThreshold: CGFloat = 0.0
+    var isPlaylist: Bool! {
+        
+        didSet {
+            
+            miniCollectionView.reloadData()
+
+            if isPlaylist {
+                
+                miniCollectionView.collectionViewLayout = playlistLayout
+            } else {
+                
+                miniCollectionView.collectionViewLayout = artworkLayout
+            }
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: self.miniCollectionView.contentOffset.y)
+            })
+        }
+    }
+    var playlistListViewController: PlaylistListViewController!
+    var playerViewController: PlayerViewController!
+    var playlistLayout: ArtworkCollectionViewFlowLayout!
+    var artworkLayout: ArtworkCollectionViewFlowLayout!
+    var isHide = false
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        let playlistViewController = PlaylistListViewController.instantiate()
-        addChildViewController(playlistViewController)
-        playlistViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playlistViewController.view)
-        playlistViewController.delegate = self
-        currentViewController = playlistViewController
+        // MARK: ViewController
+        playlistListViewController = PlaylistListViewController.instantiate()
+        addChildViewController(playlistListViewController)
+        playlistListViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playlistListViewController.view)
+        playlistListViewController.delegate = self
         
+        playerViewController = PlayerViewController.instantiate()
+        addChildViewController(playerViewController)
+        playerViewController.view.frame = mainContainerView.bounds
+        mainContainerView.addSubview(playerViewController.view)
+        playerViewController.masterDelegate = self
+        playerViewController.view.center.x += kWidth
+        // 影
+        playerViewController.view.layer.masksToBounds = false
+        playerViewController.view.layer.shadowOffset = CGSize(width: -2, height: 0)
+        playerViewController.view.layer.shadowRadius = 3
+        playerViewController.view.layer.shadowOpacity = 0.8
+        
+        // MARK: Button
         playButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30.0)
         playButton.titleLabel?.textAlignment = .center
         playButton.setTitle(String.fontAwesomeIcon(name: .play), for: .normal)
-        
         forwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         forwardButton.setTitle(String.fontAwesomeIcon(name: .forward), for: .normal)
         backwardButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25.0)
         backwardButton.setTitle(String.fontAwesomeIcon(name: .backward), for: .normal)
         
-        let image = UIImage.colorImage(color: UIColor.AWA.awaOrange, size: CGSize(width: 5, height: 5))
+        let image = #imageLiteral(resourceName: "circle")
         playingSlider.setThumbImage(image, for: .normal)
         playingSlider.tintColor = UIColor.AWA.awaOrange
         playingSlider.value = 0.0
         
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
-        timer.fire()
-        
         musicManager.addObserve(self)
         NotificationCenter.default.addObserver(self, selector: #selector(videoStarted), name: .UIWindowDidBecomeVisible, object: view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(videoEnded), name: .UIWindowDidBecomeHidden, object: view.window)
+        
+        // MARK: テスト用
+        //        let animationView = LOTAnimationView(name: "equalizer_bounce")
+        //        animationView.frame = view.bounds
+        //        animationView.center = view.center
+        //        animationView.loopAnimation = true
+        //        animationView.contentMode = .scaleAspectFit
+        //        animationView.animationSpeed = 1
+        //
+        //        view.addSubview(animationView)
+        //
+        //        animationView.play()
+    }
+    @IBOutlet weak var playerViewPosition: NSLayoutConstraint!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
+        timer.fire()
     }
     
     deinit {
@@ -125,9 +201,17 @@ class MasterViewController: UIViewController {
         }
     }
     
+    // MARK: - Notification and Timer
+    
     func updateSlider() {
         
         playingSlider.setValue(Float(musicManager.playPosition), animated: true)
+        let sliderLength = playingSlider.bounds.width
+        let ratio = musicManager.playPosition / musicManager.duration
+        timeConstraint.constant = sliderLength * CGFloat(ratio)
+        let s = Int(musicManager.playPosition) % 60
+        let m = Int((musicManager.playPosition - Double(s)) / 60) % 60
+        timeLabel.text = String(format: "%02d:%02d", m, s)
     }
     
     func videoStarted() {
@@ -140,10 +224,31 @@ class MasterViewController: UIViewController {
         _ = musicManager.play()
     }
     
+    // MARK: - Action
+    
     @IBAction func valueChangedPlayingSlider(_ sender: Any) {
         
         musicManager.setTime(TimeInterval(playingSlider.value))
     }
+    
+    @IBAction func touchDownPlayingSlider(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.popupImageView.alpha = 1
+            self.timeLabel.alpha = 1
+        })
+    }
+    
+    @IBAction func touchUpInsidePlayingSlider(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.popupImageView.alpha = 0
+            self.timeLabel.alpha = 0
+        })
+    }
+    
     
     @IBAction func touchUpInsidePlayButton(_ sender: Any) {
         
@@ -171,7 +276,29 @@ class MasterViewController: UIViewController {
         
         musicManager.previousMusic()
     }
+    
+    @IBAction func touchUpInsidePlayerButton(_ sender: Any) {
+        
+        if !isPlaylist {
+            
+            if musicManager.playlist == nil {
+                
+                return
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.playerViewController.view.center.x = self.kWidth / 2
+            }, completion: { _ in
+                
+                self.isPlaylist = true
+            })
+        }
+    }
+    
 }
+
+// MARK: - CollectionView
 
 extension MasterViewController: UICollectionViewDataSource {
     
@@ -198,14 +325,19 @@ extension MasterViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! PlaylistCollectionViewCell
             cell.currentAlbum = indexPath.row
             cell.titleLabel.isHidden = true
+            cell.selectionView.isHidden = true
+            cell.animationView.isHidden = true
+            cell.infoView.isHidden = true
             return cell
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-            let items = musicManager.playlist?.items
+            let items = musicManager.items
             cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
+            cell.animationView.isHidden = true
+            cell.selectedView.isHidden = true
             return cell
         }
     }
@@ -217,80 +349,12 @@ extension MasterViewController: UICollectionViewDelegate {
         
         if isPlaylist {
             
-            (childViewControllers.first as! PlayerViewController).currentAlbum = indexPath.row
-            (childViewControllers.first as! PlayerViewController).currentItem = 0
+            playerViewController.currentAlbum = indexPath.row
+            playerViewController.currentItem = 0
         } else {
             
             musicManager.currentItem = indexPath.row
         }
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-        animateCell(scrollView)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        animateCell(scrollView)
-    }
-    
-    func animateCell(_ scrollView: UIScrollView) {
-        
-        let cells = miniCollectionView.visibleCells
-        for cell in cells {
-            
-            let centerX = cell.center.x - scrollView.contentOffset.x
-            let ratio = 1.0 - fabs(miniCollectionView.center.x - centerX) / centerThreshold
-
-            if ratio > 0.0 {
-                
-                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
-                miniCollectionView.bringSubview(toFront: cell)
-            } else {
-                
-                cell.transform = .identity
-            }
-        }
-    }
-}
-
-extension MasterViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let itemHeight = miniCollectionView.bounds.height / 1.5
-        if isPlaylist {
-            
-            return CGSize(width: itemHeight * 3 / 2, height: itemHeight)
-        } else {
-         
-            return CGSize(width: itemHeight, height: itemHeight + 14.0)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 5.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 5.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        let itemHeight = miniCollectionView.bounds.height / 1.5
-        var horizontalInset: CGFloat = 0.0
-        if isPlaylist {
-            
-            horizontalInset = (miniCollectionView.bounds.width - itemHeight * 3 / 2) / 2
-        } else {
-            
-            horizontalInset = (miniCollectionView.bounds.width - itemHeight) / 2
-        }
-        return UIEdgeInsetsMake(0.0, horizontalInset, -10.0, horizontalInset)
     }
 }
 
@@ -304,31 +368,32 @@ extension MasterViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
 }
 
+// MARK: - Child Transition
+
 extension MasterViewController: PlaylistListViewControllerDelegate {
     
     func switchPlayerViewController(_ oldViewController: UIViewController, sender: Int) {
         
-        oldViewController.willMove(toParentViewController: nil)
-        let playerViewController = PlayerViewController.instantiate()
+        var flag = true
+        if playerViewController.currentAlbum == sender {
+            
+            flag = false
+        }
         playerViewController.currentAlbum = sender
-        playerViewController.masterDelegate = self
-        addChildViewController(playerViewController)
-        playerViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playerViewController.view)
-        playerViewController.view.alpha = 0
-        playerViewController.view.layoutIfNeeded()
+        
         UIView.animate(withDuration: 0.5, animations: {
             
-            playerViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
+            self.playerViewController.view.center.x = self.kWidth / 2
+            self.showMasterView()
         }, completion: { _ in
             
-            oldViewController.view.removeFromSuperview()
-            oldViewController.removeFromParentViewController()
-            playerViewController.didMove(toParentViewController: self)
+            if flag {
+                
+                self.playerViewController.currentItem = 0
+            }
             self.isPlaylist = true
+            self.playlistListViewController.animateCell(self.playlistListViewController.collectionView)
         })
-        currentViewController = playerViewController
     }
 }
 
@@ -336,46 +401,41 @@ extension MasterViewController: PlayerViewControllerToMasterDelegate {
     
     func switchPlaylistViewController(_ oldViewController: UIViewController) {
         
-        oldViewController.willMove(toParentViewController: nil)
-        let playlistViewController = PlaylistListViewController.instantiate()
-        addChildViewController(playlistViewController)
-        playlistViewController.view.frame = mainContainerView.bounds
-        mainContainerView.addSubview(playlistViewController.view)
-        playlistViewController.delegate = self
-        playlistViewController.view.alpha = 0
-        playlistViewController.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.5, animations: {
             
-            playlistViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
+            self.playerViewController.view.center.x = self.kWidth / 2 * 3
         }, completion: { _ in
             
-            oldViewController.view.removeFromSuperview()
-            oldViewController.removeFromParentViewController()
-            playlistViewController.didMove(toParentViewController: self)
             self.isPlaylist = false
+            self.playlistListViewController.isActive = true
         })
-        currentViewController = playlistViewController
     }
     
     func hideMasterView() {
         
-        playerView.alpha = 0.0
-        playButton.alpha = 0.0
-        forwardButton.alpha = 0.0
-        backwardButton.alpha = 0.0
-        playingSlider.alpha = 0.0
-        miniCollectionView.alpha = 0.0
+        if !isHide {
+            
+            playerViewPosition.constant = -100
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.view.layoutIfNeeded()
+            })
+            isHide = true
+        }
     }
     
     func showMasterView() {
         
-        playerView.alpha = 1.0
-        playButton.alpha = 1.0
-        forwardButton.alpha = 1.0
-        backwardButton.alpha = 1.0
-        playingSlider.alpha = 1.0
-        miniCollectionView.alpha = 1.0
+        if isHide {
+            
+            playerViewPosition.constant = 0
+            UIView.animate(withDuration: 0.5, animations: {
+            
+                self.view.layoutIfNeeded()
+            })
+            isHide = false
+        }
     }
 }
 
