@@ -45,7 +45,7 @@ class ArtworkListViewController: UIViewController {
     
     weak var delegate: ArtworkListScrollDelegate!
     var length: CGFloat = 0.0
-    var items: [MPMediaItem]! {
+    var items: [TYMediaItem]! {
         
         didSet {
             
@@ -87,7 +87,7 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
         
-        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 512, height: 512)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork, title: items![indexPath.row].title, artist: items![indexPath.row].artist)
         
         let centerX = cell.center.x - collectionView.contentOffset.x
         let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold

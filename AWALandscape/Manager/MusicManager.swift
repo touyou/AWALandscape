@@ -9,12 +9,15 @@
 import Foundation
 import AVFoundation
 import MediaPlayer
+import Alamofire
+import SwiftyJSON
 
 class MusicManager: NSObject {
     
     static let shared = MusicManager()
     private let albumsQuery = MPMediaQuery.albums()
     private let playlistQuery = MPMediaQuery.playlists()
+    let searchWord = ["楽しい", "悲しい", "スポーツ", "盛り上がる", "恋", "公園", "rock", "学校", "ファンク", "泡"]
     
     fileprivate var player: AVAudioPlayer?
     var albums: [MPMediaItemCollection]? {
@@ -24,28 +27,23 @@ class MusicManager: NSObject {
             return albumsQuery.collections
         }
     }
-    var playlists: [MPMediaItemCollection]? {
-        
-        get {
-            
-            return playlistQuery.collections
-        }
-    }
-    var playing: MPMediaItem?
-    var playlist: MPMediaItemCollection? {
+    var playlists: [TYMediaItemCollection] = []
+    
+    var playing: TYMediaItem?
+    var playlist: TYMediaItemCollection? {
         
         get {
             
             if currentAlbum != -1 {
             
-                return playlists?[currentAlbum]
+                return playlists[currentAlbum]
             } else {
                 
                 return nil
             }
         }
     }
-    var items: [MPMediaItem]? {
+    var items: [TYMediaItem]? {
         
         get {
             
@@ -56,7 +54,7 @@ class MusicManager: NSObject {
         
         get {
          
-            return playing?.lyrics == nil || playing?.lyrics == "" ? "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた" : playing?.lyrics
+            return "僕はそれとなく息をして笑った\n青紫の空は　疲れた肌をみせた\n見てたんだ　徒然の折り重なる景色の下\n１人でずっと膝を抱き　揺れる頬は愛らしさ\n\n僕はそれとなく頷いて笑った\n青く光る魂は　疲れた肌を隠した\n見てたんだ　徒然の折り重なる知識の山\n１人でずっと立ち止まり　見えるものは愛らしさ\n\n息をして　息をしてた\n息をして　息をしてた\n\n息をして　息をしてた\n息をして　息をしてた"
         }
     }
     var playPosition: TimeInterval {
@@ -125,11 +123,13 @@ class MusicManager: NSObject {
         commandCenter.pauseCommand.addTarget(self, action: #selector(pause))
         commandCenter.nextTrackCommand.addTarget(self, action: #selector(nextMusic))
         commandCenter.previousTrackCommand.addTarget(self, action: #selector(previousMusic))
+        
+        loadSongs()
     }
     
-    public func setMusic(_ music: MPMediaItem) {
+    public func setMusic(_ music: TYMediaItem) {
         
-        guard let url = music.assetURL else {
+        guard let url = music.musicData else {
             
             return
         }
@@ -138,7 +138,8 @@ class MusicManager: NSObject {
         
         do {
             
-            player = try AVAudioPlayer(contentsOf: url)
+//            player = try AVAudioPlayer(contentsOf: url)
+            player = try AVAudioPlayer(data: url)
             player?.delegate = self
             player?.prepareToPlay()
         } catch {
@@ -212,6 +213,82 @@ class MusicManager: NSObject {
         MusicManager.shared.removeObserver(observer, forKeyPath: "currentItem")
         MusicManager.shared.removeObserver(observer, forKeyPath: "currentAlbum")
     }
+    
+    func loadSongs() {
+        
+        playlists = []
+        
+        for word in searchWord {
+            
+            let str = word.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+            Alamofire.request("https://itunes.apple.com/search?term=\(str)&media=music&entity=song&country=jp&lang=ja_jp&limit=10").responseJSON { response in
+                
+                guard let jsonValue = response.result.value else {
+                    
+                    return
+                }
+                let json = JSON(jsonValue)
+                
+                let playlist = TYMediaItemCollection()
+                playlist.items = []
+                playlist.playlistName = "『\(word)』の曲10選"
+                
+                for itemJson in json["results"].array ?? [] {
+                    
+                    let item = TYMediaItem()
+                    item.title = itemJson["trackName"].string
+                    item.artist = itemJson["artistName"].string
+                    let url = itemJson["artworkUrl100"].string!
+                    item._artworkUrl = url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg")
+//                    print(url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg"))
+                    item.assetURL = URL(string: itemJson["previewUrl"].string!)
+                    playlist.items?.append(item)
+                }
+                self.playlists.append(playlist)
+            }
+        }
+    }
+}
+
+class TYMediaItemCollection: NSObject {
+    
+    var items: [TYMediaItem]?
+    var playlistName: String?
+    var count: Int? {
+        
+        get {
+            
+            return items?.count
+        }
+    }
+}
+
+class TYMediaItem: NSObject {
+    
+    var title: String?
+    var artist: String?
+    var lyrics: String?
+    var _artworkUrl: String?
+    var artwork: URL? {
+        
+        get {
+            
+            return URL(string: _artworkUrl ?? "")
+        }
+    }
+    var playCount: Int?
+    var assetURL: URL? {
+        
+        didSet {
+            
+            let task = URLSession.shared.dataTask(with: assetURL!) { data, response, error in
+
+                self.musicData = data
+            }
+            task.resume()
+        }
+    }
+    var musicData: Data?
 }
 
 extension MusicManager: AVAudioPlayerDelegate {

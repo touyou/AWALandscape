@@ -14,4 +14,5 @@ target 'AWALandscape' do
   pod 'Crashlytics'
   pod 'DZNEmptyDataSet'
   pod 'lottie-ios'
+  pod 'Kingfisher'
 end

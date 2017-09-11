@@ -94,8 +94,16 @@ class MasterViewController: UIViewController {
             
             titleLabel.text = items[currentItem].title
             artistLabel.text = items[currentItem].artist
-            let image = items[currentItem].artwork?.image(at: playButton.bounds.size)
-            playButton.setBackgroundImage(image?.darken(), for: .normal)
+//            let image = items[currentItem].artwork?.image(at: playButton.bounds.size)
+//            playButton.setBackgroundImage(image?.darken(), for: .normal)
+            playButton.kf.setBackgroundImage(with: items[currentItem].artwork, for: .normal, completionHandler: {
+                (image, _, _, _) in
+            
+                if let image = image {
+                    
+                    self.playButton.setBackgroundImage(image.darken(), for: .normal)
+                }
+            })
             playButton.setTitle(String.fontAwesomeIcon(name: .pause), for: .normal)
             playingSlider.maximumValue = Float(musicManager.duration)
             playingSlider.setValue(0.0, animated: true)
@@ -311,7 +319,7 @@ extension MasterViewController: UICollectionViewDataSource {
         
         if isPlaylist {
             
-            return musicManager.playlists?.count ?? 0
+            return musicManager.playlists.count 
         } else {
             
             return musicManager.playlist?.count ?? 0
@@ -333,7 +341,7 @@ extension MasterViewController: UICollectionViewDataSource {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
             let items = musicManager.items
-            cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+            cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork, title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
             cell.animationView.isHidden = true

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AWALandscape.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>07CDF368C3FB173E2DC6AC675E74D1F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64068B5D342324A654CD27AB3D8B3D26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6991F49AED797519343B1F4591001691</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EC7E5844826B491A7FDE05DB1E78FAF</key>
+		<key>6F712943B3C5592E82604940D11CE08A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>917AC5EA003477B3C64BF62169ACADAA</key>
+		<key>C6FCDBC9104EA6E44791FB19875DAE33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -78,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F57D2FD6AD18EFBA38946D61A891A6DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

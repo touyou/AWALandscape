@@ -15,7 +15,8 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
         
         didSet {
             
-            imageView.image = artworkModel?.image
+            imageView.kf.setImage(with: artworkModel?.image, placeholder: #imageLiteral(resourceName: "artwork_sample"))
+//            imageView.image = artworkModel?.image
             titleLabel.text = artworkModel?.title
             artistLabel.text = artworkModel?.artist
             miniTitleLabel.text = artworkModel?.title

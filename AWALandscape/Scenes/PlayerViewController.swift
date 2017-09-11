@@ -113,7 +113,7 @@ class PlayerViewController: UIViewController {
     weak var delegate: PlayerViewControllerDelegate!
     weak var masterDelegate: PlayerViewControllerToMasterDelegate!
     var previewImageView: UIImageView!
-    var items: [MPMediaItem]?
+    var items: [TYMediaItem]?
     var currentAlbum: Int = -1 {
         
         didSet {
@@ -146,7 +146,8 @@ class PlayerViewController: UIViewController {
             
             if artworkImageView != nil {
                 
-                artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
+                artworkImageView.kf.setImage(with: items?[currentItem].artwork, placeholder: #imageLiteral(resourceName: "artwork_sample"))
+//                artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
             }
         }
     }
@@ -156,7 +157,8 @@ class PlayerViewController: UIViewController {
             
             if oldValue != selectorPosition {
                 
-                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
+                previewImageView.kf.setImage(with: items?[selectorPosition].artwork, placeholder: #imageLiteral(resourceName: "artwork_sample"))
+//                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
                 selectionFeedback.selectionChanged()
             }
         }

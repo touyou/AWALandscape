@@ -108,7 +108,7 @@ class PlaylistListViewController: UIViewController {
             }
         }
     }
-    var items: [MPMediaItemCollection]? {
+    var items: [TYMediaItemCollection]? {
         
         get {
             
@@ -173,7 +173,7 @@ extension PlaylistListViewController {
             return
         }
         
-        if musicManager.playlists == nil || musicManager.playlists!.count == 0 || !isActive {
+        if musicManager.playlists.count == 0 || !isActive {
             
             return
         }
@@ -313,7 +313,7 @@ extension PlaylistListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return musicManager.playlists?.count ?? 0
+        return musicManager.playlists.count 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -462,6 +462,7 @@ extension PlaylistListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDele
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
         collectionView.reloadData()
+        print(musicManager.playlists.count)
     }
 }
 
