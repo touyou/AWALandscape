@@ -173,7 +173,7 @@ extension PlaylistListViewController {
             return
         }
         
-        if musicManager.playlists == nil || musicManager.playlists!.count == 0 {
+        if musicManager.playlists == nil || musicManager.playlists!.count == 0 || !isActive {
             
             return
         }
@@ -192,12 +192,9 @@ extension PlaylistListViewController {
                 
                 self.scrollBarView.alpha = 1.0
                 self.playHelperLabel.layoutIfNeeded()
+                self.delegate.hideMasterView()
             })
         }
-        UIView.animate(withDuration: 0.5, animations: {
-        
-            self.delegate.hideMasterView()
-        })
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -207,7 +204,7 @@ extension PlaylistListViewController {
             return
         }
         
-        if isTouching {
+        if isTouching && isActive {
             
             playConstraint.constant += touch.location(in: view).x - touch.previousLocation(in: view).x
             (parent as! MasterViewController).playerViewController.view.center.x += touch.location(in: view).x - touch.previousLocation(in: view).x
@@ -249,8 +246,12 @@ extension PlaylistListViewController {
             
                 (self.parent as! MasterViewController).playerViewController.view.center.x = UIScreen.main.bounds.width / 2 * 3
             })
-        }
         
+            UIView.animate(withDuration: 0.5, animations: {
+            
+                self.delegate.showMasterView()
+            })
+        }
         playConstraint.constant = 0.0
         selectFlag = false
         isTouching = false
@@ -259,8 +260,8 @@ extension PlaylistListViewController {
             
             self.scrollBarView.alpha = 0.0
             self.playHelperLabel.layoutIfNeeded()
-            self.delegate.showMasterView()
         })
+
     }
     
     func updateSliderConstraint(_ touch: UITouch) {

@@ -107,6 +107,15 @@ class MasterViewController: UIViewController {
         didSet {
             
             miniCollectionView.reloadData()
+            if isHide {
+                
+                playerView.center.y = 100 + correctPos.playerView
+                playButton.center.y = 100 + correctPos.playButton
+                forwardButton.center.y = 100 + correctPos.forwardButton
+                backwardButton.center.y = 100 + correctPos.backwardButton
+                playingSlider.center.y = 100 + correctPos.playingSlider
+                miniCollectionView.center.y = 100 + correctPos.miniCollectionView
+            }
             if isPlaylist {
                 
                 miniCollectionView.collectionViewLayout = playlistLayout
@@ -116,7 +125,7 @@ class MasterViewController: UIViewController {
             }
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+                self.miniCollectionView.contentOffset = CGPoint(x: 0.0, y: self.miniCollectionView.contentOffset.y)
             })
         }
     }
@@ -124,7 +133,8 @@ class MasterViewController: UIViewController {
     var playerViewController: PlayerViewController!
     var playlistLayout: ArtworkCollectionViewFlowLayout!
     var artworkLayout: ArtworkCollectionViewFlowLayout!
-    
+    var isHide = false
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -182,6 +192,25 @@ class MasterViewController: UIViewController {
         //        view.addSubview(animationView)
         //
         //        animationView.play()
+    }
+    
+    struct CorrectPosition {
+        
+        var playerView: CGFloat!
+        var playButton: CGFloat!
+        var forwardButton: CGFloat!
+        var backwardButton: CGFloat!
+        var playingSlider: CGFloat!
+        var miniCollectionView: CGFloat!
+    }
+    
+    var correctPos: CorrectPosition!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        correctPos = CorrectPosition(playerView: playerView.center.y, playButton: playButton.center.y, forwardButton: forwardButton.center.y, backwardButton: backwardButton.center.y, playingSlider: playingSlider.center.y, miniCollectionView: miniCollectionView.center.y)
     }
     
     deinit {
@@ -376,6 +405,7 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
         UIView.animate(withDuration: 0.5, animations: {
             
             self.playerViewController.view.center.x = self.kWidth / 2
+            self.showMasterView()
         }, completion: { _ in
             
             if flag {
@@ -393,7 +423,7 @@ extension MasterViewController: PlayerViewControllerToMasterDelegate {
         
         UIView.animate(withDuration: 0.5, animations: {
             
-            self.playerViewController.view.center.x += self.kWidth
+            self.playerViewController.view.center.x = self.kWidth / 2 * 3
         }, completion: { _ in
             
             self.isPlaylist = false
@@ -403,22 +433,44 @@ extension MasterViewController: PlayerViewControllerToMasterDelegate {
     
     func hideMasterView() {
         
-        playerView.alpha = 0.0
-        playButton.alpha = 0.0
-        forwardButton.alpha = 0.0
-        backwardButton.alpha = 0.0
-        playingSlider.alpha = 0.0
-        miniCollectionView.alpha = 0.0
+//        playerView.alpha = 0.0
+//        playButton.alpha = 0.0
+//        forwardButton.alpha = 0.0
+//        backwardButton.alpha = 0.0
+//        playingSlider.alpha = 0.0
+//        miniCollectionView.alpha = 0.0
+        if !isHide {
+            
+            playerView.center.y = 100 + correctPos.playerView
+            playButton.center.y = 100 + correctPos.playButton
+            forwardButton.center.y = 100 + correctPos.forwardButton
+            backwardButton.center.y = 100 + correctPos.backwardButton
+            playingSlider.center.y = 100 + correctPos.playingSlider
+            miniCollectionView.center.y = 100 + correctPos.miniCollectionView
+            popupImageView.alpha = 0
+            timeLabel.alpha = 0
+            isHide = true
+        }
     }
     
     func showMasterView() {
         
-        playerView.alpha = 1.0
-        playButton.alpha = 1.0
-        forwardButton.alpha = 1.0
-        backwardButton.alpha = 1.0
-        playingSlider.alpha = 1.0
-        miniCollectionView.alpha = 1.0
+//        playerView.alpha = 1.0
+//        playButton.alpha = 1.0
+//        forwardButton.alpha = 1.0
+//        backwardButton.alpha = 1.0
+//        playingSlider.alpha = 1.0
+//        miniCollectionView.alpha = 1.0
+        if isHide {
+            
+            playerView.center.y = correctPos.playerView
+            playButton.center.y = correctPos.playButton
+            forwardButton.center.y = correctPos.forwardButton
+            backwardButton.center.y = correctPos.backwardButton
+            playingSlider.center.y = correctPos.playingSlider
+            miniCollectionView.center.y = correctPos.miniCollectionView
+            isHide = false
+        }
     }
 }
 
