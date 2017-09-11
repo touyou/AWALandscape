@@ -31,7 +31,7 @@ class ArtworkListViewController: UIViewController {
             let verticalInset = ArtworkCollectionViewFlowLayout.verticalInset
             let horizontalInset = ArtworkCollectionViewFlowLayout.horizontalInset
             let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: itemLength, height: itemLength + 59)
+            layout.itemSize = CGSize(width: itemLength, height: itemLength + 70)
             layout.minimumLineSpacing = 20.0
             layout.minimumInteritemSpacing = 20.0
             layout.sectionInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset)

@@ -79,4 +79,9 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
         
         super.awakeFromNib()
     }
+    
+    deinit {
+        
+        animationView.pause()
+    }
 }

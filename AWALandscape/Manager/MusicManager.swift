@@ -132,14 +132,12 @@ class MusicManager: NSObject {
     
     public func setMusic(_ music: TYMediaItem) {
         
-        let url = music.musicData
-        
         playing = music
         
         do {
             
 //            player = try AVAudioPlayer(contentsOf: url)
-            player = try AVAudioPlayer(data: url)
+            player = try AVAudioPlayer(data: music.musicData)
             player?.delegate = self
             player?.prepareToPlay()
         } catch {

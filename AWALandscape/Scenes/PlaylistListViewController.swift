@@ -129,7 +129,8 @@ class PlaylistListViewController: UIViewController {
     var isActive = true
     var animateView: UIView!
     var helperTimer: Timer!
-
+    var timerCount = 0
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -180,14 +181,17 @@ class PlaylistListViewController: UIViewController {
     
     func helperTimerExec() {
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
-        
-            UIView.animate(withDuration: 0.7, animations: {
+        if timerCount < 2 {
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
                 
-                self.animateView.center.x = self.playHelperLabel.center.x + 5
-            }) { _ in
-                
-                self.animateView.center.x = self.scrollBarView.center.x
+                UIView.animate(withDuration: 0.7, animations: {
+                    
+                    self.animateView.center.x = self.playHelperLabel.center.x + 5
+                }) { _ in
+                    
+                    self.animateView.center.x = self.scrollBarView.center.x
+                }
             }
         }
     }
@@ -258,6 +262,7 @@ extension PlaylistListViewController {
                 selectFlag = false
                 isActive = false
                 delegate.switchPlayerViewController(self, sender: selectorPosition)
+                timerCount += 1
             } else {
                 
                 let rate = playConstraint.constant / -150.0
@@ -269,7 +274,7 @@ extension PlaylistListViewController {
                     selectFlag = false
                 }
             }
-
+            
         }
     }
     
@@ -278,10 +283,10 @@ extension PlaylistListViewController {
         if isActive {
             
             UIView.animate(withDuration: 0.5, animations: {
-            
+                
                 (self.parent as! MasterViewController).playerViewController.view.center.x = UIScreen.main.bounds.width / 2 * 3
             })
-        
+            
             delegate.showMasterView()
         }
         playConstraint.constant = 0.0
@@ -337,7 +342,7 @@ extension PlaylistListViewController {
         
         collectionView.contentOffset = CGPoint(x: length * sliderConstraint.constant / (scrollBarView.frame.height - thumbView.frame.height), y: collectionView.contentOffset.y)
     }
-
+    
 }
 
 // MARK: - CollectionView
@@ -351,7 +356,7 @@ extension PlaylistListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return musicManager.playlists.count 
+        return musicManager.playlists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -374,7 +379,7 @@ extension PlaylistListViewController: UICollectionViewDataSource {
             
             cell.selectionView.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
-            
+                
                 collectionView.bringSubview(toFront: cell)
             })
         } else {

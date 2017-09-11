@@ -65,6 +65,11 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
         super.awakeFromNib()
     }
     
+    deinit {
+        
+        animationView.pause()
+    }
+    
     func animate(_ collectionView: UICollectionView, _ sourceView: UIView, ratio: CGFloat, size: CGSize, threshold: CGFloat) -> CGRect {
         
         let scaleRatio = max(size.width / imageView.bounds.width, size.height / imageView.bounds.height)

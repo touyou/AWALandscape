@@ -147,7 +147,7 @@ class PlayerViewController: UIViewController {
             if artworkImageView != nil {
                 
                 artworkImageView.kf.setImage(with: items?[currentItem].artwork, placeholder: #imageLiteral(resourceName: "artwork_sample"))
-//                artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
+                //                artworkImageView.image = items![currentItem].artwork?.image(at: artworkImageView.frame.size)
             }
         }
     }
@@ -158,7 +158,7 @@ class PlayerViewController: UIViewController {
             if oldValue != selectorPosition {
                 
                 previewImageView.kf.setImage(with: items?[selectorPosition].artwork, placeholder: #imageLiteral(resourceName: "artwork_sample"))
-//                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
+                //                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
                 selectionFeedback.selectionChanged()
             }
         }
@@ -183,6 +183,7 @@ class PlayerViewController: UIViewController {
     var nextRect = CGRect()
     var animateView: UIView!
     var helperTimer: Timer!
+    var timerCount = 0
     
     // MARK: - LifeCycle
     
@@ -271,14 +272,16 @@ class PlayerViewController: UIViewController {
     
     func helperTimerExec() {
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
-            
-            UIView.animate(withDuration: 0.7, animations: {
+        if timerCount < 2 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
                 
-                self.animateView.center.x = self.playHelperLabel.center.x + 5
-            }) { _ in
-                
-                self.animateView.center.x = self.selectScrollBarView.center.x
+                UIView.animate(withDuration: 0.7, animations: {
+                    
+                    self.animateView.center.x = self.playHelperLabel.center.x + 5
+                }) { _ in
+                    
+                    self.animateView.center.x = self.selectScrollBarView.center.x
+                }
             }
         }
     }
@@ -307,7 +310,7 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController: ArtworkListScrollDelegate {
     
     func scrolled(_ ratio: CGFloat) {
-
+        
         sliderConstraint.constant = (selectScrollBarView.frame.height - thumbView.frame.height) * ratio
         animateView.center.y = thumbView.center.y
         
@@ -368,7 +371,7 @@ extension PlayerViewController: ArtworkListScrollDelegate {
                 selectFlag = false
             }
         }
-
+        
     }
     
     func scrollEnded(_ ratio: CGFloat) {
@@ -525,6 +528,7 @@ extension PlayerViewController {
                     self.artworkImageView.alpha = 1.0
                 })
                 masterDelegate.showMasterView()
+                timerCount += 1
             } else {
                 
                 resetAnimation()
@@ -537,13 +541,13 @@ extension PlayerViewController {
             } else {
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                
+                    
                     self.view.center.x = UIScreen.main.bounds.width / 2
                 })
             }
             resetAnimation()
         } else {
-        
+            
             resetAnimation()
         }
         
