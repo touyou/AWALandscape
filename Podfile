@@ -15,4 +15,5 @@ target 'AWALandscape' do
   pod 'DZNEmptyDataSet'
   pod 'lottie-ios'
   pod 'Kingfisher'
+  pod 'RealmSwift'
 end

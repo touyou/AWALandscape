@@ -51,10 +51,7 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
         
         didSet {
             
-            guard let items = musicManager.playlists[currentAlbum].items else {
-                
-                return
-            }
+            let items = musicManager.playlists[currentAlbum].items
             
             titleLabel.text = musicManager.playlists[currentAlbum].playlistName
 //            titleLabel.text = musicManager.playlists[currentAlbum].value(forKeyPath: MPMediaPlaylistPropertyName) as? String

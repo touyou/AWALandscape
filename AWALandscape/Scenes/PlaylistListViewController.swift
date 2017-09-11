@@ -378,6 +378,11 @@ extension PlaylistListViewController: UICollectionViewDelegate {
             self.scrollBarView.alpha = 1.0
         })
         delegate.hideMasterView()
+        if let count = items?.count {
+            
+            length = (kItemSize / 2 * 3 + 20.0) * CGFloat(count > 0 ? count - 1 : 0)
+            length = length == 0 ? 1 : length
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -462,7 +467,6 @@ extension PlaylistListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDele
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
         collectionView.reloadData()
-        print(musicManager.playlists.count)
     }
 }
 

@@ -11,10 +11,13 @@ import AVFoundation
 import MediaPlayer
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class MusicManager: NSObject {
     
     static let shared = MusicManager()
+    let cache = UserDefaults.standard
+    let realm = try! Realm()
     private let albumsQuery = MPMediaQuery.albums()
     private let playlistQuery = MPMediaQuery.playlists()
     let searchWord = ["楽しい", "悲しい", "スポーツ", "盛り上がる", "恋", "公園", "rock", "学校", "ファンク", "泡"]
@@ -129,10 +132,7 @@ class MusicManager: NSObject {
     
     public func setMusic(_ music: TYMediaItem) {
         
-        guard let url = music.musicData else {
-            
-            return
-        }
+        let url = music.musicData
         
         playing = music
         
@@ -216,79 +216,114 @@ class MusicManager: NSObject {
     
     func loadSongs() {
         
-        playlists = []
-        
-        for word in searchWord {
+        if let _ = cache.object(forKey: "first") {
             
-            let str = word.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-            Alamofire.request("https://itunes.apple.com/search?term=\(str)&media=music&entity=song&country=jp&lang=ja_jp&limit=10").responseJSON { response in
+            playlists = realm.objects(TYMediaItemCollection.self).map { $0 }
+        } else {
+        
+            playlists = []
+            
+            for word in searchWord {
                 
-                guard let jsonValue = response.result.value else {
+                let str = word.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+                Alamofire.request("https://itunes.apple.com/search?term=\(str)&media=music&entity=song&country=jp&lang=ja_jp&limit=10").responseJSON { response in
                     
-                    return
-                }
-                let json = JSON(jsonValue)
-                
-                let playlist = TYMediaItemCollection()
-                playlist.items = []
-                playlist.playlistName = "『\(word)』の曲10選"
-                
-                for itemJson in json["results"].array ?? [] {
+                    guard let jsonValue = response.result.value else {
+                        
+                        return
+                    }
+                    let json = JSON(jsonValue)
                     
-                    let item = TYMediaItem()
-                    item.title = itemJson["trackName"].string
-                    item.artist = itemJson["artistName"].string
-                    let url = itemJson["artworkUrl100"].string!
-                    item._artworkUrl = url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg")
-//                    print(url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg"))
-                    item.assetURL = URL(string: itemJson["previewUrl"].string!)
-                    playlist.items?.append(item)
+                    let playlist = TYMediaItemCollection()
+                    playlist.playlistName = "『\(word)』の曲10選"
+                    
+                    for itemJson in json["results"].array ?? [] {
+                        
+                        let item = TYMediaItem()
+                        item.title = itemJson["trackName"].string ?? ""
+                        item.artist = itemJson["artistName"].string ?? ""
+                        let url = itemJson["artworkUrl100"].string!
+                        item._artworkUrl = url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg")
+    //                    print(url.replacingOccurrences(of: "100x100bb.jpg", with: "512x512bb.jpg"))
+                        item.assetURL = URL(string: itemJson["previewUrl"].string!)
+                        playlist._items.append(item)
+                    }
+                    self.playlists.append(playlist)
+                    
+                    try! self.realm.write {
+                        
+                        self.realm.add(playlist)
+                    }
                 }
-                self.playlists.append(playlist)
             }
+        
+            cache.set("cached", forKey: "first")
         }
     }
 }
 
-class TYMediaItemCollection: NSObject {
+class TYMediaItemCollection: Object {
     
-    var items: [TYMediaItem]?
-    var playlistName: String?
-    var count: Int? {
+    var _items = List<TYMediaItem>()
+    dynamic var items: [TYMediaItem] {
         
         get {
             
-            return items?.count
+            return _items.map { $0 }
         }
+    }
+    dynamic var playlistName: String = ""
+    dynamic var count: Int {
+        
+        get {
+            
+            return items.count
+        }
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        
+        return ["count", "items"]
     }
 }
 
-class TYMediaItem: NSObject {
+class TYMediaItem: Object {
     
-    var title: String?
-    var artist: String?
-    var lyrics: String?
-    var _artworkUrl: String?
+    dynamic var title: String = ""
+    dynamic var artist: String = ""
+    dynamic var lyrics: String = ""
+    dynamic var _artworkUrl: String = ""
     var artwork: URL? {
         
         get {
             
-            return URL(string: _artworkUrl ?? "")
+            return URL(string: _artworkUrl)
         }
     }
-    var playCount: Int?
+    dynamic var playCount: Int = 1121
     var assetURL: URL? {
         
         didSet {
             
             let task = URLSession.shared.dataTask(with: assetURL!) { data, response, error in
 
-                self.musicData = data
+                DispatchQueue.main.async {
+                    
+                    try! self.realm?.write {
+                        
+                        self.musicData = data ?? Data()
+                    }
+                }
             }
             task.resume()
         }
     }
-    var musicData: Data?
+    dynamic var musicData: Data = Data()
+    
+    override static func ignoredProperties() -> [String] {
+        
+        return ["lyrics", "artwork", "playCount", "assetURL"]
+    }
 }
 
 extension MusicManager: AVAudioPlayerDelegate {
