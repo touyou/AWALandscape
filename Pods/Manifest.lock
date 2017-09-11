@@ -7,6 +7,7 @@ PODS:
   - FontAwesome.swift (1.2.0)
   - Kingfisher (3.12.2)
   - lottie-ios (2.1.3)
+  - MarqueeLabel/Swift (3.1.3)
   - Realm (2.10.0):
     - Realm/Headers (= 2.10.0)
   - Realm/Headers (2.10.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - FontAwesome.swift
   - Kingfisher
   - lottie-ios
+  - MarqueeLabel/Swift
   - RealmSwift
   - SwiftyJSON
   - youtube-ios-player-helper
@@ -35,11 +37,12 @@ SPEC CHECKSUMS:
   FontAwesome.swift: 60063e3f19ba4801155d4b0f2334ab7585763ab3
   Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   lottie-ios: 8c150606598931621e927377f1426d2d3e99282d
+  MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 3fab09cb631011e5d1a17e7b44f29d01f8196f3c
+PODFILE CHECKSUM: 23df73d88107664e7433ad5f59783faa8bb66ab6
 
 COCOAPODS: 1.3.1

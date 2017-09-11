@@ -8,23 +8,28 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class PlayerInfoViewController: UIViewController {
     
     let musicManager = MusicManager.shared
     
-    @IBOutlet weak var titleLabel: UILabel! {
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
         
         didSet {
             
-            titleLabel.text = musicManager.playing?.title ?? "-----"
+            titleLabel.fadeLength = 0.0
+            titleLabel.type = .continuous
+            titleLabel.text = musicManager.playing?.title
         }
     }
-    @IBOutlet weak var artistLabel: UILabel! {
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
         
         didSet {
             
-            artistLabel.text = musicManager.playing?.artist ?? "---"
+            artistLabel.fadeLength = 0.0
+            artistLabel.type = .continuous
+            artistLabel.text = musicManager.playing?.artist
         }
     }
     @IBOutlet weak var playlistNameLabel: UILabel!

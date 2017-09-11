@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MarqueeLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AWALandscape.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +67,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3CB54DD9A04A179C7336676657F07F32</key>
+		<key>020776D6282D839AD86F10FCE10F7044</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41F5AE84702C3D0CF35B1B5975E67783</key>
+		<key>320AD47B0C6BA014D301395D3BFC8FB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54CB825EFE20FC469F4373E13F6FC2D4</key>
+		<key>3F804E2C4B6015A615A96010CD0F1F43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,6 +92,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>761A308E2E2ECAE746BE61A48E8EA405</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8386817F9A5E38AB99F1AA49CD86EB76</key>
 		<dict>
 			<key>primary</key>
@@ -97,12 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9924031B3A93359744490977653C46A5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BBA5017329CCE15BAA15B648E6E2AB5F</key>
+		<key>C4D3491C23637637CB446491BB3CD910</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,6 +118,11 @@
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF2776CF3357AFE382ED42459BBF7CBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

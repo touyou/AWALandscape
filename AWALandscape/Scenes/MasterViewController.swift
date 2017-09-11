@@ -10,14 +10,29 @@ import UIKit
 import FontAwesome_swift
 import DZNEmptyDataSet
 import Lottie
+import MarqueeLabel
 
 class MasterViewController: UIViewController {
     
     // MARK: - Property
     // MARK: Outlet
     @IBOutlet weak var mainContainerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            titleLabel.fadeLength = 10.0
+            titleLabel.type = .continuous
+        }
+    }
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            artistLabel.fadeLength = 10.0
+            artistLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var playButton: UIButton! {
         
         didSet {

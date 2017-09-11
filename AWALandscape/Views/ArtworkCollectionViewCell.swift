@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import MarqueeLabel
 
 class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
     
@@ -44,8 +45,22 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             animationView.play()
         }
     }
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            titleLabel.fadeLength = 0.0
+            titleLabel.type = .continuous
+        }
+    }
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            artistLabel.fadeLength = 0.0
+            artistLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var miniTitleLabel: UILabel!
     @IBOutlet weak var selectedView: UIView! {
         

@@ -33,13 +33,13 @@
                             <constraint firstAttribute="width" secondItem="Nnn-40-9cy" secondAttribute="height" multiplier="298:298" id="a1Q-lH-gnx"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-vU-SgS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-vU-SgS" customClass="MarqueeLabel" customModule="MarqueeLabel">
                         <rect key="frame" x="0.0" y="328.5" width="298" height="23"/>
                         <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-Jv-vzC">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-Jv-vzC" customClass="MarqueeLabel" customModule="MarqueeLabel">
                         <rect key="frame" x="0.0" y="302.5" width="298" height="24"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-HT-pcR">
-                        <rect key="frame" x="0.0" y="141" width="298" height="16.5"/>
+                        <rect key="frame" x="0.0" y="140.5" width="298" height="16.5"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
