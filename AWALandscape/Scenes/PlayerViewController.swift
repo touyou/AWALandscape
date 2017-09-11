@@ -380,9 +380,9 @@ extension PlayerViewController {
                 self.containerView.alpha = 1.0
                 self.selectScrollBarView.alpha = 1.0
                 self.blurView.alpha = 1.0
-                self.masterDelegate.hideMasterView()
-                self.playHelperLabel.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             })
+            masterDelegate.hideMasterView()
         } else {
             
             isReturning = true
@@ -464,14 +464,25 @@ extension PlayerViewController {
             isTouching = false
             if playConstraint.constant < -100.0 {
                 
-                previewImageView.frame.origin = artworkImageView.frame.origin
-                UIView.animate(withDuration: 1.2, delay: 0.2, options: .curveEaseOut, animations: {
+                playConstraint.constant = 0.0
+                selectFlag = false
+                helperConstraint.constant = -18
+                UIView.animate(withDuration: 0.5, animations: {
                     
-                    self.previewImageView.layoutIfNeeded()
+                    self.previewImageView.frame.origin = self.artworkImageView.frame.origin
+                    self.containerView.alpha = 0.0
+                    self.selectScrollBarView.alpha = 0.0
+                    self.blurView.alpha = 0.0
+                    self.view.layoutIfNeeded()
                 }, completion: { _ in
                     
                     self.currentItem = self.selectorPosition
+                    self.previewImageView.alpha = 0.0
                 })
+                masterDelegate.showMasterView()
+            } else {
+                
+                resetAnimation()
             }
         } else if isReturning {
             
@@ -485,10 +496,17 @@ extension PlayerViewController {
                     self.view.center.x = UIScreen.main.bounds.width / 2
                 })
             }
-        }
+            resetAnimation()
+        } else {
         
-        previewImageView.alpha = 0.0
+            resetAnimation()
+        }
+    }
+    
+    func resetAnimation() {
+        
         playConstraint.constant = 0.0
+        previewImageView.alpha = 0.0
         selectFlag = false
         helperConstraint.constant = -18
         UIView.animate(withDuration: 0.5, animations: {
@@ -496,9 +514,9 @@ extension PlayerViewController {
             self.containerView.alpha = 0.0
             self.selectScrollBarView.alpha = 0.0
             self.blurView.alpha = 0.0
-            self.masterDelegate.showMasterView()
-            self.playHelperLabel.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         })
+        masterDelegate.showMasterView()
     }
     
     func updateSliderConstraint(_ touch: UITouch) {

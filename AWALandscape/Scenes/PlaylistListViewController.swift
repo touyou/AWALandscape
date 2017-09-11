@@ -187,13 +187,15 @@ extension PlaylistListViewController {
         if isInside(inView: thumbView, point: touch.location(in: view)) {
             
             isTouching = true
-            helperConstraint.constant = 75
+            
+            self.helperConstraint.constant = 75
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 1.0
-                self.playHelperLabel.layoutIfNeeded()
-                self.delegate.hideMasterView()
+                self.view.layoutIfNeeded()
+                
             })
+            self.delegate.hideMasterView()
         }
     }
     
@@ -247,10 +249,7 @@ extension PlaylistListViewController {
                 (self.parent as! MasterViewController).playerViewController.view.center.x = UIScreen.main.bounds.width / 2 * 3
             })
         
-            UIView.animate(withDuration: 0.5, animations: {
-            
-                self.delegate.showMasterView()
-            })
+            delegate.showMasterView()
         }
         playConstraint.constant = 0.0
         selectFlag = false
@@ -259,7 +258,7 @@ extension PlaylistListViewController {
         UIView.animate(withDuration: 0.5, animations: {
             
             self.scrollBarView.alpha = 0.0
-            self.playHelperLabel.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         })
 
     }
@@ -377,8 +376,8 @@ extension PlaylistListViewController: UICollectionViewDelegate {
         UIView.animate(withDuration: 0.5, animations: {
             
             self.scrollBarView.alpha = 1.0
-            self.delegate.hideMasterView()
         })
+        delegate.hideMasterView()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -405,8 +404,8 @@ extension PlaylistListViewController: UICollectionViewDelegate {
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 0.0
-                self.delegate.showMasterView()
             })
+            delegate.showMasterView()
         }
     }
     
@@ -417,8 +416,8 @@ extension PlaylistListViewController: UICollectionViewDelegate {
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 0.0
-                self.delegate.showMasterView()
             })
+            delegate.showMasterView()
         }
     }
     

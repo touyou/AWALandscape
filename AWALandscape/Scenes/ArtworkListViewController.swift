@@ -135,7 +135,6 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
-        print("scroll view did scroll")
         delegate.scrolled(scrollView.contentOffset.x / length)
         animateCell(scrollView)
     }
@@ -174,7 +173,6 @@ extension ArtworkListViewController {
         
         if keyPath == "currentAlbum" {
             
-            print("change Album")
             collectionView.reloadData()
             collectionView.contentOffset = CGPoint(x: 0.0, y: collectionView.contentOffset.y)
         } else if keyPath == "currentItem" {

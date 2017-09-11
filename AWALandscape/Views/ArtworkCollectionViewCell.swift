@@ -72,7 +72,6 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             self.transform = CGAffineTransform(scaleX: (scaleRatio - 1) * ratio + 1, y: (scaleRatio - 1) * ratio + 1)
         }
         imageView.alpha = 0.0
-        print(imageView.frame)
         return imageView.frame
     }
 }
