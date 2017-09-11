@@ -220,6 +220,14 @@ class MasterViewController: UIViewController {
         let s = Int(musicManager.playPosition) % 60
         let m = Int((musicManager.playPosition - Double(s)) / 60) % 60
         timeLabel.text = String(format: "%02d:%02d", m, s)
+        
+        if musicManager.isPlaying {
+            
+            playButton.setTitle(String.fontAwesomeIcon(name: .pause), for: .normal)
+        } else {
+            
+            playButton.setTitle(String.fontAwesomeIcon(name: .play), for: .normal)
+        }
     }
     
     func videoStarted() {
@@ -301,6 +309,9 @@ class MasterViewController: UIViewController {
                 
                 self.isPlaylist = true
             })
+        } else {
+            
+            switchPlaylistViewController(playerViewController)
         }
     }
     
