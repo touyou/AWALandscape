@@ -66,6 +66,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpInsideShareButton:" destination="kgE-fU-e4p" eventType="touchUpInside" id="GJj-k5-mxD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evd-sx-g5F">
                                 <rect key="frame" x="345.5" y="295" width="30" height="30"/>

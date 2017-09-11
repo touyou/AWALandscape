@@ -21,6 +21,10 @@ class PlayerVideoViewController: UIViewController {
             if let id = id {
                 
                 playerView.load(withVideoId: id)
+                if self.notFoundLabel != nil {
+                    
+                    self.notFoundLabel.isHidden = true
+                }
             }
         }
     }
@@ -52,16 +56,22 @@ class PlayerVideoViewController: UIViewController {
                 }
                 
                 self.id = id
+                print(id)
                 if self.playerView != nil {
                     
                     self.playerView.load(withVideoId: id)
+                    self.playerView.isHidden = false
                 }
                 if self.notFoundLabel != nil {
                     
                     self.notFoundLabel.isHidden = true
                 }
             }, failed: {
+                
+                if self.playerView != nil {
                     
+                    self.playerView.isHidden = true
+                }
                 if self.notFoundLabel != nil {
                     
                     self.notFoundLabel.isHidden = false

@@ -289,6 +289,17 @@ class PlayerViewController: UIViewController {
         
         masterDelegate.switchPlaylistViewController(self)
     }
+    
+    @IBAction func touchUpInsideShareButton(_ sender: Any) {
+        
+        let text = "\(musicManager.playing!.artist)の『\(musicManager.playing!.title)』を聞いています"
+        var items: [Any] = [text]
+        musicManager.playing?.assetURL.map { items.append($0) }
+        artworkImageView.image.map { items.append($0) }
+        
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Scroll
@@ -380,6 +391,11 @@ extension PlayerViewController {
         } else if keyPath == "currentAlbum" {
             
             sliderConstraint.constant = 0.0
+            view.layoutIfNeeded()
+            if animateView != nil {
+                
+                animateView.center = thumbView.center
+            }
         }
     }
 }
@@ -531,7 +547,7 @@ extension PlayerViewController {
             resetAnimation()
         }
         
-        if helperTimer.isValid {
+        if helperTimer != nil && helperTimer.isValid {
             
             animateView.center.x = selectScrollBarView.center.x
             helperTimer.invalidate()

@@ -293,7 +293,7 @@ extension PlaylistListViewController {
             self.scrollBarView.alpha = 0.0
             self.view.layoutIfNeeded()
         })
-        if helperTimer.isValid {
+        if helperTimer != nil && helperTimer.isValid {
             
             animateView.center.x = scrollBarView.center.x
             helperTimer.invalidate()
