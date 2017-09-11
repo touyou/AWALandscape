@@ -17,7 +17,7 @@ class VideoManager {
     private let apiKey = "AIzaSyAsowKTiCBepnMuCKOnvTQ56unaQFQzH94"
     let baseUrl = "https://www.googleapis.com/youtube/v3/search?key="
     
-    func getVideo(title: String, artist: String, completion: @escaping (String)->()) {
+    func getVideo(title: String, artist: String, completion: @escaping (String)->(), failed: @escaping ()->()) {
         
         let searchWord = String("\(title) \(artist)").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let urlText = baseUrl + apiKey + "&q=\(searchWord)&part=snippet&maxResults=10&order=viewCount"
@@ -26,6 +26,7 @@ class VideoManager {
             
             guard let jsonValue = response.result.value else {
                 
+                failed()
                 return
             }
             
@@ -33,6 +34,7 @@ class VideoManager {
 
             guard let id = json["items"].array?.first?["id"].dictionaryObject?["videoId"] as? String else {
                 
+                failed()
                 return
             }
             

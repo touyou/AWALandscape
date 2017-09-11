@@ -127,6 +127,8 @@ class PlaylistListViewController: UIViewController {
     }
     var animTimer: Timer!
     var isActive = true
+    var animateView: UIView!
+    var helperTimer: Timer!
 
     // MARK: - LifeCycle
     
@@ -136,11 +138,26 @@ class PlaylistListViewController: UIViewController {
         musicManager.addObserve(self)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        animateView = UIView()
+        animateView.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.7)
+        animateView.frame = thumbView.bounds
+        animateView.center = thumbView.center
+        animateView.cornerRadius = animateView.bounds.width / 2
+        view.insertSubview(animateView, belowSubview: thumbView)
+    }
+    
     deinit {
         
         if animTimer.isValid {
             
             animTimer.invalidate()
+        }
+        if helperTimer != nil && helperTimer.isValid {
+            
+            helperTimer.invalidate()
         }
         musicManager.removeObserve(self)
     }
@@ -158,6 +175,20 @@ class PlaylistListViewController: UIViewController {
                 
                 self.playHelperLabel.alpha = 1.0
             })
+        }
+    }
+    
+    func helperTimerExec() {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
+        
+            UIView.animate(withDuration: 0.7, animations: {
+                
+                self.animateView.center.x = self.playHelperLabel.center.x + 5
+            }) { _ in
+                
+                self.animateView.center.x = self.scrollBarView.center.x
+            }
         }
     }
 }
@@ -188,14 +219,16 @@ extension PlaylistListViewController {
             
             isTouching = true
             
-            self.helperConstraint.constant = 75
+            helperConstraint.constant = 75
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.scrollBarView.alpha = 1.0
                 self.view.layoutIfNeeded()
                 
             })
-            self.delegate.hideMasterView()
+            delegate.hideMasterView()
+            helperTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(helperTimerExec), userInfo: false, repeats: true)
+            helperTimer.fire()
         }
     }
     
@@ -260,7 +293,11 @@ extension PlaylistListViewController {
             self.scrollBarView.alpha = 0.0
             self.view.layoutIfNeeded()
         })
-
+        if helperTimer.isValid {
+            
+            animateView.center.x = scrollBarView.center.x
+            helperTimer.invalidate()
+        }
     }
     
     func updateSliderConstraint(_ touch: UITouch) {
@@ -273,6 +310,7 @@ extension PlaylistListViewController {
             
             sliderConstraint.constant = scrollBarView.frame.height - thumbView.frame.height
         }
+        animateView.center.y = thumbView.center.y
         setPosition()
     }
     
@@ -388,6 +426,7 @@ extension PlaylistListViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         sliderConstraint.constant = (scrollBarView.frame.height - thumbView.frame.height) * scrollView.contentOffset.x / length
+        animateView.center.y = thumbView.center.y
         let unit = (scrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
         
         var judge = -unit / 2
@@ -457,11 +496,9 @@ extension PlaylistListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDele
         return NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
     }
     
-    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    func buttonImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
         
-        let text = "リロードする"
-        let font = UIFont.systemFont(ofSize: 20)
-        return NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
+        return #imageLiteral(resourceName: "Group")
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {

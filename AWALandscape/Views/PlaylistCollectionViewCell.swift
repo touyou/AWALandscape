@@ -66,8 +66,8 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             }
             
             mainImageView.kf.setImage(with: images[0], placeholder: #imageLiteral(resourceName: "artwork_sample"))
-            sub1ImageView.kf.setImage(with: images[1], placeholder: #imageLiteral(resourceName: "artwork_sample"))
-            sub2ImageView.kf.setImage(with: images[2], placeholder: #imageLiteral(resourceName: "artwork_sample"))
+            sub1ImageView.kf.setImage(with: images[5], placeholder: #imageLiteral(resourceName: "artwork_sample"))
+            sub2ImageView.kf.setImage(with: images[9], placeholder: #imageLiteral(resourceName: "artwork_sample"))
 //            mainImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
 //            sub1ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")
 //            sub2ImageView.image = imagesIterator.next() ?? #imageLiteral(resourceName: "artwork_sample")

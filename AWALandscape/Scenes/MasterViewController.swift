@@ -388,6 +388,7 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
             flag = false
         }
         playerViewController.currentAlbum = sender
+        playerViewController.animateView.alpha = 0
         
         UIView.animate(withDuration: 0.5, animations: {
             
@@ -395,6 +396,8 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
             self.showMasterView()
         }, completion: { _ in
             
+            self.playerViewController.animateView.center = self.playerViewController.thumbView.center
+            self.playerViewController.animateView.alpha = 1
             if flag {
                 
                 self.playerViewController.currentItem = 0

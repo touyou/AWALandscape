@@ -181,6 +181,8 @@ class PlayerViewController: UIViewController {
     var animTimer: Timer!
     var blurView: UIVisualEffectView!
     var nextRect = CGRect()
+    var animateView: UIView!
+    var helperTimer: Timer!
     
     // MARK: - LifeCycle
     
@@ -218,13 +220,6 @@ class PlayerViewController: UIViewController {
         view.addSubview(blurView)
         view.insertSubview(blurView, belowSubview: containerView)
         blurView.alpha = 0.0
-        
-        // preview用
-        previewImageView = UIImageView()
-        previewImageView.contentMode = .scaleAspectFill
-        previewImageView.clipsToBounds = true
-        view.addSubview(previewImageView)
-        previewImageView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -235,6 +230,18 @@ class PlayerViewController: UIViewController {
             
             currentItem = 0
         }
+        // preview用
+        previewImageView = UIImageView()
+        previewImageView.contentMode = .scaleAspectFill
+        previewImageView.clipsToBounds = true
+        view.insertSubview(previewImageView, belowSubview: playHelperLabel)
+        previewImageView.alpha = 0
+        
+        animateView = UIView()
+        animateView.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.7)
+        animateView.frame = thumbView.bounds
+        animateView.cornerRadius = animateView.bounds.width / 2
+        view.insertSubview(animateView, belowSubview: thumbView)
     }
     
     deinit {
@@ -262,6 +269,20 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    func helperTimerExec() {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.15) {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                
+                self.animateView.center.x = self.playHelperLabel.center.x + 5
+            }) { _ in
+                
+                self.animateView.center.x = self.selectScrollBarView.center.x
+            }
+        }
+    }
+    
     // MARK: - Action
     
     @IBAction func touchUpInsideExitButton(_ sender: Any) {
@@ -277,6 +298,7 @@ extension PlayerViewController: ArtworkListScrollDelegate {
     func scrolled(_ ratio: CGFloat) {
 
         sliderConstraint.constant = (selectScrollBarView.frame.height - thumbView.frame.height) * ratio
+        animateView.center.y = thumbView.center.y
         
         let unit = (selectScrollBarView.frame.height - thumbView.frame.height)  / CGFloat(items!.count > 0 ? items!.count - 1 : 0)
         
@@ -385,6 +407,8 @@ extension PlayerViewController {
                 self.view.layoutIfNeeded()
             })
             masterDelegate.hideMasterView()
+            helperTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(helperTimerExec), userInfo: false, repeats: true)
+            helperTimer.fire()
         } else {
             
             isReturning = true
@@ -422,6 +446,7 @@ extension PlayerViewController {
                 
                 let rate = playConstraint.constant / -180.0
                 previewImageView.alpha = 1
+                artworkImageView.alpha = 1 - rate
                 if rate > 0.5 {
                     
                     let xDist = artworkImageView.frame.origin.x - nextRect.origin.x
@@ -475,11 +500,13 @@ extension PlayerViewController {
                     self.containerView.alpha = 0.0
                     self.selectScrollBarView.alpha = 0.0
                     self.blurView.alpha = 0.0
+                    self.artworkImageView.alpha = 0.0
                     self.view.layoutIfNeeded()
                 }, completion: { _ in
                     
                     self.currentItem = self.selectorPosition
                     self.previewImageView.alpha = 0.0
+                    self.artworkImageView.alpha = 1.0
                 })
                 masterDelegate.showMasterView()
             } else {
@@ -503,12 +530,19 @@ extension PlayerViewController {
         
             resetAnimation()
         }
+        
+        if helperTimer.isValid {
+            
+            animateView.center.x = selectScrollBarView.center.x
+            helperTimer.invalidate()
+        }
     }
     
     func resetAnimation() {
         
         playConstraint.constant = 0.0
         previewImageView.alpha = 0.0
+        artworkImageView.alpha = 1.0
         selectFlag = false
         helperConstraint.constant = -18
         UIView.animate(withDuration: 0.5, animations: {
@@ -531,6 +565,7 @@ extension PlayerViewController {
             
             sliderConstraint.constant = selectScrollBarView.frame.height - thumbView.frame.height
         }
+        animateView.center.y = thumbView.center.y
         setPosition()
     }
     

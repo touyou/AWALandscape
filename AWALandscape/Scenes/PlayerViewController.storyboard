@@ -17,6 +17,9 @@
         <array key="mplus-1c-heavy.ttf">
             <string>mplus-1c-heavy</string>
         </array>
+        <array key="mplus-1c-light.ttf">
+            <string>mplus-1c-light</string>
+        </array>
         <array key="mplus-1c-regular.ttf">
             <string>mplus-1c-regular</string>
         </array>
@@ -314,7 +317,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lyric" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3QU-5N-6j2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lyric" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QU-5N-6j2">
                                 <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="16"/>
@@ -359,10 +362,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ビデオが見つかりませんでした。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rJ-q0-Pgm">
+                                <rect key="frame" x="14.5" y="117.5" width="255" height="24"/>
+                                <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Pnb-V0-HvZ" firstAttribute="centerX" secondItem="7Va-sn-Wdh" secondAttribute="centerX" id="Hk3-RI-GdV"/>
                             <constraint firstItem="pRD-C8-64c" firstAttribute="top" secondItem="wC2-hm-M2z" secondAttribute="bottom" constant="40" id="RJc-Xz-PfO"/>
+                            <constraint firstItem="7rJ-q0-Pgm" firstAttribute="centerY" secondItem="7Va-sn-Wdh" secondAttribute="centerY" id="V5v-Yf-lfr"/>
+                            <constraint firstItem="7rJ-q0-Pgm" firstAttribute="centerX" secondItem="7Va-sn-Wdh" secondAttribute="centerX" id="Yxe-L0-56r"/>
                             <constraint firstItem="wC2-hm-M2z" firstAttribute="leading" secondItem="7Va-sn-Wdh" secondAttribute="leading" id="b15-eq-CGE"/>
                             <constraint firstItem="wC2-hm-M2z" firstAttribute="top" secondItem="7Va-sn-Wdh" secondAttribute="top" constant="40" id="h1h-RZ-Lne"/>
                             <constraint firstAttribute="trailing" secondItem="wC2-hm-M2z" secondAttribute="trailing" id="pLq-z5-4c5"/>
@@ -372,6 +383,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="284" height="260"/>
                     <connections>
+                        <outlet property="notFoundLabel" destination="7rJ-q0-Pgm" id="d7W-ue-cHA"/>
                         <outlet property="playerView" destination="wC2-hm-M2z" id="7jZ-Lv-zhD"/>
                     </connections>
                 </viewController>

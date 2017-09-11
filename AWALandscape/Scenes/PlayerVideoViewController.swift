@@ -10,7 +10,7 @@ import UIKit
 import youtube_ios_player_helper
 
 class PlayerVideoViewController: UIViewController {
-
+    
     let musicManager = MusicManager.shared
     let videoManager = VideoManager.shared
     
@@ -24,6 +24,7 @@ class PlayerVideoViewController: UIViewController {
             }
         }
     }
+    @IBOutlet weak var notFoundLabel: UILabel!
     
     var currentItem: Int = -1 {
         
@@ -42,7 +43,7 @@ class PlayerVideoViewController: UIViewController {
             
             let title = items[currentItem].title
             let artist = items[currentItem].artist
-
+            
             videoManager.getVideo(title: title ?? "", artist: artist ?? "", completion: { [weak self] id in
                 
                 guard let `self` = self else {
@@ -54,6 +55,16 @@ class PlayerVideoViewController: UIViewController {
                 if self.playerView != nil {
                     
                     self.playerView.load(withVideoId: id)
+                }
+                if self.notFoundLabel != nil {
+                    
+                    self.notFoundLabel.isHidden = true
+                }
+            }, failed: {
+                    
+                if self.notFoundLabel != nil {
+                    
+                    self.notFoundLabel.isHidden = false
                 }
             })
         }
