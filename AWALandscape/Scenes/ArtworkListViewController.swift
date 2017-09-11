@@ -9,6 +9,13 @@
 import UIKit
 import MediaPlayer
 
+protocol ArtworkListScrollDelegate: class {
+    
+    func scrolled(_ ratio: CGFloat)
+    func dragEnded(_ ratio: CGFloat)
+    func scrollEnded(_ ratio: CGFloat)
+}
+
 class ArtworkListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -18,12 +25,13 @@ class ArtworkListViewController: UIViewController {
             collectionView.register(ArtworkCollectionViewCell.self)
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.backgroundColor = UIColor.clear
             
             let itemLength = ArtworkCollectionViewFlowLayout.kItemLength
             let verticalInset = ArtworkCollectionViewFlowLayout.verticalInset
             let horizontalInset = ArtworkCollectionViewFlowLayout.horizontalInset
             let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: itemLength, height: itemLength + 50)
+            layout.itemSize = CGSize(width: itemLength, height: itemLength + 70)
             layout.minimumLineSpacing = 20.0
             layout.minimumInteritemSpacing = 20.0
             layout.sectionInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset)
@@ -32,17 +40,17 @@ class ArtworkListViewController: UIViewController {
         }
     }
     
-    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
+    let musicManager = MusicManager.shared
+    let centerThreshold: CGFloat = UIScreen.main.bounds.width / 6
+    
+    weak var delegate: ArtworkListScrollDelegate!
     var length: CGFloat = 0.0
-    var items: [MPMediaItem]! {
+    var items: [TYMediaItem]! {
         
         didSet {
             
-            length = ArtworkCollectionViewFlowLayout.kItemLength * CGFloat(items.count) - ArtworkCollectionViewFlowLayout.kItemLength * 0.5
-            if items.count > 0 {
-                
-                length += 20.0 * CGFloat(items.count - 1)
-            }
+            let count = items.count
+            length = (ArtworkCollectionViewFlowLayout.kItemLength + 20.0) * CGFloat(count > 0 ? count - 1 : 0)
         }
     }
     var selected: Int = 0 {
@@ -59,6 +67,12 @@ class ArtworkListViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        musicManager.addObserve(self)
+    }
+    
+    deinit {
+        
+        musicManager.removeObserve(self)
     }
 }
 
@@ -73,17 +87,39 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtworkCollectionViewCell.defaultReuseIdentifier, for: indexPath) as! ArtworkCollectionViewCell
         
-        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork?.image(at: CGSize(width: 100, height: 100)), title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+        cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork, title: items![indexPath.row].title, artist: items![indexPath.row].artist)
+        
+        let centerX = cell.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        if ratio > 0.0 {
+            
+            cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
+        } else {
+            
+            cell.transform = .identity
+        }
         
         if selected == indexPath.row {
             
-            cell.artistLabel.isHidden = false
-            cell.titleLabel.isHidden = false
+            cell.selectedView.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+                
+                collectionView.bringSubview(toFront: cell)
+            })
         } else {
             
-            cell.artistLabel.isHidden = true
-            cell.titleLabel.isHidden = true
+            cell.selectedView.isHidden = false
         }
+        
+        if indexPath.row == musicManager.currentItem {
+            
+            cell.animationView.isHidden = false
+        } else {
+            
+            cell.animationView.isHidden = true
+        }
+        cell.miniTitleLabel.isHidden = true
+        cell.imageView.alpha = 1.0
         
         return cell
     }
@@ -94,10 +130,18 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         animateCell(scrollView)
+        delegate.scrollEnded(0.0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
+        delegate.scrolled(scrollView.contentOffset.x / length)
+        animateCell(scrollView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        delegate.dragEnded(scrollView.contentOffset.x / length)
         animateCell(scrollView)
     }
     
@@ -110,7 +154,7 @@ extension ArtworkListViewController: UICollectionViewDelegate {
             let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
             if ratio > 0.0 {
                 
-                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.5 * ratio, y: 1.0 + 0.5 * ratio)
+                cell.transform = CGAffineTransform(scaleX: 1.0 + 0.4 * ratio, y: 1.0 + 0.4 * ratio)
             } else {
                 
                 cell.transform = .identity
@@ -120,7 +164,21 @@ extension ArtworkListViewController: UICollectionViewDelegate {
                 collectionView.bringSubview(toFront: cell)
             }
         }
+    }
+}
 
+extension ArtworkListViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "currentAlbum" {
+            
+            collectionView.reloadData()
+            collectionView.contentOffset = CGPoint(x: 0.0, y: collectionView.contentOffset.y)
+        } else if keyPath == "currentItem" {
+            
+            collectionView.reloadData()
+        }
     }
 }
 
@@ -130,5 +188,26 @@ extension ArtworkListViewController: PlayerViewControllerDelegate {
         
         selected = position
         collectionView.contentOffset = CGPoint(x: length * ratio, y: collectionView.contentOffset.y)
+    }
+    
+    func selectMusic(_ ratio: CGFloat, position: Int, rect: CGRect) -> CGRect {
+        
+        let indexPath = IndexPath(row: position, section: 0)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ArtworkCollectionViewCell else {
+            
+            return rect
+        }
+        
+        let centerX = cell.center.x - collectionView.contentOffset.x
+        let ratioThreshold = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        
+        let originalFrame = cell.animate(collectionView, view, ratio: ratio, size: rect.size, threshold: ratioThreshold)
+        return cell.convert(originalFrame, to: view)
+    }
+    
+    func cancelSelected() {
+        
+        let cells = collectionView.visibleCells
+        _ = cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
     }
 }

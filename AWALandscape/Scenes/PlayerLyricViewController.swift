@@ -25,9 +25,7 @@ class PlayerLyricViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func setUI() {
-        
-        
+    func prepare() {
     }
 }
 

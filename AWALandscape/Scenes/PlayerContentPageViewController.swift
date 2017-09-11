@@ -11,6 +11,7 @@ import UIKit
 class PlayerContentPageViewController: UIPageViewController {
 
     var vcArray = [UIViewController]()
+    var currentIndex: Int = 0
     
     override func viewDidLoad() {
         
@@ -22,17 +23,18 @@ class PlayerContentPageViewController: UIPageViewController {
         ]
         setViewControllers([vcArray[0]], direction: .forward, animated: true, completion: nil)
         dataSource = self
+        delegate = self
     }
     
-    func setUI() {
+    func prepare() {
         
-        (vcArray[0] as! PlayerInfoViewController).setUI()
-        (vcArray[1] as! PlayerLyricViewController).setUI()
-        (vcArray[2] as! PlayerVideoViewController).setUI()
+        (vcArray[0] as! PlayerInfoViewController).prepare()
+        (vcArray[1] as! PlayerLyricViewController).prepare()
+        (vcArray[2] as! PlayerVideoViewController).prepare()
     }
 }
 
-extension PlayerContentPageViewController: UIPageViewControllerDataSource {
+extension PlayerContentPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -60,5 +62,35 @@ extension PlayerContentPageViewController: UIPageViewControllerDataSource {
             
             return nil
         }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if let viewController = pageViewController.viewControllers?.first {
+            
+            if viewController is PlayerInfoViewController {
+                
+                currentIndex = 0
+            } else if viewController is PlayerLyricViewController {
+                
+                currentIndex = 1
+            } else {
+                
+                currentIndex = 2
+            }
+        }
+    }
+}
+
+extension PlayerContentPageViewController {
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        
+        return 3
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        
+        return currentIndex
     }
 }

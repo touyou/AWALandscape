@@ -6,4 +6,14 @@ target 'AWALandscape' do
   use_frameworks!
 
   # Pods for AWALandscape
+  pod 'FontAwesome.swift'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod "youtube-ios-player-helper"
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'DZNEmptyDataSet'
+  pod 'lottie-ios'
+  pod 'Kingfisher'
+  pod 'RealmSwift'
 end

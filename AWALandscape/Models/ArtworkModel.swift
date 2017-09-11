@@ -11,11 +11,11 @@ import UIKit
 
 class ArtworkModel: NSObject {
     
-    var image: UIImage?
+    var image: URL?
     var title: String?
     var artist: String?
     
-    init(image: UIImage?, title: String?, artist: String?) {
+    init(image: URL?, title: String?, artist: String?) {
         
         self.image = image
         self.title = title
