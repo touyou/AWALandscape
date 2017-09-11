@@ -32,6 +32,7 @@
 		462FEBB71F5FE19000AAF157 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */; };
 		462FEBB91F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */; };
 		462FEBBB1F60309800AAF157 /* ArtworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */; };
+		465FEBE11F66970E00A6098D /* ShadowStyleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FEBE01F66970E00A6098D /* ShadowStyleLabel.swift */; };
 		46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D391F5FB2C000A73E75 /* AppDelegate.swift */; };
 		46683D3C1F5FB2C000A73E75 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */; };
 		46683D3F1F5FB2C000A73E75 /* MasterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46683D3D1F5FB2C000A73E75 /* MasterViewController.storyboard */; };
@@ -79,6 +80,7 @@
 		462FEBB31F5FE19000AAF157 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		462FEBBA1F60309800AAF157 /* ArtworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkListViewController.swift; sourceTree = "<group>"; };
+		465FEBE01F66970E00A6098D /* ShadowStyleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowStyleLabel.swift; sourceTree = "<group>"; };
 		46683D361F5FB2C000A73E75 /* AWALandscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWALandscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46683D391F5FB2C000A73E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46683D3B1F5FB2C000A73E75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				462FEBB81F60277D00AAF157 /* ArtworkCollectionViewFlowLayout.swift */,
 				462F81F31F62CD55000488BB /* PlaylistCollectionViewCell.swift */,
 				462F81F41F62CD55000488BB /* PlaylistCollectionViewCell.xib */,
+				465FEBE01F66970E00A6098D /* ShadowStyleLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				462FEBB51F5FE19000AAF157 /* NibLoadable.swift in Sources */,
 				461A6D6C1F61496100F3ECD8 /* PlayerContentPageViewController.swift in Sources */,
 				46683D3A1F5FB2C000A73E75 /* AppDelegate.swift in Sources */,
+				465FEBE11F66970E00A6098D /* ShadowStyleLabel.swift in Sources */,
 				462F81F51F62CD55000488BB /* PlaylistCollectionViewCell.swift in Sources */,
 				461A6D6A1F61493F00F3ECD8 /* PlayerVideoViewController.swift in Sources */,
 				462FEBAE1F5FE12E00AAF157 /* UICollectionView+Extensions.swift in Sources */,
