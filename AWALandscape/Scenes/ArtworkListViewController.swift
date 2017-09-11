@@ -14,6 +14,7 @@ protocol ArtworkListScrollDelegate: class {
     func scrolled(_ ratio: CGFloat)
     func dragEnded(_ ratio: CGFloat)
     func scrollEnded(_ ratio: CGFloat)
+    func selected(_ select: Int)
 }
 
 class ArtworkListViewController: UIViewController {
@@ -126,6 +127,17 @@ extension ArtworkListViewController: UICollectionViewDataSource {
 }
 
 extension ArtworkListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let centerX = cell!.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        if ratio > 0.0 {
+            
+            delegate.selected(indexPath.row)
+        }
+    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         

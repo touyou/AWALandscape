@@ -303,6 +303,18 @@ class PlayerViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityVC, animated: true, completion: nil)
     }
+    
+    @IBAction func touchUpInsideMoreButton(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.containerView.alpha = 1.0
+            self.selectScrollBarView.alpha = 1.0
+            self.blurView.alpha = 1.0
+            self.view.layoutIfNeeded()
+        })
+        masterDelegate.hideMasterView()
+    }
 }
 
 // MARK: - Scroll
@@ -379,6 +391,12 @@ extension PlayerViewController: ArtworkListScrollDelegate {
         isDragging = true
         previewImageView.alpha = 0
         delegate.cancelSelected()
+    }
+    
+    func selected(_ select: Int) {
+        
+        currentItem = select
+        resetAnimation()
     }
 }
 

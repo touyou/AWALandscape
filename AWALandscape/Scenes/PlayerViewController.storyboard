@@ -75,6 +75,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpInsideMoreButton:" destination="kgE-fU-e4p" eventType="touchUpInside" id="V1g-pR-Te5"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pay-EL-W2d">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
