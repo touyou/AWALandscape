@@ -414,10 +414,14 @@ extension PlaylistListViewController: UICollectionViewDataSource {
         if indexPath.row == musicManager.currentAlbum {
             
             cell.animationView.isHidden = false
+            cell.animationView.play()
         } else {
             
             cell.animationView.isHidden = true
+            cell.animationView.pause()
         }
+        
+        cell.miniTitleLabel.pauseLabel()
         
         return cell
     }

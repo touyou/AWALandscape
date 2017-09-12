@@ -116,6 +116,8 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         if selected == indexPath.row {
             
             cell.selectedView.isHidden = true
+            cell.titleLabel.unpauseLabel()
+            cell.artistLabel.unpauseLabel()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
                 
                 collectionView.bringSubview(toFront: cell)
@@ -123,16 +125,21 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         } else {
             
             cell.selectedView.isHidden = false
+            cell.titleLabel.pauseLabel()
+            cell.artistLabel.pauseLabel()
         }
         
         if indexPath.row == musicManager.currentItem {
             
             cell.animationView.isHidden = false
+            cell.animationView.play()
         } else {
             
             cell.animationView.isHidden = true
+            cell.animationView.pause()
         }
         cell.miniTitleLabel.isHidden = true
+        cell.miniTitleLabel.pauseLabel()
         cell.imageView.alpha = 1.0
         
         return cell

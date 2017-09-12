@@ -361,7 +361,9 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.titleLabel.isHidden = true
             cell.selectionView.isHidden = true
             cell.animationView.isHidden = true
+            cell.animationView.pause()
             cell.infoView.isHidden = true
+            cell.miniTitleLabel.unpauseLabel()
             return cell
         } else {
             
@@ -370,7 +372,10 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork, title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
+            cell.artistLabel.pauseLabel()
+            cell.titleLabel.pauseLabel()
             cell.animationView.isHidden = true
+            cell.animationView.pause()
             cell.selectedView.isHidden = true
             return cell
         }

@@ -45,7 +45,6 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             animationView.animationSpeed = 1
             
             contentView.addSubview(animationView)
-            animationView.play()
         }
     }
     @IBOutlet weak var infoView: UIView!

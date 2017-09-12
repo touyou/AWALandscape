@@ -42,7 +42,6 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             animationView.animationSpeed = 1
             
             contentView.addSubview(animationView)
-            animationView.play()
         }
     }
     @IBOutlet weak var titleLabel: MarqueeLabel! {
