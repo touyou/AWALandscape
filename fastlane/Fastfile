@@ -9,6 +9,7 @@ platform :ios do
     developer_id = "shinsotsu_technology+apple2016@cyberagent.co.jp"
     developer_password ="Vk7fvNzv"
 
+    ENV["CERT_NAME"] = "ios_distribution.cer"
     ENV["PRIVATE_KEY_CERT_NAME"] = "K2JZWBH82M.p12"
     ENV["PRIVATE_KEY_CERT_PASSWORD"] = ""
     ENV["FASTLANE_USER"] = developer_id
@@ -40,7 +41,8 @@ platform :ios do
     bin_path = "#{build_derectory}/#{bin_name}"
     resources_path = "./fastlane/resources"
     tmp_resources_output_path = "#{resources_path}/tmp"
-    certificate_path = "#{resources_path}/#{ENV["PRIVATE_KEY_CERT_NAME"]}"
+    certificate_path = "#{resources_path}/#{ENV["CERT_NAME"]}"
+    private_key_certificate_path = "#{resources_path}/#{ENV["PRIVATE_KEY_CERT_NAME"]}"
 
     produce(
       app_identifier: app_identifier,
@@ -50,11 +52,14 @@ platform :ios do
 
     import_certificate(
       keychain_name: "login",
-      certificate_path: certificate_path,
-      certificate_password: ENV["PRIVATE_KEY_CERT_PASSWORD"]
+      certificate_path: certificate_path
     )
 
-    cert(output_path: tmp_resources_output_path)
+    import_certificate(
+      keychain_name: "login",
+      certificate_path: private_key_certificate_path,
+      certificate_password: ENV["PRIVATE_KEY_CERT_PASSWORD"]
+    )
 
     sigh(
       force: true,

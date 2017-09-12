@@ -297,8 +297,8 @@
 				TargetAttributes = {
 					46683D351F5FB2C000A73E75 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = B4S4333JDW;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4Y3T6EGT59;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -598,7 +598,7 @@
 			baseConfigurationReference = 50E062C67EAE38BBFA7E8329 /* Pods-AWALandscape.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B4S4333JDW;
+				DEVELOPMENT_TEAM = 4Y3T6EGT59;
 				INFOPLIST_FILE = AWALandscape/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.touyou.AWALandscape;
@@ -612,7 +612,7 @@
 			baseConfigurationReference = 8CBEC6DD13120F0502D0C6D1 /* Pods-AWALandscape.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B4S4333JDW;
+				DEVELOPMENT_TEAM = 4Y3T6EGT59;
 				INFOPLIST_FILE = AWALandscape/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.touyou.AWALandscape;
