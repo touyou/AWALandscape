@@ -57,14 +57,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tz-4F-VHu">
                                 <rect key="frame" x="333" y="335" width="333.5" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-12-QYc">
-                                        <rect key="frame" x="8" y="0.0" width="141" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プレイリストを選択してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-12-QYc" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                        <rect key="frame" x="8" y="0.0" width="141" height="15.5"/>
                                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3T-Me-PYn">
-                                        <rect key="frame" x="8" y="21.5" width="141" height="15.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3T-Me-PYn" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                        <rect key="frame" x="8" y="18.5" width="141" height="13"/>
                                         <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -143,8 +143,23 @@
                                     <constraint firstAttribute="width" secondItem="Muk-No-yI3" secondAttribute="height" multiplier="46:31" id="C25-ZJ-JFt"/>
                                 </constraints>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-ed-c0c">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-ed-c0c" customClass="TapAreaExpandSlider" customModule="AWALandscape" customModuleProvider="target">
                                 <rect key="frame" x="331" y="305" width="183" height="31"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="top">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="circle"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="left">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottom">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="right">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="touchDownPlayingSlider:" destination="BYZ-38-t0r" eventType="touchDown" id="UfO-OJ-h7n"/>
                                     <action selector="touchUpInsidePlayingSlider:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oEv-kh-HxC"/>
@@ -152,7 +167,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orq-J2-cWF">
-                                <rect key="frame" x="312" y="257.5" width="43" height="25"/>
+                                <rect key="frame" x="312" y="260" width="43" height="20"/>
                                 <fontDescription key="fontDescription" name="TeXGyreAdventor-Regular" family="TeX Gyre Adventor" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -211,6 +226,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" width="4" height="4"/>
         <image name="popup" width="46" height="31"/>
     </resources>
 </document>

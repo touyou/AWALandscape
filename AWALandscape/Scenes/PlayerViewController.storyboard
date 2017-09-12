@@ -62,7 +62,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM6-LX-JWC">
-                                <rect key="frame" x="305.5" y="295" width="30" height="30"/>
+                                <rect key="frame" x="310.5" y="295" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -71,10 +71,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evd-sx-g5F">
-                                <rect key="frame" x="345.5" y="295" width="30" height="30"/>
+                                <rect key="frame" x="350.5" y="295" width="30" height="30"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpInsideMoreButton:" destination="kgE-fU-e4p" eventType="touchUpInside" id="V1g-pR-Te5"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pay-EL-W2d">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
@@ -131,7 +134,7 @@
                             <constraint firstItem="F7f-kh-oOm" firstAttribute="top" secondItem="jG7-P0-3Se" secondAttribute="bottom" id="THg-If-YsZ"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="trailing" secondItem="rRG-Ni-8BO" secondAttribute="trailingMargin" constant="-15" id="UAY-Iw-8ye"/>
                             <constraint firstItem="IY1-Zj-N7A" firstAttribute="leading" secondItem="ctv-lv-RS4" secondAttribute="trailing" constant="35" id="bSX-zR-pWt"/>
-                            <constraint firstItem="jM6-LX-JWC" firstAttribute="leading" secondItem="IY1-Zj-N7A" secondAttribute="leading" id="cNj-pN-dbl"/>
+                            <constraint firstItem="jM6-LX-JWC" firstAttribute="leading" secondItem="IY1-Zj-N7A" secondAttribute="leading" constant="5" id="cNj-pN-dbl"/>
                             <constraint firstItem="rdT-Ff-8Gu" firstAttribute="leading" secondItem="IY1-Zj-N7A" secondAttribute="trailing" constant="20" id="dkU-2G-Eq6"/>
                             <constraint firstItem="F7f-kh-oOm" firstAttribute="leading" secondItem="rRG-Ni-8BO" secondAttribute="leading" constant="5" id="drg-h6-nuG"/>
                             <constraint firstItem="pay-EL-W2d" firstAttribute="top" secondItem="rRG-Ni-8BO" secondAttribute="top" id="e7y-tQ-1sg"/>
@@ -188,20 +191,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="284" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCy-aP-qj7">
-                                <rect key="frame" x="0.0" y="40" width="284" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCy-aP-qj7" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                <rect key="frame" x="0.0" y="40" width="284" height="20"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-heavy" family="M+ 1c" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-kw-u9Z">
-                                <rect key="frame" x="0.0" y="72" width="284" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-kw-u9Z" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                <rect key="frame" x="0.0" y="68" width="284" height="16.5"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlaylistName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc3-Gu-eEE">
-                                <rect key="frame" x="16" y="122" width="102.5" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc3-Gu-eEE">
+                                <rect key="frame" x="16" y="114.5" width="31.5" height="19"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -212,8 +215,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ダミーテキストが入る" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5r-qd-wzk">
-                                <rect key="frame" x="0.0" y="149.5" width="284" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5r-qd-wzk">
+                                <rect key="frame" x="0.0" y="138.5" width="284" height="14"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-regular" family="M+ 1c" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -239,6 +242,7 @@
                             <constraint firstAttribute="trailing" secondItem="W3Y-kw-u9Z" secondAttribute="trailing" id="HzR-ZI-G72"/>
                             <constraint firstItem="HJR-u8-fzL" firstAttribute="top" secondItem="N8B-4A-ECn" secondAttribute="top" id="KR9-u3-rpB"/>
                             <constraint firstItem="fc3-Gu-eEE" firstAttribute="leading" secondItem="B2g-YM-5rs" secondAttribute="leadingMargin" id="WJ3-Yh-YKq"/>
+                            <constraint firstItem="N8B-4A-ECn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Q5r-qd-wzk" secondAttribute="bottom" constant="10" id="Z8x-WN-gZ8"/>
                             <constraint firstItem="jCy-aP-qj7" firstAttribute="leading" secondItem="B2g-YM-5rs" secondAttribute="leading" id="ae8-fs-ydz"/>
                             <constraint firstItem="Q5r-qd-wzk" firstAttribute="leading" secondItem="B2g-YM-5rs" secondAttribute="leading" id="c0D-Dp-hPn"/>
                             <constraint firstItem="RlR-Ib-nbM" firstAttribute="top" secondItem="HJR-u8-fzL" secondAttribute="bottom" id="deT-8e-w9E"/>

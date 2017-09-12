@@ -140,6 +140,17 @@ class MusicManager: NSObject {
             player = try AVAudioPlayer(data: music.musicData)
             player?.delegate = self
             player?.prepareToPlay()
+            
+            let infoCenter = MPNowPlayingInfoCenter.default()
+            infoCenter.nowPlayingInfo?[MPMediaItemPropertyTitle] = music.title
+            infoCenter.nowPlayingInfo?[MPMediaItemPropertyArtist] = music.artist
+            infoCenter.nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = duration
+            infoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = playPosition
+            let task = URLSession.shared.dataTask(with: music.artwork!) { data, response, error in
+                
+                infoCenter.nowPlayingInfo?[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: CGSize(width: 512, height: 512), requestHandler: { _ in UIImage(data: data!)! })
+            }
+            task.resume()
         } catch {
             
             player = nil

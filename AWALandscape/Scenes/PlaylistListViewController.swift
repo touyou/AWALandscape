@@ -87,8 +87,26 @@ class PlaylistListViewController: UIViewController {
     // MARK: Constant
     
     let musicManager = MusicManager.shared
-    let selectionFeedback = UISelectionFeedbackGenerator()
-    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
+    let selectionFeedback: Any? = {
+        
+        if #available(iOS 10.0, *) {
+            
+            return UISelectionFeedbackGenerator()
+        } else {
+            
+            return nil
+        }
+    }()
+    let impactFeedback: Any? = {
+        
+        if #available(iOS 10.0, *) {
+            
+            return UIImpactFeedbackGenerator(style: .heavy)
+        } else {
+            
+            return nil
+        }
+    }()
     let kItemSize = UIScreen.main.bounds.height / 2
     let centerThreshold: CGFloat = UIScreen.main.bounds.width / 4
     
@@ -103,7 +121,10 @@ class PlaylistListViewController: UIViewController {
             
             if oldValue != selectorPosition {
                 
-                selectionFeedback.selectionChanged()
+                if #available(iOS 10.0, *), let generator = selectionFeedback as? UISelectionFeedbackGenerator {
+                
+                    generator.selectionChanged()
+                }
                 collectionView.reloadData()
             }
         }
@@ -121,7 +142,10 @@ class PlaylistListViewController: UIViewController {
             
             if oldValue != selectFlag && selectFlag {
                 
-                impactFeedback.impactOccurred()
+                if #available(iOS 10.0, *), let generator = impactFeedback as? UIImpactFeedbackGenerator {
+                    
+                    generator.impactOccurred()
+                }
             }
         }
     }
@@ -390,10 +414,14 @@ extension PlaylistListViewController: UICollectionViewDataSource {
         if indexPath.row == musicManager.currentAlbum {
             
             cell.animationView.isHidden = false
+            cell.animationView.play()
         } else {
             
             cell.animationView.isHidden = true
+            cell.animationView.pause()
         }
+        
+        cell.miniTitleLabel.pauseLabel()
         
         return cell
     }

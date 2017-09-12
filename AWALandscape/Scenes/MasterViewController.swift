@@ -10,24 +10,40 @@ import UIKit
 import FontAwesome_swift
 import DZNEmptyDataSet
 import Lottie
+import MarqueeLabel
 
 class MasterViewController: UIViewController {
     
     // MARK: - Property
     // MARK: Outlet
     @IBOutlet weak var mainContainerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            titleLabel.fadeLength = 10.0
+            titleLabel.type = .continuous
+        }
+    }
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            artistLabel.fadeLength = 10.0
+            artistLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var playButton: UIButton! {
         
         didSet {
             
             playButton.cornerRadius = playButton.bounds.width / 2
+            playButton.titleLabel?.textAlignment = .center
         }
     }
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
-    @IBOutlet weak var playingSlider: UISlider!
+    @IBOutlet weak var playingSlider: TapAreaExpandSlider!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var miniCollectionView: UICollectionView! {
         
@@ -346,7 +362,9 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.titleLabel.isHidden = true
             cell.selectionView.isHidden = true
             cell.animationView.isHidden = true
+            cell.animationView.pause()
             cell.infoView.isHidden = true
+            cell.miniTitleLabel.unpauseLabel()
             return cell
         } else {
             
@@ -355,7 +373,10 @@ extension MasterViewController: UICollectionViewDataSource {
             cell.artworkModel = ArtworkModel(image: items![indexPath.row].artwork, title: items![indexPath.row].title, artist: items![indexPath.row].artist)
             cell.artistLabel.isHidden = true
             cell.titleLabel.isHidden = true
+            cell.artistLabel.pauseLabel()
+            cell.titleLabel.pauseLabel()
             cell.animationView.isHidden = true
+            cell.animationView.pause()
             cell.selectedView.isHidden = true
             return cell
         }
@@ -399,7 +420,6 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
             flag = false
         }
         playerViewController.currentAlbum = sender
-        playerViewController.animateView.alpha = 0
         
         UIView.animate(withDuration: 0.5, animations: {
             

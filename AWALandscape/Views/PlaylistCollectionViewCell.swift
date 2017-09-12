@@ -10,14 +10,22 @@ import UIKit
 import MediaPlayer
 import Lottie
 import Kingfisher
+import MarqueeLabel
+import PureLayout
 
 class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var sub1ImageView: UIImageView!
     @IBOutlet weak var sub2ImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var titleLabel: ShadowStyleLabel!
+    @IBOutlet weak var miniTitleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            miniTitleLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var selectionView: UIView! {
         
         didSet {
@@ -32,13 +40,15 @@ class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
             
             animationView = LOTAnimationView(name: "trail_loading")
             animationView.frame = CGRect(origin: .zero, size: playingView.bounds.size)
-            animationView.center = contentView.center
             animationView.loopAnimation = true
             animationView.contentMode = .scaleAspectFit
             animationView.animationSpeed = 1
             
             contentView.addSubview(animationView)
-            animationView.play()
+            animationView.autoPinEdge(.bottom, to: .bottom, of: contentView)
+            animationView.autoPinEdge(.trailing, to: .trailing, of: contentView)
+            animationView.autoMatch(.height, to: .height, of: contentView, withMultiplier: 0.25)
+            animationView.autoMatch(.width, to: .height, of: contentView, withMultiplier: 0.25)
         }
     }
     @IBOutlet weak var infoView: UIView!

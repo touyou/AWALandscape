@@ -56,14 +56,14 @@
                         <rect key="frame" x="0.0" y="307" width="521" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFN-pt-chA">
-                                <rect key="frame" x="8" y="8" width="466.5" height="27"/>
+                                <rect key="frame" x="8" y="8" width="467" height="27"/>
                                 <string key="text">僕たちがやりました / サイレーン 刑事×彼女×完全悪女 / CRISIS 公安起動操作隊特捜班 / あなたのことはそれほど / ドクターX~外科医・大門未知子~ / セシルのもくろみ / あなたのことはそれほど / 山田孝之のカンヌ映画祭 / 家政婦のミタ   プレイリスト公開：2017/8/30  随時更新</string>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="by touyou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzR-Mt-wSl">
-                                <rect key="frame" x="479.5" y="24" width="36.5" height="12"/>
+                                <rect key="frame" x="480" y="26.5" width="36" height="9.5"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="8"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -80,21 +80,21 @@
                             <constraint firstItem="dzR-Mt-wSl" firstAttribute="leading" secondItem="hFN-pt-chA" secondAttribute="trailing" constant="5" id="pGX-LV-ZLa"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-bj-T7f">
-                        <rect key="frame" x="2" y="286.5" width="518" height="30.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-bj-T7f" customClass="ShadowStyleLabel" customModule="AWALandscape" customModuleProvider="target">
+                        <rect key="frame" x="2" y="290.5" width="518" height="26.5"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="21"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" white="0.0" alpha="0.25096280809859156" colorSpace="calibratedWhite"/>
-                        <size key="shadowOffset" width="1" height="1"/>
+                        <size key="shadowOffset" width="2" height="2"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzq-d8-fRL">
-                        <rect key="frame" x="0.0" y="165" width="521" height="17.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzq-d8-fRL" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                        <rect key="frame" x="0.0" y="167" width="521" height="13.5"/>
                         <fontDescription key="fontDescription" name="mplus-1c-bold" family="M+ 1c" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                        <size key="shadowOffset" width="2" height="2"/>
+                        <size key="shadowOffset" width="0.5" height="0.5"/>
                     </label>
                 </subviews>
             </view>

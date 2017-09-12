@@ -8,6 +8,8 @@
 
 import UIKit
 import Lottie
+import MarqueeLabel
+import PureLayout
 
 class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
     
@@ -32,21 +34,44 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             size.width /= 4
             size.height /= 4
             animationView.frame = CGRect(origin: .zero, size: size)
-            var center = imageView.bounds.origin
-            center.x += imageView.bounds.width / 8 * 5
-            center.y += imageView.bounds.height / 8 * 5
-            animationView.center = center
+//            var center = imageView.bounds.origin
+//            center.x += imageView.bounds.width / 8 * 5
+//            center.y += imageView.bounds.height / 8 * 5
+//            animationView.center = center
             animationView.loopAnimation = true
             animationView.contentMode = .scaleAspectFit
             animationView.animationSpeed = 1
             
             contentView.addSubview(animationView)
-            animationView.play()
+            animationView.autoPinEdge(.bottom, to: .bottom, of: imageView)
+            animationView.autoPinEdge(.trailing, to: .trailing, of: imageView)
+            animationView.autoMatch(.height, to: .height, of: imageView, withMultiplier: 0.25)
+            animationView.autoMatch(.width, to: .width, of: imageView, withMultiplier: 0.25)
         }
     }
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            titleLabel.fadeLength = 0.0
+            titleLabel.type = .continuous
+        }
+    }
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            artistLabel.fadeLength = 0.0
+            artistLabel.type = .continuous
+        }
+    }
+    @IBOutlet weak var miniTitleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            miniTitleLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var selectedView: UIView! {
         
         didSet {

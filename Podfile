@@ -16,4 +16,6 @@ target 'AWALandscape' do
   pod 'lottie-ios'
   pod 'Kingfisher'
   pod 'RealmSwift'
+  pod 'MarqueeLabel/Swift'
+  pod 'PureLayout'
 end

@@ -8,23 +8,28 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class PlayerInfoViewController: UIViewController {
     
     let musicManager = MusicManager.shared
     
-    @IBOutlet weak var titleLabel: UILabel! {
+    @IBOutlet weak var titleLabel: MarqueeLabel! {
         
         didSet {
             
-            titleLabel.text = musicManager.playing?.title ?? "-----"
+            titleLabel.fadeLength = 0.0
+            titleLabel.type = .continuous
+            titleLabel.text = musicManager.playing?.title
         }
     }
-    @IBOutlet weak var artistLabel: UILabel! {
+    @IBOutlet weak var artistLabel: MarqueeLabel! {
         
         didSet {
             
-            artistLabel.text = musicManager.playing?.artist ?? "---"
+            artistLabel.fadeLength = 0.0
+            artistLabel.type = .continuous
+            artistLabel.text = musicManager.playing?.artist
         }
     }
     @IBOutlet weak var playlistNameLabel: UILabel!
@@ -47,7 +52,7 @@ class PlayerInfoViewController: UIViewController {
 //            playlistNameLabel.text = musicManager.playlist?.value(forKey: MPMediaPlaylistPropertyName) as? String
             playlistDescriptionLabel.text = "僕たちがやりました / サイレーン 刑事×彼女×完全悪女 / CRISIS 公安起動操作隊特捜班 / あなたのことはそれほど / ドクターX~外科医・大門未知子~ / セシルのもくろみ / あなたのことはそれほど / 山田孝之のカンヌ映画祭 / 家政婦のミタ   プレイリスト公開：2017/8/30  随時更新"
             dummyLikeButton.setTitle(String.fontAwesomeIcon(name: .starO) + "255", for: .normal)
-            playCountLabel.text = "▶\(items[currentItem].playCount ?? 1121)"
+            playCountLabel.text = "▶\(items[currentItem].playCount)"
         }
     }
     

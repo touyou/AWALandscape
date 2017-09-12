@@ -14,6 +14,7 @@ protocol ArtworkListScrollDelegate: class {
     func scrolled(_ ratio: CGFloat)
     func dragEnded(_ ratio: CGFloat)
     func scrollEnded(_ ratio: CGFloat)
+    func selected(_ select: Int)
 }
 
 class ArtworkListViewController: UIViewController {
@@ -70,9 +71,22 @@ class ArtworkListViewController: UIViewController {
         musicManager.addObserve(self)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exitView))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     deinit {
         
         musicManager.removeObserve(self)
+    }
+    
+    func exitView() {
+        
+        delegate.selected(-1)
     }
 }
 
@@ -102,6 +116,8 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         if selected == indexPath.row {
             
             cell.selectedView.isHidden = true
+            cell.titleLabel.unpauseLabel()
+            cell.artistLabel.unpauseLabel()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
                 
                 collectionView.bringSubview(toFront: cell)
@@ -109,16 +125,21 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         } else {
             
             cell.selectedView.isHidden = false
+            cell.titleLabel.pauseLabel()
+            cell.artistLabel.pauseLabel()
         }
         
         if indexPath.row == musicManager.currentItem {
             
             cell.animationView.isHidden = false
+            cell.animationView.play()
         } else {
             
             cell.animationView.isHidden = true
+            cell.animationView.pause()
         }
         cell.miniTitleLabel.isHidden = true
+        cell.miniTitleLabel.pauseLabel()
         cell.imageView.alpha = 1.0
         
         return cell
@@ -126,6 +147,17 @@ extension ArtworkListViewController: UICollectionViewDataSource {
 }
 
 extension ArtworkListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let centerX = cell!.center.x - collectionView.contentOffset.x
+        let ratio = 1.0 - fabs(view.bounds.width / 2 - centerX) / centerThreshold
+        if ratio > 0.0 {
+            
+            delegate.selected(indexPath.row)
+        }
+    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
@@ -209,5 +241,18 @@ extension ArtworkListViewController: PlayerViewControllerDelegate {
         
         let cells = collectionView.visibleCells
         _ = cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
+    }
+}
+
+extension ArtworkListViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if collectionView.indexPathForItem(at: touch.location(in: collectionView)) != nil {
+            
+            return false
+        }
+        
+        return true
     }
 }
