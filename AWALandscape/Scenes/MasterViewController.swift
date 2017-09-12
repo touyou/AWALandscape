@@ -43,7 +43,7 @@ class MasterViewController: UIViewController {
     }
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
-    @IBOutlet weak var playingSlider: UISlider!
+    @IBOutlet weak var playingSlider: TapAreaExpandSlider!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var miniCollectionView: UICollectionView! {
         
