@@ -414,7 +414,6 @@ extension MasterViewController: PlaylistListViewControllerDelegate {
             flag = false
         }
         playerViewController.currentAlbum = sender
-        playerViewController.animateView.alpha = 0
         
         UIView.animate(withDuration: 0.5, animations: {
             

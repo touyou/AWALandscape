@@ -48,7 +48,7 @@ class PlayerVideoViewController: UIViewController {
             let title = items[currentItem].title
             let artist = items[currentItem].artist
             
-            videoManager.getVideo(title: title ?? "", artist: artist ?? "", completion: { [weak self] id in
+            videoManager.getVideo(title: title, artist: artist, completion: { [weak self] id in
                 
                 guard let `self` = self else {
                     

@@ -105,8 +105,26 @@ class PlayerViewController: UIViewController {
     // MARK: Constant
     
     let musicManager = MusicManager.shared
-    let selectionFeedback = UISelectionFeedbackGenerator()
-    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
+    let selectionFeedback: Any? = {
+       
+        if #available(iOS 10.0, *) {
+            
+            return UISelectionFeedbackGenerator()
+        } else {
+            
+            return nil
+        }
+    }()
+    let impactFeedback: Any? = {
+        
+        if #available(iOS 10.0, *) {
+            
+            return UIImpactFeedbackGenerator(style: .heavy)
+        } else {
+            
+            return nil
+        }
+    }()
     
     // MARK: Variable
     
@@ -159,7 +177,10 @@ class PlayerViewController: UIViewController {
                 
                 previewImageView.kf.setImage(with: items?[selectorPosition].artwork, placeholder: #imageLiteral(resourceName: "artwork_sample"))
                 //                previewImageView.image = items?[selectorPosition].artwork?.image(at: CGSize(width: 1024, height: 1024))
-                selectionFeedback.selectionChanged()
+                if #available(iOS 10.0, *), let generator = selectionFeedback as? UISelectionFeedbackGenerator {
+                
+                    generator.selectionChanged()
+                }
             }
         }
     }
@@ -169,7 +190,10 @@ class PlayerViewController: UIViewController {
             
             if oldValue != selectFlag && selectFlag {
                 
-                impactFeedback.impactOccurred()
+                if #available(iOS 10.0, *), let generator = impactFeedback as? UIImpactFeedbackGenerator {
+                
+                    generator.impactOccurred()
+                }
             }
         }
     }
@@ -208,9 +232,6 @@ class PlayerViewController: UIViewController {
         infoContainerView.addSubview(infoPageViewController.view)
         infoPageViewController.prepare()
         
-        selectionFeedback.prepare()
-        impactFeedback.prepare()
-        
         // MARK: 再生状態監視
         musicManager.addObserve(self)
         
@@ -243,6 +264,7 @@ class PlayerViewController: UIViewController {
         animateView.frame = thumbView.bounds
         animateView.cornerRadius = animateView.bounds.width / 2
         view.insertSubview(animateView, belowSubview: thumbView)
+        animateView.alpha = 0
     }
     
     deinit {
@@ -395,7 +417,10 @@ extension PlayerViewController: ArtworkListScrollDelegate {
     
     func selected(_ select: Int) {
         
-        currentItem = select
+        if select != -1 {
+        
+            currentItem = select
+        }
         resetAnimation()
     }
 }

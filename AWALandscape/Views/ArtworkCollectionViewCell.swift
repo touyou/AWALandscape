@@ -61,7 +61,13 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             artistLabel.type = .continuous
         }
     }
-    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var miniTitleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            miniTitleLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var selectedView: UIView! {
         
         didSet {

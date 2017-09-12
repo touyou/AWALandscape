@@ -10,14 +10,21 @@ import UIKit
 import MediaPlayer
 import Lottie
 import Kingfisher
+import MarqueeLabel
 
 class PlaylistCollectionViewCell: UICollectionViewCell, NibLoadable, Reusable {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var sub1ImageView: UIImageView!
     @IBOutlet weak var sub2ImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var titleLabel: ShadowStyleLabel!
+    @IBOutlet weak var miniTitleLabel: MarqueeLabel! {
+        
+        didSet {
+            
+            miniTitleLabel.type = .continuous
+        }
+    }
     @IBOutlet weak var selectionView: UIView! {
         
         didSet {

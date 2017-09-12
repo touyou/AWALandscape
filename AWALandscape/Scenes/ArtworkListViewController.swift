@@ -71,9 +71,22 @@ class ArtworkListViewController: UIViewController {
         musicManager.addObserve(self)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exitView))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     deinit {
         
         musicManager.removeObserve(self)
+    }
+    
+    func exitView() {
+        
+        delegate.selected(-1)
     }
 }
 
@@ -221,5 +234,18 @@ extension ArtworkListViewController: PlayerViewControllerDelegate {
         
         let cells = collectionView.visibleCells
         _ = cells.map { ($0 as! ArtworkCollectionViewCell).imageView.alpha = 1 }
+    }
+}
+
+extension ArtworkListViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if collectionView.indexPathForItem(at: touch.location(in: collectionView)) != nil {
+            
+            return false
+        }
+        
+        return true
     }
 }
