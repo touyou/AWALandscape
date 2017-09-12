@@ -8,15 +8,17 @@
 
 import UIKit
 
+@IBDesignable
 class ShadowStyleLabel: UILabel {
     
     @IBInspectable var shadowSize: CGFloat = 0.5
+    @IBInspectable var blurAmount: CGFloat = 6
 
     override func draw(_ rect: CGRect) {
         
         let context = UIGraphicsGetCurrentContext()
         context?.saveGState()
-        context?.setShadow(offset: CGSize(width: shadowSize, height: shadowSize), blur: 6)
+        context?.setShadow(offset: CGSize(width: shadowSize, height: shadowSize), blur: blurAmount)
         super.draw(rect)
         context?.restoreGState()
     }

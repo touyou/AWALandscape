@@ -9,6 +9,7 @@
 import UIKit
 import Lottie
 import MarqueeLabel
+import PureLayout
 
 class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
     
@@ -33,15 +34,19 @@ class ArtworkCollectionViewCell: UICollectionViewCell, Reusable, NibLoadable {
             size.width /= 4
             size.height /= 4
             animationView.frame = CGRect(origin: .zero, size: size)
-            var center = imageView.bounds.origin
-            center.x += imageView.bounds.width / 8 * 5
-            center.y += imageView.bounds.height / 8 * 5
-            animationView.center = center
+//            var center = imageView.bounds.origin
+//            center.x += imageView.bounds.width / 8 * 5
+//            center.y += imageView.bounds.height / 8 * 5
+//            animationView.center = center
             animationView.loopAnimation = true
             animationView.contentMode = .scaleAspectFit
             animationView.animationSpeed = 1
             
             contentView.addSubview(animationView)
+            animationView.autoPinEdge(.bottom, to: .bottom, of: imageView)
+            animationView.autoPinEdge(.trailing, to: .trailing, of: imageView)
+            animationView.autoMatch(.height, to: .height, of: imageView, withMultiplier: 0.25)
+            animationView.autoMatch(.width, to: .width, of: imageView, withMultiplier: 0.25)
         }
     }
     @IBOutlet weak var titleLabel: MarqueeLabel! {
