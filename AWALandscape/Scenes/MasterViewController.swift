@@ -38,6 +38,7 @@ class MasterViewController: UIViewController {
         didSet {
             
             playButton.cornerRadius = playButton.bounds.width / 2
+            playButton.titleLabel?.textAlignment = .center
         }
     }
     @IBOutlet weak var forwardButton: UIButton!
